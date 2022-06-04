@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -31,26 +30,19 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton toggleButton1 = (ToggleButton) findViewById(R.id.toggleButton);
 
-        toggleButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (toggleButton1.isChecked()) {
-                    layout1.setBackgroundResource(R.drawable.night);
-                } else {
-                    layout1.setBackgroundResource(R.drawable.day);
-                }
+        toggleButton1.setOnClickListener(v -> {
+            if (toggleButton1.isChecked()) {
+                layout1.setBackgroundResource(R.drawable.night);
+            } else {
+                layout1.setBackgroundResource(R.drawable.day);
             }
         });
 
         Button enter = (Button) findViewById(R.id.button);
-        enter.setOnClickListener(new View.OnClickListener() {
+        enter.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-
-                startActivity(intent);
-            }
+            startActivity(intent);
         });
     }
 }

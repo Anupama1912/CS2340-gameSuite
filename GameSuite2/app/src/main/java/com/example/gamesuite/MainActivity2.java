@@ -3,7 +3,6 @@ package com.example.gamesuite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ToggleButton;
 
@@ -17,14 +16,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         ToggleButton toggleButton1 = (ToggleButton) findViewById(R.id.toggleButton);
 
-        toggleButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (toggleButton1.isChecked()) {
-                    layout2.setBackgroundResource(R.drawable.nightplaceholder);
-                } else {
-                    layout2.setBackgroundResource(R.drawable.dayplaceholder);
-                }
+        toggleButton1.setOnClickListener(v -> {
+            if (toggleButton1.isChecked()) {
+                layout2.setBackgroundResource(R.drawable.nightplaceholder);
+            } else {
+                layout2.setBackgroundResource(R.drawable.dayplaceholder);
             }
         });
     }
