@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
             Log.i("My app", "This is for testing purposes that Exit Button Works!");
             Toast.makeText(getApplicationContext(), "Exit Application", Toast.LENGTH_SHORT)
                     .show();
+            finish();
+            System.exit(0);
+
         });
 
         ToggleButton toggleButton1 = (ToggleButton) findViewById(R.id.toggleButton);

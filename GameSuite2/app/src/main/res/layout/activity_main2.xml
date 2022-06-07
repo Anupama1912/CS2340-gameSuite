@@ -8,6 +8,13 @@
     android:background="@drawable/dayplaceholder"
     tools:context=".MainActivity2">
 
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top"
+        android:src="@android:drawable/ic_menu_revert" />
+    android:src="@android:drawable/ic_menu_close_clear_cancel" />
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
