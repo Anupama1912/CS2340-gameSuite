@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FrameLayout layout1 = (FrameLayout) findViewById(R.id.layout);
+        FrameLayout layout1 = findViewById(R.id.layout);
 
         //Wire up exit button for application
-        ImageButton btn = (ImageButton) findViewById(R.id.Exit);
+        ImageButton btn = findViewById(R.id.Exit);
         //Functionality for exit button
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Exit Button Works!");
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        ToggleButton toggleButton1 = (ToggleButton) findViewById(R.id.toggleButton);
+        ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button enter = (Button) findViewById(R.id.button);
+        Button enter = findViewById(R.id.button);
         enter.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
 
