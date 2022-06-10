@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -31,10 +32,17 @@ public class MainActivity2 extends AppCompatActivity {
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
-                layout2.setBackgroundResource(R.drawable.nightplaceholder);
+                layout2.setBackgroundResource(R.drawable.bnightplaceholder);
             } else {
-                layout2.setBackgroundResource(R.drawable.dayplaceholder);
+                layout2.setBackgroundResource(R.drawable.bdayplaceholder);
             }
+        });
+        //goes to wordle screen...will replace button with ImageButton later
+        Button wordlePlay = (Button) findViewById(R.id.wordleButton);
+        wordlePlay.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
+
+            startActivity(intent);
         });
     }
 }
