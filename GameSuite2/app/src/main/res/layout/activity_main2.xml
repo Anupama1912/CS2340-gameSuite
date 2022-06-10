@@ -4,7 +4,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dayplaceholder"
+    android:background="@drawable/bdayplaceholder"
     tools:context=".MainActivity2">
 
     <ImageButton
@@ -21,6 +21,7 @@
         android:textOff="Night"
         android:textOn="Day" />
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -38,5 +39,37 @@
         android:layout_gravity="bottom|start"
         android:orientation="vertical" />
 
+=======
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/wordleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="Wordle" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="Chess" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5px"
+            android:text="Solitaire" />
+    </LinearLayout>
+>>>>>>> f7aa2e5255dbf4276260f417514fc7b372cdf30e
 
 </FrameLayout>
