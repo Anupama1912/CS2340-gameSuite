@@ -44,5 +44,19 @@ public class MainActivity2 extends AppCompatActivity {
 
             startActivity(intent);
         });
+        //goes to chess screen
+        Button chessPlay = (Button) findViewById(R.id.chessButton);
+        chessPlay.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, chessActivity.class);
+
+            startActivity(intent);
+        });
+        //goes to cards screen
+        Button cardsplay = (Button) findViewById(R.id.cardsButton);
+        cardsplay.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
+
+            startActivity(intent);
+        });
     }
 }
