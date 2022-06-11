@@ -2,7 +2,11 @@ package com.example.gamesuite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class cardsActivity extends AppCompatActivity {
 
@@ -10,5 +14,15 @@ public class cardsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards);
+
+        ImageButton btn = findViewById(R.id.BackCards);
+        btn.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Back Button Works!");
+            Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
+                    .show();
+            Intent intent = new Intent(cardsActivity.this, MainActivity2.class);
+
+            startActivity(intent);
+        });
     }
 }

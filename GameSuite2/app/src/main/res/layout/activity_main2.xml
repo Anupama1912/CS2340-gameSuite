@@ -21,6 +21,7 @@
         android:textOff="Night"
         android:textOn="Day" />
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -30,15 +31,14 @@
         android:padding="5dp"
         android:autofillHints="Text"
         android:inputType="text" />
-
-    <com.example.gamesuite.KeyboardClass
-        android:id="@+id/keyboard"
-        android:layout_width="427dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:orientation="vertical" />
+=======
+>>>>>>> 71478dcc2e64564055f973000b277f39a3154487
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 71478dcc2e64564055f973000b277f39a3154487
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="320dp"
@@ -69,6 +69,9 @@
             android:padding="5px"
             android:text="Solitaire" />
     </LinearLayout>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71478dcc2e64564055f973000b277f39a3154487
 
 </FrameLayout>
