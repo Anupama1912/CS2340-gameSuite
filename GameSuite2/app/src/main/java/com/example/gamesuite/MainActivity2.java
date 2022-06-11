@@ -1,24 +1,15 @@
 package com.example.gamesuite;
 
-import static android.text.InputType.*;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputConnection;
 import android.widget.Button;
-import android.widget.EditText;
-<<<<<<< HEAD
-=======
-import android.widget.Button;
->>>>>>> 71478dcc2e64564055f973000b277f39a3154487
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity2 extends AppCompatActivity {
@@ -49,21 +40,21 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
         //goes to wordle screen...will replace button with ImageButton later
-        Button wordlePlay = (Button) findViewById(R.id.wordleButton);
+        ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
 
             startActivity(intent);
         });
         //goes to chess screen
-        Button chessPlay = (Button) findViewById(R.id.chessButton);
+        ImageButton chessPlay = (ImageButton) findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, chessActivity.class);
 
             startActivity(intent);
         });
         //goes to cards screen
-        Button cardsplay = (Button) findViewById(R.id.cardsButton);
+        ImageButton cardsplay = (ImageButton) findViewById(R.id.cardsButton);
         cardsplay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
 

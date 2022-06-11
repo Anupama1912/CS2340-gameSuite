@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cc7067e-352f-4016-97d8-bc28a2ed546c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CS2340-gameSuite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS2340-gameSuite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameSuite2/app/src/main/java/com/example/gamesuite/MainActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/GameSuite2/app/src/main/java/com/example/gamesuite/MainActivity2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameSuite2/app/src/main/res/layout/activity_main2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GameSuite2/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GameSuite2" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
