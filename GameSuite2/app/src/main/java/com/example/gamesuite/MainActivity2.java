@@ -7,14 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-<<<<<<< HEAD
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.EditText;
-=======
 import android.widget.Button;
->>>>>>> f7aa2e5255dbf4276260f417514fc7b372cdf30e
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -28,13 +25,6 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         FrameLayout layout2 = findViewById(R.id.layout);
-
-        EditText editText = findViewById(R.id.editText);
-        KeyboardClass keyboard = findViewById(R.id.keyboard);
-        editText.setRawInputType(TYPE_CLASS_TEXT);
-        editText.setTextIsSelectable(true);
-        InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
-        keyboard.setInputConnection(ic);
 
 
         ImageButton btn = findViewById(R.id.Back);
