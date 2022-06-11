@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".chessActivity">
 
+    <ImageButton
+        android:id="@+id/BackChess"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:src="@android:drawable/ic_menu_revert" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
