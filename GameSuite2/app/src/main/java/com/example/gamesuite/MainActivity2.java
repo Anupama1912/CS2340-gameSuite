@@ -7,14 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-<<<<<<< HEAD
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.EditText;
-=======
-import android.widget.Button;
->>>>>>> f7aa2e5255dbf4276260f417514fc7b372cdf30e
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
