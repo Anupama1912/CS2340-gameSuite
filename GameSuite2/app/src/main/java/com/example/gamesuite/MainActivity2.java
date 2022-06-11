@@ -1,5 +1,6 @@
 package com.example.gamesuite;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,5 +61,13 @@ public class MainActivity2 extends AppCompatActivity {
 
             startActivity(intent);
         });
+
+        Button about = findViewById(R.id.about);
+        about.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
+
+            startActivity(intent);
+        });
     }
+
 }

@@ -23,13 +23,6 @@
         android:textOff="Night"
         android:textOn="Day" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="About" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

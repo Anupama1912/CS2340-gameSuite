@@ -15,7 +15,7 @@ public class chessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess);
 
-        ImageButton btn = findViewById(R.id.BackChess);
+        ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
