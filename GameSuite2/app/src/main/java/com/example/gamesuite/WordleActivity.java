@@ -32,7 +32,7 @@ public class WordleActivity extends AppCompatActivity {
         keyboard.setInputConnection(ic);
 
 
-        ImageButton btn = findViewById(R.id.BackWordle);
+        ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)

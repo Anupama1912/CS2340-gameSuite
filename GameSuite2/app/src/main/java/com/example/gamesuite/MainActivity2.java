@@ -1,21 +1,16 @@
 package com.example.gamesuite;
 
-import static android.text.InputType.*;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputConnection;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity2 extends AppCompatActivity {
@@ -37,48 +32,44 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
         ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
-        Button wordlePlay = (Button) findViewById(R.id.wordleButton);
-        Button chessPlay = (Button) findViewById(R.id.chessButton);
-        Button cardsPlay = (Button) findViewById(R.id.cardsButton);
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
                 layout2.setBackgroundResource(R.drawable.bnightplaceholder);
-                wordlePlay.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
-                wordlePlay.setTextColor(getResources().getColor(R.color.nButtonTxt));
-                chessPlay.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
-                chessPlay.setTextColor(getResources().getColor(R.color.nButtonTxt));
-                cardsPlay.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
-                cardsPlay.setTextColor(getResources().getColor(R.color.nButtonTxt));
                 btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
             } else {
                 layout2.setBackgroundResource(R.drawable.bdayplaceholder);
-                wordlePlay.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
-                wordlePlay.setTextColor(getResources().getColor(R.color.dButtonTxt));
-                chessPlay.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
-                chessPlay.setTextColor(getResources().getColor(R.color.dButtonTxt));
-                cardsPlay.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
-                cardsPlay.setTextColor(getResources().getColor(R.color.dButtonTxt));
                 btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
             }
         });
         //goes to wordle screen...will replace button with ImageButton later
+        ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
 
             startActivity(intent);
         });
         //goes to chess screen
+        ImageButton chessPlay = (ImageButton) findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, chessActivity.class);
 
             startActivity(intent);
         });
         //goes to cards screen
-        cardsPlay.setOnClickListener(v -> {
+        ImageButton cardsplay = (ImageButton) findViewById(R.id.cardsButton);
+        cardsplay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
 
             startActivity(intent);
         });
+
+        Button about = findViewById(R.id.about);
+        about.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
+
+            startActivity(intent);
+        });
     }
+
 }
