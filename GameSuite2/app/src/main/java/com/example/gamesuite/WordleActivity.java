@@ -4,9 +4,11 @@ import static android.text.InputType.TYPE_CLASS_TEXT;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
@@ -40,5 +42,25 @@ public class WordleActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageButton info = findViewById(R.id.infoWordle);
+        info.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Info Button works!");
+            showInstructions();
+        });
+    }
+
+    void showInstructions() {
+        Dialog instrWordle = new Dialog(WordleActivity.this);
+        //Have already added custom title in layout. So disable the default title
+        instrWordle.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Can cancel the dialog by clicking anywhere outside the dialog
+        instrWordle.setCancelable(true);
+        //Set layout of dialog
+        instrWordle.setContentView(R.layout.instr_wordle);
+
+        ImageButton close = instrWordle.findViewById(R.id.close);
+        close.setOnClickListener(v -> instrWordle.dismiss());
+
+        instrWordle.show();
     }
 }

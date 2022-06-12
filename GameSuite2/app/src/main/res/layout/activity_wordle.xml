@@ -35,5 +35,14 @@
         tools:layout_editor_absoluteX="139dp"
         tools:layout_editor_absoluteY="210dp" />
 
+    <ImageButton
+        android:id="@+id/infoWordle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        app:srcCompat="@android:drawable/ic_menu_info_details"
+        android:textColor="@color/dButtonTxt"
+        android:background="@color/dButtonBg" />
+
 
 </FrameLayout>
