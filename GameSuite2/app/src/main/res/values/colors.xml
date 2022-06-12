@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_200">#FFB57BfC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Day colors -->
+    <color name="dButtonBg">#FFB57BfC</color> //purple_200
+    <color name="dButtonTxt">#FF3700B3</color> //purple_700
+    <color name="dTitle">#FF6200EE</color> //purple_500
+
+    <!-- Night colors -->
+    <color name="nButtonBg">#FF6200EE</color> //purple_500
+    <color name="nButtonTxt">#FFFFFFFF</color> //white
+    <color name="nTitle">#FF3700B3</color> //purple_700
 </resources>

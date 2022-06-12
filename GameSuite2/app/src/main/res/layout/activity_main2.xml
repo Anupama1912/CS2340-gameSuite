@@ -12,14 +12,18 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_gravity="top"
-        android:src="@android:drawable/ic_menu_revert" />
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="@color/dButtonBg"/>
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:textOff="Night"
-        android:textOn="Day" />
+        android:textOn="Day"
+        android:checked="false"
+        android:textColor="@color/button_txt"
+        android:backgroundTint="@color/button_bg"/>
 
 
 
@@ -35,7 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
-            android:text="Wordle" />
+            android:text="@string/game1"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/dButtonTxt"
+            android:backgroundTint="@color/dButtonBg" />
 
         <Button
             android:id="@+id/chessButton"
@@ -43,15 +50,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
-            android:text="Chess" />
+            android:text="@string/game2"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/dButtonTxt"
+            android:backgroundTint="@color/dButtonBg" />
 
         <Button
             android:id="@+id/cardsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:padding="5px"
-            android:text="Solitaire" />
+            android:padding="5dp"
+            android:text="@string/game3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/dButtonTxt"
+            android:backgroundTint="@color/dButtonBg" />
     </LinearLayout>
 
 </FrameLayout>

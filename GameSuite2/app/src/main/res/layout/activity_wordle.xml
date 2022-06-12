@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".WordleActivity">
 
-        <ImageButton
-            android:id="@+id/BackWordle"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="top"
-            android:orientation="vertical"
-            android:src="@android:drawable/ic_menu_revert" />
+    <ImageButton
+        android:id="@+id/BackWordle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:src="@android:drawable/ic_menu_revert"
+        android:textColor="@color/dButtonTxt"
+        android:background="@color/dButtonBg"/>
 
     <EditText
         android:id="@+id/editText"
