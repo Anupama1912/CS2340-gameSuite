@@ -12,7 +12,7 @@
         android:id="@+id/wordleBoard">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textView00"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -20,7 +20,7 @@
             android:background="@drawable/wordleboxes"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView01"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -29,7 +29,7 @@
 
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView02"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -37,7 +37,7 @@
             android:background="@drawable/wordleboxes"/>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView03"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -45,7 +45,56 @@
             android:background="@drawable/wordleboxes"/>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView04"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView20"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -60,6 +109,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes"/>
 
+
         <TextView
             android:id="@+id/textView22"
             android:layout_width="35dp"
@@ -67,7 +117,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes" />
-
 
         <TextView
             android:id="@+id/textView23"
@@ -83,10 +132,10 @@
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes" />
+            android:background="@drawable/wordleboxes"/>
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/textView30"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -99,7 +148,8 @@
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes"/>
+            android:background="@drawable/wordleboxes" />
+
 
         <TextView
             android:id="@+id/textView32"
@@ -108,7 +158,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes"/>
-
 
         <TextView
             android:id="@+id/textView33"
@@ -124,10 +173,10 @@
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes"/>
+            android:background="@drawable/wordleboxes" />
 
         <TextView
-            android:id="@+id/textView35"
+            android:id="@+id/textView40"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
@@ -142,6 +191,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes" />
 
+
         <TextView
             android:id="@+id/textView42"
             android:layout_width="35dp"
@@ -150,14 +200,13 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes" />
 
-
         <TextView
             android:id="@+id/textView43"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes"/>
+            android:background="@drawable/wordleboxes" />
 
         <TextView
             android:id="@+id/textView44"
@@ -165,15 +214,15 @@
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes" />
+            android:background="@drawable/wordleboxes"/>
 
         <TextView
-            android:id="@+id/textView45"
+            android:id="@+id/textView50"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes" />
+            android:background="@drawable/wordleboxes"/>
 
         <TextView
             android:id="@+id/textView51"
@@ -181,7 +230,8 @@
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes"/>
+            android:background="@drawable/wordleboxes" />
+
 
         <TextView
             android:id="@+id/textView52"
@@ -190,7 +240,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/wordleboxes" />
-
 
         <TextView
             android:id="@+id/textView53"
@@ -202,14 +251,6 @@
 
         <TextView
             android:id="@+id/textView54"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/wordleboxes" />
-
-        <TextView
-            android:id="@+id/textView55"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_marginEnd="10dp"
