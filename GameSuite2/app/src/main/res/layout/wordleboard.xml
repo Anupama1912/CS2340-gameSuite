@@ -3,4 +3,218 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="5"
+        android:rowCount="6"
+        android:id="@+id/wordleBoard">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/wordleboxes"/>
+    </GridLayout>
+
 </merge>
