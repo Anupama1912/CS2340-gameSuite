@@ -28,11 +28,15 @@
         android:orientation="vertical"
         android:padding="5dp" />
 
-    <include
-        android:layout_height="wrap_content"
+    <GridLayout
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        layout="@layout/wordleboard" />
+        android:columnCount="5"
+        android:rowCount="6"
+        android:id="@+id/wordleBoard">
+
+    </GridLayout>
 
     <com.example.gamesuite.KeyboardClass
         android:id="@+id/keyboard"
