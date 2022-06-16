@@ -22,36 +22,36 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout layout1 = findViewById(R.id.layout);
 
         //Wire up exit button for application
-        ImageButton btn = findViewById(R.id.Exit);
+        Button btn = findViewById(R.id.Exit);
         //Functionality for exit button
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Exit Button Works!");
             Toast.makeText(getApplicationContext(), "Exit Application", Toast.LENGTH_SHORT)
                     .show();
-            finish();
+            finishAffinity();
             System.exit(0);
 
         });
 
-        ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
+//        ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
         Button enter = findViewById(R.id.button);
-        TextView title = findViewById(R.id.title);
+//        TextView title = findViewById(R.id.title);
 
-        toggleButton1.setOnClickListener(v -> {
-            if (toggleButton1.isChecked()) {
-                layout1.setBackgroundResource(R.drawable.night);
-                title.setTextColor(getResources().getColor(R.color.nTitle));
-                enter.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
-                enter.setTextColor(getResources().getColor(R.color.nButtonTxt));
-                btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
-            } else {
-                layout1.setBackgroundResource(R.drawable.day);
-                title.setTextColor(getResources().getColor(R.color.dTitle));
-                enter.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
-                enter.setTextColor(getResources().getColor(R.color.dButtonTxt));
-                btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
-            }
-        });
+//        toggleButton1.setOnClickListener(v -> {
+//            if (toggleButton1.isChecked()) {
+//                layout1.setBackgroundResource(R.drawable.night);
+//                title.setTextColor(getResources().getColor(R.color.nTitle));
+//                enter.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+//                enter.setTextColor(getResources().getColor(R.color.nButtonTxt));
+//                btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+//            } else {
+//                layout1.setBackgroundResource(R.drawable.day);
+//                title.setTextColor(getResources().getColor(R.color.dTitle));
+//                enter.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+//                enter.setTextColor(getResources().getColor(R.color.dButtonTxt));
+//                btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+//            }
+//        });
 
         enter.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);

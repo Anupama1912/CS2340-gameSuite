@@ -35,10 +35,10 @@ public class MainActivity2 extends AppCompatActivity {
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
-                layout2.setBackgroundResource(R.drawable.bnightplaceholder);
+                layout2.setBackgroundResource(R.drawable.nighttwo);
                 btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
             } else {
-                layout2.setBackgroundResource(R.drawable.bdayplaceholder);
+                layout2.setBackgroundResource(R.drawable.daytwo);
                 btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
             }
         });
