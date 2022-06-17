@@ -126,19 +126,19 @@ public class KeyboardClass extends LinearLayout implements View.OnClickListener 
     public void onClick(View view) {
         if (inputConnection == null) {
             String value = keyValues.get(view.getId());
-            if(value.equals("delete")){
+            if(WordleActivity.gameOn && value.equals("delete")){
                 WordleActivity.backspace();
-            } else if(value.equals("enter")){
+            } else if(WordleActivity.gameOn && value.equals("enter")){
                 WordleActivity.submitWord();
-            } else {
+            } else if (WordleActivity.gameOn) {
                 WordleActivity.type(value);
             }
-            for (int i = 0; i<6; i++) {
+            /*for (int i = 0; i<6; i++) {
                 for (int j = 0; j<5; j++) {
                     System.out.print(WordleActivity.letters[i][j]);
                 }
                 System.out.println();
-            }
+            }*/
             return;
         }
         if (view.getId() == R.id.button_delete) {
