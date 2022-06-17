@@ -8,6 +8,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -17,6 +19,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class WordleActivity extends AppCompatActivity {
+
+    static char[][] letters = new char[6][5];
+    static int currWord = 0;
+    static int currLetter = 0;
+    static String word = "check";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +36,7 @@ public class WordleActivity extends AppCompatActivity {
         editText.setRawInputType(TYPE_CLASS_TEXT);
         editText.setTextIsSelectable(true);
         InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
-        keyboard.setInputConnection(ic);
+        keyboard.setInputConnection(null);
 
 
         ImageButton btn = findViewById(R.id.BackGame);
@@ -62,5 +69,52 @@ public class WordleActivity extends AppCompatActivity {
         close.setOnClickListener(v -> instrWordle.dismiss());
 
         instrWordle.show();
+    }
+
+    public static void submitWord() {
+        if (currLetter != 5) {
+            System.out.println("Incomplete Word");
+        } else if (currWord < 6) {
+            int counter = 0;
+            for (int i = 0; i < 5; i++) {
+                char c = letters[currWord][i];
+                if (c == word.charAt(i)) {
+                    /*backgrounds[currWord][i].setBackground(new Background(
+                            new BackgroundFill(Color.GREEN, new CornerRadii(0), Insets.EMPTY)));
+                    */counter++;
+                } /*else if (word.indexOf(c) >= 0) {
+                    backgrounds[currWord][i].setBackground(new Background(
+                            new BackgroundFill(Color.YELLOW, new CornerRadii(0), Insets.EMPTY)));
+                } else {
+                    backgrounds[currWord][i].setBackground(new Background(
+                            new BackgroundFill(Color.GREY, new CornerRadii(0), Insets.EMPTY)));
+                }*/
+            }
+            if (counter == 5) {
+                System.out.println("Congratulations! You guessed the word!");
+            }
+            currWord++;
+            currLetter = 0;
+            if (currWord == 6) {
+                System.out.println("Game Over! The word was " + word);
+            }
+        }
+
+    }
+
+    public static void type(String c) {
+        if (currLetter <= 4) {
+            letters[currWord][currLetter] = c.charAt(0);
+            System.out.println("You pressed " + c);
+            currLetter++;
+        }
+    }
+
+    public static void backspace() {
+        System.out.println("You pressed backspace");
+        if (currLetter > 0) {
+            letters[currWord][currLetter - 1] = '1';
+            currLetter--;
+        }
     }
 }
