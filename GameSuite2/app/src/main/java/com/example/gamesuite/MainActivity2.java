@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -42,6 +43,8 @@ public class MainActivity2 extends AppCompatActivity {
                 btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
             }
         });
+
+
         //goes to wordle screen...will replace button with ImageButton later
         ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
