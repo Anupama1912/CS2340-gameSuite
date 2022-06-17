@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" android:color="@color/dButtonBg" />
-    <item android:state_checked="true" android:color="@color/nButtonBg" />
-    <item android:color="@color/dButtonBg" />
+    <item android:state_pressed="true" android:color="#EADFEC" />
+    <item android:state_checked="true" android:color="#A2AEFF" />
+    <item android:color="#F6ED98" />
 </selector>

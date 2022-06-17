@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
@@ -8,69 +8,82 @@
     android:background="@drawable/daytwo"
     tools:context=".MainActivity2">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="204dp"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@color/button_bg"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="731dp"
-            android:orientation="horizontal">
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom|right"
 
-            <ImageButton
-                android:id="@+id/wordleButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:padding="0dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/wordle" />
+        android:layout_marginStart="305dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/button_bg"
+        android:checked="false"
+        android:textColor="@color/button_txt"
+        android:textOff="Night"
+        android:textOn="Day"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/about"
+        app:layout_constraintVertical_bias="0.972" />
 
-            <ImageButton
-                android:id="@+id/cardsButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:padding="0dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/cards" />
+    <ImageButton
+        android:id="@+id/wordleButton"
+        android:layout_width="279dp"
+        android:layout_height="283dp"
+        android:layout_marginStart="-36dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/daycloudbutton"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/daywordle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageButton
-                android:id="@+id/chessButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:padding="0dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/chess" />
-        </LinearLayout>
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/pcButton"
+        android:layout_width="350dp"
+        android:layout_height="411dp"
+        android:layout_marginBottom="212dp"
+        android:background="@drawable/daycloudbutton"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/daypc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/chessButton"
+        android:layout_width="239dp"
+        android:layout_height="241dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/daycloudbutton"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/daychess"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="About" />
+        android:layout_marginEnd="8dp"
+        android:text="About"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/Back"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="top"
-        android:src="@android:drawable/ic_menu_revert"
-        android:background="@color/button_bg"/>
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:textOff="Night"
-        android:textOn="Day"
-        android:checked="false"
-        android:textColor="@color/button_txt"
-        android:backgroundTint="@color/button_bg"/>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
