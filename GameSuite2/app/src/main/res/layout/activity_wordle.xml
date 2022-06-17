@@ -16,17 +16,17 @@
         android:textColor="@color/dButtonTxt"
         android:background="@color/dButtonBg"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="446dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_margin="50dp"
-        android:autofillHints="Text"
-        android:background="#c9c9f1"
-        android:inputType="text"
-        android:orientation="vertical"
-        android:padding="5dp" />
+<!--    <EditText-->
+<!--        android:id="@+id/editText"-->
+<!--        android:layout_width="446dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:layout_margin="50dp"-->
+<!--        android:autofillHints="Text"-->
+<!--        android:background="#c9c9f1"-->
+<!--        android:inputType="text"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="5dp" />-->
 
     <GridLayout
         android:layout_width="wrap_content"

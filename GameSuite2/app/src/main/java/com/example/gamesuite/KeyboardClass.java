@@ -141,21 +141,21 @@ public class KeyboardClass extends LinearLayout implements View.OnClickListener 
             }*/
             return;
         }
-        if (view.getId() == R.id.button_delete) {
-            CharSequence selectedText = inputConnection.getSelectedText(0);
-
-            if (TextUtils.isEmpty(selectedText)) {
-                inputConnection.deleteSurroundingText(1,0);
-            } else {
-                inputConnection.commitText("", 1);
-            }
-        } else {
-            String value = keyValues.get(view.getId());
-            inputConnection.commitText(value, 1);
-        }
+//        if (view.getId() == R.id.button_delete) {
+//            CharSequence selectedText = inputConnection.getSelectedText(0);
+//
+//            if (TextUtils.isEmpty(selectedText)) {
+//                inputConnection.deleteSurroundingText(1,0);
+//            } else {
+//                inputConnection.commitText("", 1);
+//            }
+//        } else {
+//            String value = keyValues.get(view.getId());
+//            inputConnection.commitText(value, 1);
+//        }
     }
 
-    public void setInputConnection(InputConnection ic) {
-        inputConnection = ic;
-    }
+   // public void setInputConnection(InputConnection ic) {
+        //inputConnection = ic;
+    //}
 }

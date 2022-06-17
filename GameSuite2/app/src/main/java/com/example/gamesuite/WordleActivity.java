@@ -39,12 +39,12 @@ public class WordleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wordle);
         FrameLayout layout2 = findViewById(R.id.layout);
 
-        EditText editText = findViewById(R.id.editText);
+        //EditText editText = findViewById(R.id.editText);
         KeyboardClass keyboard = findViewById(R.id.keyboard);
-        editText.setRawInputType(TYPE_CLASS_TEXT);
-        editText.setTextIsSelectable(true);
-        InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
-        keyboard.setInputConnection(null);
+        //editText.setRawInputType(TYPE_CLASS_TEXT);
+        //editText.setTextIsSelectable(true);
+        //InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
+        //keyboard.setInputConnection(null);
 
         initialiazeArray();
         ImageButton btn = findViewById(R.id.BackGame);
