@@ -28,21 +28,18 @@ public class MainActivity2 extends AppCompatActivity {
         ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
-
             startActivity(intent);
         });
         //goes to chess screen
         ImageButton pcPlay = (ImageButton) findViewById(R.id.pcButton);
         pcPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, chessActivity.class);
-
             startActivity(intent);
         });
         //goes to cards screen
         ImageButton chessPlay = (ImageButton) findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
-
             startActivity(intent);
         });
 
