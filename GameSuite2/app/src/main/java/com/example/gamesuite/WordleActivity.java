@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,10 +25,13 @@ import android.widget.Toast;
 public class WordleActivity extends AppCompatActivity {
     public static TextView[][] wordleBoxArray = new TextView[6][5];
 
-    static char[][] letters = new char[6][5];
+    //static char[][] letters = new char[6][5];
+
     static int currWord = 0;
     static int currLetter = 0;
-    static String word = "check";
+    static String[] quotes = new String[] {"place", "words", "right", "heere"};
+    static String word = quotes[(int) (Math.random() * quotes.length)];
+    static boolean gameOn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class WordleActivity extends AppCompatActivity {
         ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
+            restart();
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
                     .show();
             Intent intent = new Intent(WordleActivity.this, MainActivity2.class);
@@ -69,6 +74,7 @@ public class WordleActivity extends AppCompatActivity {
                 box.setBackgroundResource(R.drawable.wordleboxes);
                 box.setHeight(( int) (40 * Resources.getSystem().getDisplayMetrics().density));
                 box.setWidth(( int) (35 * Resources.getSystem().getDisplayMetrics().density));
+                box.setText(" ");
                 board.addView(box);
                 wordleBoxArray[row][column] = box;
             }
@@ -96,26 +102,25 @@ public class WordleActivity extends AppCompatActivity {
         } else if (currWord < 6) {
             int counter = 0;
             for (int i = 0; i < 5; i++) {
-                char c = letters[currWord][i];
+                char c = wordleBoxArray[currWord][i].getText().charAt(0);
                 if (c == word.charAt(i)) {
-                    /*backgrounds[currWord][i].setBackground(new Background(
-                            new BackgroundFill(Color.GREEN, new CornerRadii(0), Insets.EMPTY)));
-                    */counter++;
-                } /*else if (word.indexOf(c) >= 0) {
-                    backgrounds[currWord][i].setBackground(new Background(
-                            new BackgroundFill(Color.YELLOW, new CornerRadii(0), Insets.EMPTY)));
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.GREEN);
+                    counter++;
+                } else if (word.indexOf(c) >= 0) {
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.YELLOW);
                 } else {
-                    backgrounds[currWord][i].setBackground(new Background(
-                            new BackgroundFill(Color.GREY, new CornerRadii(0), Insets.EMPTY)));
-                }*/
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.RED);
+                }
             }
             if (counter == 5) {
                 System.out.println("Congratulations! You guessed the word!");
+                gameOn = false;
             }
             currWord++;
             currLetter = 0;
             if (currWord == 6) {
                 System.out.println("Game Over! The word was " + word);
+                gameOn = false;
             }
         }
 
@@ -123,7 +128,7 @@ public class WordleActivity extends AppCompatActivity {
 
     public static void type(String c) {
         if (currLetter <= 4) {
-            letters[currWord][currLetter] = c.charAt(0);
+            wordleBoxArray[currWord][currLetter].setText(c);
             System.out.println("You pressed " + c);
             currLetter++;
         }
@@ -132,8 +137,22 @@ public class WordleActivity extends AppCompatActivity {
     public static void backspace() {
         System.out.println("You pressed backspace");
         if (currLetter > 0) {
-            letters[currWord][currLetter - 1] = '1';
+            wordleBoxArray[currWord][currLetter - 1].setText(" ");
             currLetter--;
         }
+    }
+
+    public static void restart() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 5; j++) {
+                wordleBoxArray[i][j].setText(" ");
+                wordleBoxArray[i][j].setBackgroundColor(Color.WHITE);
+            }
+        }
+        gameOn = true;
+        currWord = 0;
+        currLetter = 0;
+        word = quotes[(int) (Math.random() * quotes.length)];
+        System.out.println(word);
     }
 }
