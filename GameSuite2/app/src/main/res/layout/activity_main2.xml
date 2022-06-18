@@ -39,43 +39,45 @@
 
     <ImageButton
         android:id="@+id/wordleButton"
-        android:layout_width="279dp"
-        android:layout_height="283dp"
-        android:layout_marginStart="-36dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/daycloudbutton"
+        android:layout_width="291dp"
+        android:layout_height="96dp"
+        android:layout_marginEnd="160dp"
+        android:background="@null"
         android:padding="0dp"
         android:scaleType="fitCenter"
         android:src="@drawable/daywordle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
 
     <ImageButton
         android:id="@+id/pcButton"
-        android:layout_width="350dp"
-        android:layout_height="411dp"
-        android:layout_marginBottom="212dp"
+        android:layout_width="321dp"
+        android:layout_height="101dp"
+        android:layout_marginEnd="116dp"
         android:background="@drawable/daycloudbutton"
         android:padding="0dp"
         android:scaleType="fitCenter"
         android:src="@drawable/daypc"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
 
     <ImageButton
         android:id="@+id/chessButton"
-        android:layout_width="239dp"
-        android:layout_height="241dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="176dp"
+        android:layout_width="285dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="172dp"
         android:background="@drawable/daycloudbutton"
         android:padding="0dp"
         android:scaleType="fitCenter"
         android:src="@drawable/daychess"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
 
     <Button
         android:id="@+id/about"
