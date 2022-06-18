@@ -22,6 +22,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class WordleActivity extends AppCompatActivity {
     public static TextView[][] wordleBoxArray = new TextView[6][5];
 
@@ -66,22 +68,6 @@ public class WordleActivity extends AppCompatActivity {
         });
     }
 
-     void initialiazeArray() {
-        GridLayout board = findViewById(R.id.wordleBoard);
-        for (int row = 0; row < 6; row++) {
-            for (int column = 0; column < 5; column++){
-                TextView box = new TextView(this);
-                box.setId(row * 10 + column);
-                box.setBackgroundResource(R.drawable.wordleboxes);
-                box.setHeight(( int) (40 * Resources.getSystem().getDisplayMetrics().density));
-                box.setWidth(( int) (35 * Resources.getSystem().getDisplayMetrics().density));
-                box.setText(" ");
-                board.addView(box);
-                wordleBoxArray[row][column] = box;
-            }
-        }
-    }
-
     void showInstructions() {
         Dialog instrWordle = new Dialog(WordleActivity.this);
         //Have already added custom title in layout. So disable the default title
@@ -103,9 +89,10 @@ public class WordleActivity extends AppCompatActivity {
         } else if (currWord < 6) {
             int counter = 0;
             for (int i = 0; i < 5; i++) {
-                char c = wordleBoxArray[currWord][i].getText().charAt(0);
+                char c = wordleBoxArray[currWord][i].getText().toString().toLowerCase(Locale.ROOT).charAt(0);
                 if (c == word.charAt(i)) {
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.GREEN);
+                    //wordleBoxArray[currWord][i].setBackgroundResource(R.drawable.wordleboxes);
                     counter++;
                 } else if (word.indexOf(c) >= 0) {
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.YELLOW);
@@ -129,7 +116,7 @@ public class WordleActivity extends AppCompatActivity {
 
     public static void type(String c) {
         if (currLetter <= 4) {
-            wordleBoxArray[currWord][currLetter].setText(c);
+            wordleBoxArray[currWord][currLetter].setText(c.toUpperCase(Locale.ROOT));
             System.out.println("You pressed " + c);
             currLetter++;
         }
@@ -155,5 +142,51 @@ public class WordleActivity extends AppCompatActivity {
         currLetter = 0;
         word = quotes[(int) (Math.random() * quotes.length)];
         System.out.println(word);
+    }
+
+    void initialiazeArray() {
+//        GridLayout board = findViewById(R.id.wordleBoard);
+//        for (int row = 0; row < 6; row++) {
+//            for (int column = 0; column < 5; column++){
+//                TextView box = new TextView(this);
+//                box.setId(row * 10 + column);
+//                box.setBackgroundResource(R.drawable.wordleboxes);
+//                box.setHeight(( int) (40 * Resources.getSystem().getDisplayMetrics().density));
+//                box.setWidth(( int) (35 * Resources.getSystem().getDisplayMetrics().density));
+//                box.setText(" ");
+//                board.addView(box);
+//                wordleBoxArray[row][column] = box;
+//            }
+//        }
+        wordleBoxArray[0][0] = findViewById(R.id.textView00);
+        wordleBoxArray[0][1] = findViewById(R.id.textView01);
+        wordleBoxArray[0][2] = findViewById(R.id.textView02);
+        wordleBoxArray[0][3] = findViewById(R.id.textView03);
+        wordleBoxArray[0][4] = findViewById(R.id.textView04);
+        wordleBoxArray[1][0] = findViewById(R.id.textView10);
+        wordleBoxArray[1][1] = findViewById(R.id.textView11);
+        wordleBoxArray[1][2] = findViewById(R.id.textView12);
+        wordleBoxArray[1][3] = findViewById(R.id.textView13);
+        wordleBoxArray[1][4] = findViewById(R.id.textView14);
+        wordleBoxArray[2][0] = findViewById(R.id.textView20);
+        wordleBoxArray[2][1] = findViewById(R.id.textView21);
+        wordleBoxArray[2][2] = findViewById(R.id.textView22);
+        wordleBoxArray[2][3] = findViewById(R.id.textView23);
+        wordleBoxArray[2][4] = findViewById(R.id.textView24);
+        wordleBoxArray[3][0] = findViewById(R.id.textView30);
+        wordleBoxArray[3][1] = findViewById(R.id.textView31);
+        wordleBoxArray[3][2] = findViewById(R.id.textView32);
+        wordleBoxArray[3][3] = findViewById(R.id.textView33);
+        wordleBoxArray[3][4] = findViewById(R.id.textView34);
+        wordleBoxArray[4][0] = findViewById(R.id.textView40);
+        wordleBoxArray[4][1] = findViewById(R.id.textView41);
+        wordleBoxArray[4][2] = findViewById(R.id.textView42);
+        wordleBoxArray[4][3] = findViewById(R.id.textView43);
+        wordleBoxArray[4][4] = findViewById(R.id.textView44);
+        wordleBoxArray[5][0] = findViewById(R.id.textView50);
+        wordleBoxArray[5][1] = findViewById(R.id.textView51);
+        wordleBoxArray[5][2] = findViewById(R.id.textView52);
+        wordleBoxArray[5][3] = findViewById(R.id.textView53);
+        wordleBoxArray[5][4] = findViewById(R.id.textView54);
     }
 }

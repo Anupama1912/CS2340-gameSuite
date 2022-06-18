@@ -28,15 +28,20 @@
 <!--        android:orientation="vertical"-->
 <!--        android:padding="5dp" />-->
 
-    <GridLayout
-        android:layout_width="wrap_content"
+    <include
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:columnCount="5"
-        android:rowCount="6"
-        android:id="@+id/wordleBoard">
+        layout="@layout/wordleboard" />
 
-    </GridLayout>
+<!--    <GridLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:columnCount="5"-->
+<!--        android:rowCount="6"-->
+<!--        android:id="@+id/wordleBoard">-->
+
+<!--    </GridLayout>-->
 
     <com.example.gamesuite.KeyboardClass
         android:id="@+id/keyboard"
