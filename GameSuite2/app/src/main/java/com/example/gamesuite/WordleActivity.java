@@ -30,7 +30,8 @@ public class WordleActivity extends AppCompatActivity {
     static int currWord = 0;
     static int currLetter = 0;
     static String[] quotes = new String[] {"place", "words", "right", "heere"};
-    static String word = quotes[(int) (Math.random() * quotes.length)];
+    static String word;
+    //static String word = quotes[(int) (Math.random() * quotes.length)];
     static boolean gameOn = true;
 
     @Override

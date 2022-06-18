@@ -16,6 +16,15 @@ import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -27,6 +36,24 @@ public class MainActivity2 extends AppCompatActivity {
         //goes to wordle screen...will replace button with ImageButton later
         ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
+
+            RequestQueue queue = Volley.newRequestQueue(MainActivity2.this);
+            String url = "https://random-word-api.herokuapp.com/word?length=5";
+
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    Log.d("word", response.toString());
+                    WordleActivity.word = response.toString().substring(2,7);
+                    Log.d("word1", WordleActivity.word);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("apierror", "something wrong");
+                }
+            });
+            queue.add(request);
             Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
             startActivity(intent);
         });
