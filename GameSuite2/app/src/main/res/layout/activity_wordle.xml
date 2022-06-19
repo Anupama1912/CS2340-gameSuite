@@ -46,12 +46,13 @@
 
     <com.example.gamesuite.KeyboardClass
         android:id="@+id/keyboard"
-        android:layout_width="361dp"
-        android:layout_height="195dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="210dp" />
+         />
+<!--    tools:layout_editor_absoluteX="139dp"-->
+<!--    tools:layout_editor_absoluteY="210dp"-->
 
     <ImageButton
         android:id="@+id/infoWordle"
