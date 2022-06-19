@@ -13,6 +13,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="q" />
 
         <Button
@@ -20,6 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="w" />
 
         <Button
@@ -27,6 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="e" />
 
         <Button
@@ -34,6 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="r" />
 
         <Button
@@ -41,6 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="t" />
 
         <Button
@@ -48,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="y" />
 
         <Button
@@ -55,6 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="u" />
 
         <Button
@@ -62,6 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="i" />
 
         <Button
@@ -69,6 +85,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="o" />
 
         <Button
@@ -76,6 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="p" />
 
     </LinearLayout>
@@ -90,6 +110,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="a" />
 
         <Button
@@ -97,6 +119,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="s" />
 
         <Button
@@ -104,6 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="d" />
 
         <Button
@@ -111,6 +137,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="f" />
 
         <Button
@@ -118,6 +146,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="g" />
 
         <Button
@@ -125,6 +155,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="h" />
 
         <Button
@@ -132,6 +164,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="j" />
 
         <Button
@@ -139,6 +173,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="k" />
 
         <Button
@@ -146,6 +182,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="l" />
 
     </LinearLayout>
@@ -160,6 +198,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="z" />
 
         <Button
@@ -167,6 +207,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="x" />
 
         <Button
@@ -174,6 +216,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="c" />
 
         <Button
@@ -181,6 +225,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="v" />
 
         <Button
@@ -188,6 +234,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="b" />
 
         <Button
@@ -195,6 +243,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="n" />
 
         <Button
@@ -202,6 +252,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="m" />
 
     </LinearLayout>
@@ -211,17 +263,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
+
         <Button
             android:id="@+id/button_delete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="del" />
+
         <Button
             android:id="@+id/button_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#6C95DB"
+            android:backgroundTintMode="multiply"
             android:text="Enter" />
     </LinearLayout>
 

@@ -90,7 +90,7 @@ public class WordleActivity extends AppCompatActivity {
             int counter = 0;
             for (int i = 0; i < 5; i++) {
                 char c = wordleBoxArray[currWord][i].getText().toString().toLowerCase(Locale.ROOT).charAt(0);
-                wordleBoxArray[currWord][i].setTextColor(Color.parseColor("#8CAED2"));
+//                wordleBoxArray[currWord][i].setTextColor(Color.parseColor("#6C95DB"));
                 if (c == word.charAt(i)) {
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0efa3"));
                     //wordleBoxArray[currWord][i].setBackgroundResource(R.drawable.wordleboxes);
@@ -98,7 +98,7 @@ public class WordleActivity extends AppCompatActivity {
                 } else if (word.indexOf(c) >= 0) {
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0"));
                 } else {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0e3f6"));
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#a9c0eb"));
                 }
             }
             if (counter == 5) {
@@ -135,7 +135,8 @@ public class WordleActivity extends AppCompatActivity {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 wordleBoxArray[i][j].setText(" ");
-                wordleBoxArray[i][j].setBackgroundColor(Color.parseColor("#9CCBF1"));
+                wordleBoxArray[i][j].setBackgroundColor(Color.parseColor("#e3f2ff"));
+
             }
         }
         gameOn = true;

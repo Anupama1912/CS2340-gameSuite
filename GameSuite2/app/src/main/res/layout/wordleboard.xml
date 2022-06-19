@@ -22,7 +22,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView01"
@@ -34,7 +35,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -47,7 +49,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView03"
@@ -59,7 +62,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView04"
@@ -71,7 +75,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -83,7 +88,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -95,7 +101,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -108,7 +115,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView13"
@@ -120,7 +128,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView14"
@@ -132,7 +141,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView20"
@@ -144,7 +154,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView21"
@@ -156,7 +167,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -169,7 +181,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView23"
@@ -181,7 +194,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView24"
@@ -193,7 +207,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView30"
@@ -205,7 +220,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView31"
@@ -217,7 +233,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -230,7 +247,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView33"
@@ -242,7 +260,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView34"
@@ -254,7 +273,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView40"
@@ -266,7 +286,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView41"
@@ -278,7 +299,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -291,7 +313,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView43"
@@ -303,7 +326,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView44"
@@ -315,7 +339,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView50"
@@ -327,7 +352,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView51"
@@ -339,7 +365,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
 
         <TextView
@@ -352,7 +379,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView53"
@@ -364,7 +392,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
 
         <TextView
             android:id="@+id/textView54"
@@ -376,7 +405,8 @@
             android:fontFamily="@font/staatliches"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#6C95DB"/>
     </GridLayout>
 
 </merge>
