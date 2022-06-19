@@ -6,7 +6,8 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="125dp"
         android:columnCount="5"
         android:rowCount="6"
         android:id="@+id/wordleBoard">

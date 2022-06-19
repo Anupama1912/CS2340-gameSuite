@@ -90,14 +90,15 @@ public class WordleActivity extends AppCompatActivity {
             int counter = 0;
             for (int i = 0; i < 5; i++) {
                 char c = wordleBoxArray[currWord][i].getText().toString().toLowerCase(Locale.ROOT).charAt(0);
+                wordleBoxArray[currWord][i].setTextColor(Color.parseColor("#8CAED2"));
                 if (c == word.charAt(i)) {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.GREEN);
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0efa3"));
                     //wordleBoxArray[currWord][i].setBackgroundResource(R.drawable.wordleboxes);
                     counter++;
                 } else if (word.indexOf(c) >= 0) {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.YELLOW);
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0"));
                 } else {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.RED);
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0e3f6"));
                 }
             }
             if (counter == 5) {
@@ -134,7 +135,7 @@ public class WordleActivity extends AppCompatActivity {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 wordleBoxArray[i][j].setText(" ");
-                wordleBoxArray[i][j].setBackgroundColor(Color.WHITE);
+                wordleBoxArray[i][j].setBackgroundColor(Color.parseColor("#9CCBF1"));
             }
         }
         gameOn = true;
