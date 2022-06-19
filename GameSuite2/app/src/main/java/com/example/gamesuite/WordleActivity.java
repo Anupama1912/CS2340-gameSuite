@@ -5,11 +5,13 @@ import static android.text.InputType.TYPE_CLASS_TEXT;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -83,9 +85,10 @@ public class WordleActivity extends AppCompatActivity {
         instrWordle.show();
     }
 
-    public static void submitWord() {
+    public static void submitWord(Context context) {
         if (currLetter != 5) {
-            System.out.println("Incomplete Word");
+            Toast toast = Toast.makeText(context, "Incomplete Word!", Toast.LENGTH_SHORT);
+            toast.show();
         } else if (currWord < 6) {
             int counter = 0;
             for (int i = 0; i < 5; i++) {
@@ -102,13 +105,15 @@ public class WordleActivity extends AppCompatActivity {
                 }
             }
             if (counter == 5) {
-                System.out.println("Congratulations! You guessed the word!");
+                Toast toast = Toast.makeText(context, "Congratulations! You guessed the word!", Toast.LENGTH_SHORT);
+                toast.show();
                 gameOn = false;
             }
             currWord++;
             currLetter = 0;
             if (currWord == 6) {
-                System.out.println("Game Over! The word was " + word);
+                Toast toast = Toast.makeText(context, "Game Over! The word was " + word, Toast.LENGTH_SHORT);
+                toast.show();
                 gameOn = false;
             }
         }

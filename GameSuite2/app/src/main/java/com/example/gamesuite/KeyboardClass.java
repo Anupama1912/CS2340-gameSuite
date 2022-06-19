@@ -129,7 +129,7 @@ public class KeyboardClass extends LinearLayout implements View.OnClickListener 
             if(WordleActivity.gameOn && value.equals("delete")){
                 WordleActivity.backspace();
             } else if(WordleActivity.gameOn && value.equals("enter")){
-                WordleActivity.submitWord();
+                WordleActivity.submitWord(getContext());
             } else if (WordleActivity.gameOn) {
                 WordleActivity.type(value);
             }
