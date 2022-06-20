@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
@@ -124,22 +125,37 @@ public class KeyboardClass extends LinearLayout implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if (inputConnection == null) {
+            String value = keyValues.get(view.getId());
+            if(WordleActivity.gameOn && value.equals("delete")){
+                WordleActivity.backspace();
+            } else if(WordleActivity.gameOn && value.equals("enter")){
+                WordleActivity.submitWord(getContext());
+            } else if (WordleActivity.gameOn) {
+                WordleActivity.type(value);
+            }
+            /*for (int i = 0; i<6; i++) {
+                for (int j = 0; j<5; j++) {
+                    System.out.print(WordleActivity.letters[i][j]);
+                }
+                System.out.println();
+            }*/
             return;
         }
-        if (view.getId() == R.id.button_delete) {
-            CharSequence selectedText = inputConnection.getSelectedText(0);
+//        if (view.getId() == R.id.button_delete) {
+//            CharSequence selectedText = inputConnection.getSelectedText(0);
+//
+//            if (TextUtils.isEmpty(selectedText)) {
+//                inputConnection.deleteSurroundingText(1,0);
+//            } else {
+//                inputConnection.commitText("", 1);
+//            }
+//        } else {
+//            String value = keyValues.get(view.getId());
+//            inputConnection.commitText(value, 1);
+//        }
+    }
 
-            if (TextUtils.isEmpty(selectedText)) {
-                inputConnection.deleteSurroundingText(1,0);
-            } else {
-                inputConnection.commitText("", 1);
-            }
-        } else {
-            String value = keyValues.get(view.getId());
-            inputConnection.commitText(value, 1);
-        }
-    }
-    public void setInputConnection(InputConnection ic) {
-        inputConnection = ic;
-    }
+   // public void setInputConnection(InputConnection ic) {
+        //inputConnection = ic;
+    //}
 }
