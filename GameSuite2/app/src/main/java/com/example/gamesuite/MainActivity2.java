@@ -1,9 +1,11 @@
 package com.example.gamesuite;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -32,14 +34,19 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
         ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
+        Button about = findViewById(R.id.about);
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
                 layout2.setBackgroundResource(R.drawable.bnightplaceholder);
                 btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+                about.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+                about.setTextColor(getResources().getColor(R.color.nButtonTxt));
             } else {
                 layout2.setBackgroundResource(R.drawable.bdayplaceholder);
                 btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+                about.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+                about.setTextColor(getResources().getColor(R.color.dButtonTxt));
             }
         });
         //goes to wordle screen...will replace button with ImageButton later
@@ -57,19 +64,32 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
         //goes to cards screen
-        ImageButton cardsplay = (ImageButton) findViewById(R.id.cardsButton);
-        cardsplay.setOnClickListener(v -> {
+        ImageButton cardsPlay = (ImageButton) findViewById(R.id.cardsButton);
+        cardsPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
 
             startActivity(intent);
         });
 
-        Button about = findViewById(R.id.about);
         about.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
-
-            startActivity(intent);
+            Log.i("My app", "This is for testing purposes that About Button works!");
+            showAbout();
         });
+    }
+
+    void showAbout() {
+        Dialog aboutGame = new Dialog(MainActivity2.this);
+        //Have already added custom title in layout. So disable the default title
+        aboutGame.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Can cancel the dialog by clicking anywhere outside the dialog
+        aboutGame.setCancelable(true);
+        //Set layout of dialog
+        aboutGame.setContentView(R.layout.about_game);
+
+        ImageButton close = aboutGame.findViewById(R.id.close);
+        close.setOnClickListener(v -> aboutGame.dismiss());
+
+        aboutGame.show();
     }
 
 }
