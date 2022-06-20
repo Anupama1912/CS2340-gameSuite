@@ -36,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         ConstraintLayout layout2 = findViewById(R.id.layout);
         //goes to wordle screen...will replace button with ImageButton later
-        ImageButton wordlePlay = (ImageButton) findViewById(R.id.wordleButton);
+        ImageButton wordlePlay = findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
 
             RequestQueue queue = Volley.newRequestQueue(MainActivity2.this);
@@ -60,13 +60,13 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
         //goes to chess screen
-        ImageButton pcPlay = (ImageButton) findViewById(R.id.pcButton);
+        ImageButton pcPlay = findViewById(R.id.pcButton);
         pcPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, chessActivity.class);
             startActivity(intent);
         });
         //goes to cards screen
-        ImageButton chessPlay = (ImageButton) findViewById(R.id.chessButton);
+        ImageButton chessPlay = findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
             startActivity(intent);
@@ -88,24 +88,28 @@ public class MainActivity2 extends AppCompatActivity {
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
                 layout2.setBackgroundResource(R.drawable.nighttwo);
-                btn.setBackgroundColor(Color.parseColor("#A2AEFF"));
+                btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
                 chessPlay.setImageResource(R.drawable.nightchess);
                 wordlePlay.setImageResource(R.drawable.nightwordle);
                 pcPlay.setImageResource(R.drawable.nightpc);
+                about.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+                about.setTextColor(getResources().getColor(R.color.nButtonTxt));
             } else {
                 layout2.setBackgroundResource(R.drawable.daytwo);
-                btn.setBackgroundColor(Color.parseColor("#F6ED98"));
+                btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
                 chessPlay.setImageResource(R.drawable.daychess);
                 wordlePlay.setImageResource(R.drawable.daywordle);
                 pcPlay.setImageResource(R.drawable.daypc);
+                about.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+                about.setTextColor(getResources().getColor(R.color.dButtonTxt));
             }
         });
 
         about.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that About Button works!");
             showAbout();
-            Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
+            //startActivity(intent);
         });
     }
 
@@ -119,7 +123,12 @@ public class MainActivity2 extends AppCompatActivity {
         aboutGame.setContentView(R.layout.about_game);
 
         ImageButton close = aboutGame.findViewById(R.id.close);
-        close.setOnClickListener(v -> aboutGame.dismiss());
+        close.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "Close", Toast.LENGTH_SHORT)
+                    .show();
+            aboutGame.dismiss();
+
+        });
 
         aboutGame.show();
     }
