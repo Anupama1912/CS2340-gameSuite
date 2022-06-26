@@ -152,7 +152,8 @@ public class WordleActivity extends AppCompatActivity {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 wordleBoxArray[i][j].setText(" ");
-                wordleBoxArray[i][j].setBackgroundColor(Color.parseColor("#e3f2ff"));
+                wordleBoxArray[i][j].setBackgroundColor(Color.parseColor("#cddfff"));
+                wordleBoxArray[i][j].setBackgroundResource(R.drawable.wordleboxes);
 
             }
         }
