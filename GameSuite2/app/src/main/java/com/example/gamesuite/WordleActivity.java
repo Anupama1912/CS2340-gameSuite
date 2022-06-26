@@ -86,6 +86,7 @@ public class WordleActivity extends AppCompatActivity {
     }
 
     public static void submitWord(Context context) {
+        String tempword = "";
         if (currLetter != 5) {
             Toast toast = Toast.makeText(context, "Incomplete Word!", Toast.LENGTH_SHORT);
             toast.show();
@@ -97,10 +98,21 @@ public class WordleActivity extends AppCompatActivity {
                 if (c == word.charAt(i)) {
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0efa3"));
                     //wordleBoxArray[currWord][i].setBackgroundResource(R.drawable.wordleboxes);
+                    tempword += "-";
                     counter++;
-                } else if (word.indexOf(c) >= 0) {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0"));
                 } else {
+                    tempword += word.charAt(i);
+                }
+            }
+            for (int i = 0; i < 5; i++) {
+                char c = wordleBoxArray[currWord][i].getText().toString().toLowerCase(Locale.ROOT).charAt(0);
+//                wordleBoxArray[currWord][i].setTextColor(Color.parseColor("#6C95DB"));
+                if (tempword.indexOf(c) >= 0 && c != word.charAt(i)) {
+                    int wordIndex = tempword.indexOf(c);
+                    String end = (wordIndex == 4)? "":tempword.substring(wordIndex + 1);
+                    tempword = tempword.substring(0, wordIndex) + "-" +  end;
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0"));
+                } else if (c != word.charAt(i)){
                     wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#a9c0eb"));
                 }
             }
