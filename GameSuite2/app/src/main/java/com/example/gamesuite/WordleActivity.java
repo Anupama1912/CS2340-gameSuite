@@ -68,6 +68,12 @@ public class WordleActivity extends AppCompatActivity {
             Log.i("My app", "This is for testing purposes that Info Button works!");
             showInstructions();
         });
+
+        ImageButton restartGame = findViewById(R.id.restartBtn);
+        restartGame.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Restart Button works!");
+            restart();
+        });
     }
 
     void showInstructions() {
