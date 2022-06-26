@@ -11,7 +11,7 @@
     <color name="transitionBg">#EADFEC</color>
 
     <!-- Day colors -->
-    <color name="dButtonBg">#F6ED98</color> //pale yellow
+    <color name="dButtonBg">#F6ED98</color> //light yellow
     <color name="dButtonTxt">#C69B1A</color> //dune yellow
     <color name="dTitle">#FF6200EE</color> //purple_500
 
@@ -19,4 +19,9 @@
     <color name="nButtonBg">#A2AEFF</color> //violet
     <color name="nButtonTxt">#4D3E8F</color> //dark purple
     <color name="nTitle">#FF3700B3</color> //purple_700
+
+    <!-- Wordle colors -->
+    <color name="wordleGreen">#d0efa3</color> //pale green
+    <color name="wordleYellow">#f8f5b0</color> //pale yellow
+    <color name="wordleDark">#a9c0eb</color> //dark color/purple
 </resources>

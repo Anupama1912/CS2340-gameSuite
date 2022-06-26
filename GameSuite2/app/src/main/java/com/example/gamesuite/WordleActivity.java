@@ -95,13 +95,13 @@ public class WordleActivity extends AppCompatActivity {
                 char c = wordleBoxArray[currWord][i].getText().toString().toLowerCase(Locale.ROOT).charAt(0);
 //                wordleBoxArray[currWord][i].setTextColor(Color.parseColor("#6C95DB"));
                 if (c == word.charAt(i)) {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0efa3"));
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#d0efa3")); //green
                     //wordleBoxArray[currWord][i].setBackgroundResource(R.drawable.wordleboxes);
                     counter++;
                 } else if (word.indexOf(c) >= 0) {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0"));
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#f8f5b0")); //yellow
                 } else {
-                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#a9c0eb"));
+                    wordleBoxArray[currWord][i].setBackgroundColor(Color.parseColor("#a9c0eb")); //purple
                 }
             }
             if (counter == 5) {

@@ -48,21 +48,27 @@
             android:layout_marginVertical="10dp" />
 
         <TextView
+            android:id="@+id/instrWordle3view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/instrWordle3"
+            android:textColor="@color/wordleGreen"
             android:layout_marginTop="10dp" />
 
         <TextView
+            android:id="@+id/instrWordle4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/instrWordle4"
+            android:textColor="@color/wordleYellow"
             android:layout_marginTop="10dp" />
 
         <TextView
+            android:id="@+id/instrWordle5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/instrWordle5"
+            android:textColor="@color/wordleDark"
             android:layout_marginVertical="10dp" />
 
         <View style="@style/Divider"/>

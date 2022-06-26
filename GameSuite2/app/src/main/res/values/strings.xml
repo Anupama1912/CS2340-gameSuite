@@ -12,9 +12,9 @@
     <string name="instrWordle1">Guess the word in <b>6</b> tries!!\n\nEach guess must be a <b>valid 5-letter</b> word. Click <b>Enter</b> to Submit.\n\nAfter each guess, the tile colors will change to show how close your guess was to the actual word.\n
     </string>
     <string name="instrWordle2"><b>Example:</b></string>
-    <string name="instrWordle3">The letter <b>{greenLet}</b> is in the word and in the correct spot.</string>
-    <string name="instrWordle4">The letter <b>{yellowLet}</b> is in the word but in the wrong spot.</string>
-    <string name="instrWordle5">The letter <b>{greyLet}</b> is not in the word in any spot.</string>
+    <string name="instrWordle3">The letter within the GREEN box is in the word and in the correct spot.</string>
+    <string name="instrWordle4">The letter within the YELLOW box is in the word but in the wrong spot.</string>
+    <string name="instrWordle5">The letter within the GREY box is not in the word in any spot.</string>
     <string name="instrWordle6">A new word will be available each time you play!</string>
 
 </resources>
