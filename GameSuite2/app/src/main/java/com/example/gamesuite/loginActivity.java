@@ -21,7 +21,6 @@ import android.widget.Toast;
         setContentView(R.layout.activity_login);
 
         username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
         DB = new DBHelper(this);
@@ -30,12 +29,12 @@ import android.widget.Toast;
             @Override
             public void onClick(View v) {
                 String user = username.getText().toString();
-                String pass = password.getText().toString();
+                //String pass = password.getText().toString();
 
-                if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pass)) {
+                if (TextUtils.isEmpty(user)) {
                     Toast.makeText(loginActivity.this, "All fields REQUIRED", Toast.LENGTH_SHORT).show();
                 } else {
-                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    Boolean checkuserpass = DB.checkusername(user);
                     if (checkuserpass == true) {
                         Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(loginActivity.this, MainActivity2.class);

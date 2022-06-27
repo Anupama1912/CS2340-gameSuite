@@ -25,12 +25,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists users");
     }
 
-    public Boolean insertData(String username, String password) {
+    public Boolean insertData(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("username", username);
-        values.put("password", password);
+        //values.put("password", password);
 
         long result = db.insert("users",null, values);
         if (result == 1) return false;
@@ -47,13 +47,13 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean checkusernamepassword(String username, String password) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from users where username=? and password=?", new String[] {username, password});
-        if (cursor.getCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public Boolean checkusernamepassword(String username, String password) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery("select * from users where username=? and password=?", new String[] {username, password});
+//        if (cursor.getCount() > 0) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 }
