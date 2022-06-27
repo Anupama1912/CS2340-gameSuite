@@ -44,7 +44,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/signup"
+        android:id="@+id/login"
         android:text="Register"
         android:backgroundTint="#59A9E3"
         android:layout_marginBottom="30dp"
