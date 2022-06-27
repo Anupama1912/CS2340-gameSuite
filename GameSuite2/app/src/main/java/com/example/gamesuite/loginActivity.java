@@ -2,6 +2,7 @@
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.Toast;
   public class loginActivity extends AppCompatActivity {
 
     EditText username, password;
-    Button login;
+    Button login, signup;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ import android.widget.Toast;
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
+        signup = findViewById(R.id.signup);
         DB = new DBHelper(this);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -36,10 +38,20 @@ import android.widget.Toast;
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
                     if (checkuserpass == true) {
                         Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(loginActivity.this, MainActivity2.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(loginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(loginActivity.this, signupActivity.class);
+                startActivity(intent);
             }
         });
     }
