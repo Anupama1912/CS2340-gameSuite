@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5e8c7"
     tools:context=".AboutActivity">
 
-    <ImageButton
-        android:id="@+id/BackGame"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="top"
-        android:orientation="vertical"
-        android:src="@android:drawable/ic_menu_revert" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="#6B4F4F"
+        android:textSize="55dp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="35dp"/>
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Hi! We are The Five Dwarfs, welcome to our storybook themed game suite :) meet us below:"
+    android:textColor="#6B4F4F"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="50dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="238dp"
         android:layout_gravity="center"
-        android:src="@drawable/teaminfo"/>
+        android:src="@drawable/creators" />
 
-</FrameLayout>
+</LinearLayout>
