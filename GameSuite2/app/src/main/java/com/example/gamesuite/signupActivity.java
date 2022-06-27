@@ -2,6 +2,7 @@ package com.example.gamesuite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 public class signupActivity extends AppCompatActivity {
     EditText username, password, repassword;
-    Button signup, login;
+    Button signup;
     DBHelper DB;
 
     @Override
@@ -23,7 +24,6 @@ public class signupActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         repassword = findViewById(R.id.repassword);
         signup = findViewById(R.id.signup);
-        login = findViewById(R.id.login);
         DB = new DBHelper(this);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,8 @@ public class signupActivity extends AppCompatActivity {
                             Boolean insert = DB.insertData(user, pass);
                             if (insert == true) {
                                 Toast.makeText(signupActivity.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(signupActivity.this, MainActivity2.class);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(signupActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                             }
@@ -54,11 +56,5 @@ public class signupActivity extends AppCompatActivity {
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 }

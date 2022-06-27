@@ -45,8 +45,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login"
-        android:text="Register"
+        android:text="login"
         android:backgroundTint="#59A9E3"
+        android:layout_marginBottom="30dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup"
+        android:text="don't have an account?"
+        android:textColor="#59A9E3"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:backgroundTint="#0031572C"
         android:layout_marginBottom="30dp"
         />
 </LinearLayout>
