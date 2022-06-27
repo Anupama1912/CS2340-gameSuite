@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,7 +17,9 @@ import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText username, password;
+    Button login, signup;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout layout1 = findViewById(R.id.layout);
 
 //        ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
-        Button enter = findViewById(R.id.button);
 //        TextView title = findViewById(R.id.title);
 
 //        toggleButton1.setOnClickListener(v -> {
@@ -41,11 +45,38 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        enter.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, loginActivity.class);
+        username = findViewById(R.id.username);
+        login = findViewById(R.id.login);
+        signup = findViewById(R.id.signup);
+        DB = new DBHelper(this);
 
-            startActivity(intent);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user = username.getText().toString();
+                //String pass = password.getText().toString();
+
+                if (TextUtils.isEmpty(user)) {
+                    Toast.makeText(MainActivity.this, "All fields REQUIRED", Toast.LENGTH_SHORT).show();
+                } else {
+                    Boolean checkuserpass = DB.checkusername(user);
+                    if (checkuserpass == true) {
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
         });
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, signupActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

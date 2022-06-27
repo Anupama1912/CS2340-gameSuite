@@ -45,14 +45,13 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/txtbg"
             android:hint="Enter Username"
-            android:paddingLeft="20dp"
             android:textAlignment="center"
             android:textColor="#D1BB9F"
             android:textColorHint="#D1BB9F"
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#D1BB9F"
