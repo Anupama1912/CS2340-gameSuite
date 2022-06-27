@@ -24,6 +24,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+
 import java.util.Locale;
 
 public class WordleActivity extends AppCompatActivity {
@@ -73,6 +82,23 @@ public class WordleActivity extends AppCompatActivity {
         restartGame.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Restart Button works!");
             restart();
+            RequestQueue queue = Volley.newRequestQueue(WordleActivity.this);
+            String url = "https://random-word-api.herokuapp.com/word?length=5";
+
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    Log.d("word", response.toString());
+                    word = response.toString().substring(2,7);
+                    Log.d("word1", WordleActivity.word);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("apierror", "something wrong");
+                }
+            });
+            queue.add(request);
         });
     }
 
@@ -166,7 +192,7 @@ public class WordleActivity extends AppCompatActivity {
         gameOn = true;
         currWord = 0;
         currLetter = 0;
-        word = quotes[(int) (Math.random() * quotes.length)];
+        //word = quotes[(int) (Math.random() * quotes.length)];
         System.out.println(word);
     }
 
