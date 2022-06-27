@@ -19,9 +19,6 @@
             android:name=".signupActivity"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
-            android:exported="false" />
-        <activity
             android:name=".cardsActivity"
             android:exported="false" />
         <activity
