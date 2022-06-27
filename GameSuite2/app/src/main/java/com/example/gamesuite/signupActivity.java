@@ -27,8 +27,8 @@ public class signupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getText().toString();
-                String pass = password.getText().toString();
-                String repass = repassword.getText().toString();
+//                String pass = password.getText().toString();
+//                String repass = repassword.getText().toString();
 
                 if (TextUtils.isEmpty(user)) {
                     Toast.makeText(signupActivity.this, "All fields REQUIRED", Toast.LENGTH_SHORT).show();
