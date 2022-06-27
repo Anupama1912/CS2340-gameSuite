@@ -31,17 +31,6 @@
         android:layout_marginBottom="30dp"
         android:paddingLeft="20dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:hint="Password"
-        android:textSize="25dp"
-        android:textColorHint="#59A9E3"
-        android:textColor="#59A9E3"
-        android:background="@drawable/txtbg"
-        android:layout_marginBottom="30dp"
-        android:paddingLeft="20dp"/>
 
     <Button
         android:layout_width="match_parent"

@@ -21,8 +21,6 @@ public class signupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        repassword = findViewById(R.id.repassword);
         signup = findViewById(R.id.signup);
         DB = new DBHelper(this);
         signup.setOnClickListener(new View.OnClickListener() {
@@ -32,13 +30,12 @@ public class signupActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass)) {
+                if (TextUtils.isEmpty(user)) {
                     Toast.makeText(signupActivity.this, "All fields REQUIRED", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (pass.equals(repass)) {
                         Boolean checkuser = DB.checkusername(user);
                         if (checkuser == false) {
-                            Boolean insert = DB.insertData(user, pass);
+                            Boolean insert = DB.insertData(user);
                             if (insert == true) {
                                 Toast.makeText(signupActivity.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(signupActivity.this, MainActivity2.class);
@@ -49,11 +46,8 @@ public class signupActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(signupActivity.this, "User already exists", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(signupActivity.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }
         });
 
     }
