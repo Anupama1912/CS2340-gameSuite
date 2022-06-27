@@ -4,21 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#f5e8c7"
     android:padding="10dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/aboutGame"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/aboutGame"
-            android:textSize="24sp" />
 
         <ImageButton
             android:id="@+id/close"
@@ -27,10 +14,25 @@
             android:layout_gravity="top|end"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textColor="#6B4F4F"
+            android:textSize="55dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hi! We are The Five Dwarfs, welcome to our storybook themed game suite :) meet us below:"
+            android:textColor="#6B4F4F"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/teaminfo"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="238dp"
+            android:layout_gravity="center"
+            android:src="@drawable/creators" />
 </LinearLayout>

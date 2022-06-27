@@ -22,10 +22,6 @@
             android:name=".loginActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".cardsActivity"
             android:exported="false" />
         <activity

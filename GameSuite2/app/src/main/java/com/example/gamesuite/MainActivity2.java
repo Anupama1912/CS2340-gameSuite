@@ -73,15 +73,15 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         //Back button
-        ImageButton btn = findViewById(R.id.Back);
+        ImageButton btn = findViewById(R.id.exitGame);
         btn.setOnClickListener(v -> {
-            Log.i("My app", "This is for testing purposes that Back Button Works!");
-            Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
+            Log.i("My app", "This is for testing purposes that Exit Button Works!");
+            Toast.makeText(getApplicationContext(), "Exit", Toast.LENGTH_SHORT)
                     .show();
-            Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-
-            startActivity(intent);
+            finishAffinity();
+            System.exit(0);
         });
+
         ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
         Button about = findViewById(R.id.about);
 

@@ -8,14 +8,17 @@
     android:background="@drawable/daytwo"
     tools:context=".MainActivity2">
 
+
     <ImageButton
-        android:id="@+id/Back"
+        android:id="@+id/exitGame"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:background="@color/button_bg"
-        android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="376dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/button_bg"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
@@ -81,11 +84,11 @@
 
     <Button
         android:id="@+id/about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="36dp"
+        android:background="@color/dButtonBg"
         android:text="About"
         android:textColor="@color/dButtonTxt"
-        android:background="@color/dButtonBg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

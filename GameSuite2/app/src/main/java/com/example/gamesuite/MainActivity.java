@@ -21,18 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FrameLayout layout1 = findViewById(R.id.layout);
 
-        //Wire up exit button for application
-        Button btn = findViewById(R.id.Exit);
-        //Functionality for exit button
-        btn.setOnClickListener(v -> {
-            Log.i("My app", "This is for testing purposes that Exit Button Works!");
-            Toast.makeText(getApplicationContext(), "Exit Application", Toast.LENGTH_SHORT)
-                    .show();
-            finishAffinity();
-            System.exit(0);
-
-        });
-
 //        ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
         Button enter = findViewById(R.id.button);
 //        TextView title = findViewById(R.id.title);
