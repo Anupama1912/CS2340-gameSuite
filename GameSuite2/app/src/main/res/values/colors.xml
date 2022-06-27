@@ -7,14 +7,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transitionTxt">#9654A1</color>
+    <color name="transitionBg">#EADFEC</color>
 
     <!-- Day colors -->
-    <color name="dButtonBg">#FFB57BfC</color> //purple_200
-    <color name="dButtonTxt">#FF3700B3</color> //purple_700
+    <color name="dButtonBg">#F6ED98</color> //light yellow
+    <color name="dButtonTxt">#C69B1A</color> //dune yellow
     <color name="dTitle">#FF6200EE</color> //purple_500
 
     <!-- Night colors -->
-    <color name="nButtonBg">#FF6200EE</color> //purple_500
-    <color name="nButtonTxt">#FFFFFFFF</color> //white
+    <color name="nButtonBg">#A2AEFF</color> //violet
+    <color name="nButtonTxt">#4D3E8F</color> //dark purple
     <color name="nTitle">#FF3700B3</color> //purple_700
+
+    <!-- Wordle colors -->
+    <color name="wordleGreen">#d0efa3</color> //pale green
+    <color name="wordleYellow">#f8f5b0</color> //pale yellow
+    <color name="wordleDark">#a9c0eb</color> //dark color/purple
 </resources>

@@ -21,7 +21,7 @@
         android:id="@+id/toggleButton"
         android:layout_width="102dp"
         android:layout_height="45dp"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
 
         android:layout_marginStart="305dp"
         android:layout_marginEnd="5dp"
@@ -83,8 +83,9 @@
         android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:text="About"
+        android:textColor="@color/dButtonTxt"
+        android:background="@color/dButtonBg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
