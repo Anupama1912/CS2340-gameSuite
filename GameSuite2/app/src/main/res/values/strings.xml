@@ -16,5 +16,13 @@
     <string name="instrWordle4">The letter within the YELLOW box is in the word but in the wrong spot.</string>
     <string name="instrWordle5">The letter within the GREY box is not in the word in any spot.</string>
     <string name="instrWordle6">A new word will be available each time you play!</string>
+    <!-- maze -->
+    <string name="finished_title">Congrats</string>
+
+    <string name="finished_text">Level Cleared</string>
+    <string name="level_select">Level Selected</string>
+    <string name="finished_button">End Game</string>
+    <string name="btn_newgame">New Game</string>
+    <string name="btn_exit">Exit</string>
 
 </resources>

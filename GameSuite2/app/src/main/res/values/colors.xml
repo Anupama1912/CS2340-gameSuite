@@ -24,4 +24,9 @@
     <color name="wordleGreen">#d0efa3</color> //pale green
     <color name="wordleYellow">#f8f5b0</color> //pale yellow
     <color name="wordleDark">#a9c0eb</color> //dark color/purple
+
+    <!-- Maze colors -->
+    <color name="game_bg">#dddddd</color>
+    <color name="line">#000000</color>
+    <color name="position">#ff0000</color>
 </resources>

@@ -59,16 +59,16 @@ public class MainActivity2 extends AppCompatActivity {
             Intent intent = new Intent(MainActivity2.this, WordleActivity.class);
             startActivity(intent);
         });
-        //goes to chess screen
+        //goes to Princess Run Screen
         ImageButton pcPlay = findViewById(R.id.pcButton);
         pcPlay.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity2.this, chessActivity.class);
+            Intent intent = new Intent(MainActivity2.this, Menu.class);
             startActivity(intent);
         });
-        //goes to cards screen
+        //goes to Chess screen
         ImageButton chessPlay = findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity2.this, cardsActivity.class);
+            Intent intent = new Intent(MainActivity2.this, chessActivity.class);
             startActivity(intent);
         });
 
