@@ -87,7 +87,7 @@ public class GameView extends View {
             //draw the ball
             canvas.drawCircle((currentX * totalCellWidth)+(cellWidth/2),   //x of center
                     (currentY * totalCellHeight)+(cellWidth/2),  //y of center
-                    (cellWidth*0.45f),                           //radius
+                    (cellWidth*0.35f),                           //radius
                     red);
             //draw the finishing point indicator
             canvas.drawText("F",
