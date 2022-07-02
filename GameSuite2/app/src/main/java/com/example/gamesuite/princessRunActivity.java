@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class princessRunActivity extends View {
     private Cell[][] cells;
-    private static final int COLS = 10, ROWS = 10;
+    private static final int COLS = 12, ROWS = 12;
     private static final float WALL_THICKNESS = 4;
     private float cellSize, hMargin, vMargin;
     private Paint wallPaint;

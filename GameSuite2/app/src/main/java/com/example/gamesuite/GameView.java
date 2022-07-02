@@ -31,6 +31,7 @@ public class GameView extends View {
         mazeSizeY = maze.getMazeHeight();
         line = new Paint();
         line.setColor(getResources().getColor(R.color.line));
+        line.setStrokeWidth(25);
         red = new Paint();
         red.setColor(getResources().getColor(R.color.position));
         background = new Paint();
@@ -41,7 +42,7 @@ public class GameView extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-            width = (w < h)?w:h;   //check whether the width or height of the screen is smaller
+            width = (w < h)?w:h;//check whether the width or height of the screen is smaller
             height = width;         //for now square mazes
             lineWidth = 1;          //for now 1 pixel wide walls
             cellWidth = (width - ((float)mazeSizeX*lineWidth)) / mazeSizeX;

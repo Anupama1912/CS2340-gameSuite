@@ -27,6 +27,6 @@
 
     <!-- Maze colors -->
     <color name="game_bg">#dddddd</color>
-    <color name="line">#000000</color>
+    <color name="line">#5C2CB1</color>
     <color name="position">#ff0000</color>
 </resources>

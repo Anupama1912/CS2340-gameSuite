@@ -57,9 +57,6 @@ public class MazeCreator {
             maze.setFinalPosition(9, 9
 
 
-
-
-
             );
         }
         else if(mazeNo == 3) {

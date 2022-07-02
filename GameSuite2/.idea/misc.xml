@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/daycloudbutton.xml" value="0.1" />
+        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/txtbg.xml" value="0.2385" />
+        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/wordleboxes.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/about_game.xml" value="0.2734375" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_cards.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_chess.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main2.xml" value="0.2734375" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_princessrun.xml" value="0.25" />
+        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_wordle.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/colors.xml" value="0.2595108695652174" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/finish.xml" value="0.2595108695652174" />
