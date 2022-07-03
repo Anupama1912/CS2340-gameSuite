@@ -3,17 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/daycloudbutton.xml" value="0.1" />
-        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/txtbg.xml" value="0.2385" />
-        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/wordleboxes.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/about_game.xml" value="0.2734375" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_cards.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_chess.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main2.xml" value="0.2734375" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_princessrun.xml" value="0.25" />
-        <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_wordle.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/colors.xml" value="0.2595108695652174" />
         <entry key="..\:/Users/Abdullah/CS2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/finish.xml" value="0.2595108695652174" />
@@ -46,12 +41,17 @@
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/daycloudbutton.xml" value="0.1" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/wordleboxes.xml" value="0.1" />
+        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/about_game.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_about.xml" value="0.2653985507246377" />
+        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_cards.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_chess.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main2.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_princessrun.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_signup.xml" value="0.1375" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_wordle.xml" value="0.14792299898682879" />
+        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/chessboard.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/instr_wordle.xml" value="0.14792299898682879" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/keyboard.xml" value="0.14792299898682879" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/wordleboard.xml" value="0.30416666666666664" />
