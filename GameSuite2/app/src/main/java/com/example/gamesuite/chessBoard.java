@@ -10,6 +10,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 public class chessBoard extends View {
+    float startleft;
+    float starttop;
     float squarelength = 130f;
     public chessBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -21,6 +23,8 @@ public class chessBoard extends View {
 //        drawBoard(canvas);
         Paint paint = new Paint();
        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        startleft = getWidth()/2f - 130f *4;
+        starttop = getHeight()/2f - 130f * 4;
         for (int column = 0; column < 8; column++ ) {
             for (int row = 0; row < 8; row++) {
                 if ( row % 2 == 0) {
@@ -36,10 +40,9 @@ public class chessBoard extends View {
                         paint.setColor(Color.DKGRAY);
                     }
                 }
-                canvas.drawRect(20f + 130f*column, 200f + 130f * row, 150f + 130f * column, 330f + 130f * row, paint);
+                canvas.drawRect(startleft + 130f*column, starttop + 130f * row, startleft + 130f + 130f * column, starttop + 130f + 130f * row, paint);
             }
         }
-        canvas.drawRect(100f + 2 * 130, 200f + 130 , 100f + squarelength + 130, 200f + squarelength + 130, paint);
     }
 
 //    private void drawBoard(Canvas canvas) {
