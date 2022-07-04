@@ -74,22 +74,13 @@ public class chessBoard extends View {
     }
 
     protected void initialLayout(Canvas canvas) {
-        for (int i = 0; i < 8; i++) {
-            insertPiece(canvas, i,1, R.drawable.whitepawn);
-            insertPiece(canvas, i, 6, R.drawable.blackpawn);
+        for (chessPiece piece: chessActivity.pieces) {
+            if (piece == null) {
+                continue;
+            } else {
+                insertPiece(canvas, piece.column, piece.row, piece.id);
+            }
         }
-        for (int i = 0; i < 2; i++) {
-            insertPiece(canvas, 7 * i, 7, R.drawable.blackrook);
-            insertPiece(canvas, 7 * i, 0, R.drawable.whiterook);
-            insertPiece(canvas, 1 + 5 * i, 7, R.drawable.blackknight);
-            insertPiece(canvas, 1 + 5 * i, 0, R.drawable.whiteknight);
-            insertPiece(canvas, 2 + 3 * i, 7, R.drawable.blackbishop);
-            insertPiece(canvas, 2 + 3 * i, 0, R.drawable.whitebishop);
-        }
-        insertPiece(canvas,3 , 7, R.drawable.blackqueen);
-        insertPiece(canvas,3 , 0, R.drawable.whitequeen);
-        insertPiece(canvas,4 , 7, R.drawable.blackking);
-        insertPiece(canvas,4 , 0, R.drawable.whiteking);
     }
 
     protected void insertPiece(Canvas canvas, int column, int row, int id) {
