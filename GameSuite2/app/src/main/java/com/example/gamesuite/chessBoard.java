@@ -1,6 +1,7 @@
 package com.example.gamesuite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -13,6 +14,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -60,7 +63,7 @@ public class chessBoard extends View {
         int x = (int) event.getX();
         int y = (int) event.getY();
         int fcolumn = (int) ((event.getX() - startleft)/squarelength);
-        int frow = (int) ((event.getY() - starttop)/squarelength);
+        int frow = 7 - (int) ((event.getY() - starttop)/squarelength);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 scolumn = (int) ((event.getX() - startleft)/squarelength);
@@ -76,7 +79,7 @@ public class chessBoard extends View {
                 Log.i("TAG", "touched up");
                 break;
         }
-        chessActivity.movePiece(scolumn, srow, frow, fcolumn);
+        chessActivity.movePiece(scolumn, srow, fcolumn, frow);
         view1.invalidate();
         return true;
     }
