@@ -26,6 +26,8 @@ public class chessBoard extends View {
     float startleft;
     float starttop;
     float squarelength = 130f;
+    int scolumn;
+    int srow;
     View view1;
     Map<Integer, Bitmap> pieces = new HashMap<>();
     public chessBoard(Context context, @Nullable AttributeSet attrs) {
@@ -57,30 +59,32 @@ public class chessBoard extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int srow = (int) (startleft - event.getX()/squarelength);
-        int scolumn = (int) (starttop - event.getY()/squarelength);
-
         int x = (int) event.getX();
         int y = (int) event.getY();
         int fcolumn = (int) ((event.getX() - startleft)/squarelength);
         int frow = 7 - (int) ((event.getY() - starttop)/squarelength);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                scolumn = (int) ((event.getX() - startleft)/squarelength);
-                srow = 7 - (int)((event.getY() - starttop)/squarelength);
+                Log.i("TAG", "touched down");
+                scolumn = (int) ((event.getX() - startleft) / squarelength);
+                srow = 7 - (int) ((event.getY() - starttop) / squarelength);
                 Log.i("TAG", "start: (" + srow + ", " + scolumn + ")");
                 break;
             case MotionEvent.ACTION_MOVE:
-                fcolumn = (int) ((event.getX() - startleft)/squarelength);
-                frow = 7 - (int) ((event.getY() - starttop)/squarelength);
-                Log.i("TAG", "moving: (" + frow + ", " + fcolumn + ")");
+                Log.i("TAG", "moving: (" + x + ", " + y + ")");
                 break;
             case MotionEvent.ACTION_UP:
                 Log.i("TAG", "touched up");
+                Log.i("TAG", "starti: (" + srow + ", " + scolumn + ")");
+                Log.i("TAG", "movingi: (" + frow + ", " + fcolumn + ")");
+                Log.i("TAG", "touched up");
+                fcolumn = (int) ((event.getX() - startleft) / squarelength);
+                frow = 7 - (int) ((event.getY() - starttop) / squarelength);
+                chessActivity.movePiece(scolumn, srow, fcolumn, frow);
+                view1.invalidate();
                 break;
         }
-        chessActivity.movePiece(scolumn, srow, fcolumn, frow);
-        view1.invalidate();
+
         return true;
     }
 
