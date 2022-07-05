@@ -51,4 +51,12 @@ public class chessActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
+        Integer index = chessBoard.pieceAt(sColumn, sRow);
+        if ( index != null) {
+            pieces[index].column = fColumn;
+            pieces[index].row = fRow;
+        }
+    }
 }
