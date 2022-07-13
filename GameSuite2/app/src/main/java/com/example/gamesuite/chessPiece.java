@@ -1,6 +1,6 @@
 package com.example.gamesuite;
 
-public class chessPiece {
+public abstract class chessPiece {
     int column;
     int row;
     chessColor color;

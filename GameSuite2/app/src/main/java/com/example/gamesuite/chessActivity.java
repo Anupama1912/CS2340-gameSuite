@@ -14,24 +14,24 @@ public class chessActivity extends AppCompatActivity {
     public static void resetPieces() {
         pieces = new chessPiece[32];
         for (int i = 0; i < 8; i++) {
-            pieces[i] = new chessPiece(i, 1,chessColor.WHITE, chessRank.PAWN, R.drawable.whitepawn );
+            pieces[i] = new pawn(i, 1,chessColor.WHITE);
         }
         for (int i = 8; i < 16; i++) {
-            pieces[i] = new chessPiece(i - 8, 6,chessColor.BLACK, chessRank.PAWN, R.drawable.blackpawn);
+            pieces[i] = new pawn(i - 8, 6,chessColor.BLACK);
         }
         int index = 16;
         for (int i = 0; i < 2; i++ ) {
-            pieces[index++] = new chessPiece(i * 7, 0, chessColor.WHITE, chessRank.ROOK, R.drawable.whiterook);
-            pieces[index++] = new chessPiece(i * 7, 7, chessColor.BLACK, chessRank.ROOK, R.drawable.blackrook);
-            pieces[index++] = new chessPiece(1 + i * 5, 0, chessColor.WHITE, chessRank.KNIGHT, R.drawable.whiteknight);
-            pieces[index++] = new chessPiece(1 + i * 5, 7, chessColor.BLACK, chessRank.KNIGHT, R.drawable.blackknight);
-            pieces[index++] = new chessPiece(2 + i * 3, 0, chessColor.WHITE, chessRank.BISHOP, R.drawable.whitebishop);
-            pieces[index++] = new chessPiece(2 + i * 3, 7, chessColor.BLACK, chessRank.BISHOP, R.drawable.blackbishop);
+            pieces[index++] = new rook(i * 7, 0, chessColor.WHITE);
+            pieces[index++] = new rook(i * 7, 7, chessColor.BLACK);
+            pieces[index++] = new knight(1 + i * 5, 0, chessColor.WHITE);
+            pieces[index++] = new knight(1 + i * 5, 7, chessColor.BLACK);
+            pieces[index++] = new bishop(2 + i * 3, 0, chessColor.WHITE);
+            pieces[index++] = new bishop(2 + i * 3, 7, chessColor.BLACK);
         }
-        pieces[index++] = new chessPiece(3, 0, chessColor.WHITE, chessRank.QUEEN, R.drawable.whitequeen);
-        pieces[index++] = new chessPiece(3, 7, chessColor.BLACK, chessRank.QUEEN, R.drawable.blackqueen);
-        pieces[index++] = new chessPiece(4, 0, chessColor.WHITE, chessRank.KING, R.drawable.whiteking);
-        pieces[index++] = new chessPiece(4, 7, chessColor.BLACK, chessRank.KING, R.drawable.blackking);
+        pieces[index++] = new queen(3, 0, chessColor.WHITE);
+        pieces[index++] = new queen(3, 7, chessColor.BLACK);
+        pieces[index++] = new king(4, 0, chessColor.WHITE);
+        pieces[index++] = new king(4, 7, chessColor.BLACK);
 
     }
 
