@@ -14,6 +14,7 @@ public class GameView extends View {
 
     private int width, height, lineWidth;
     private int mazeSizeX, mazeSizeY;
+    private
     float cellWidth, cellHeight;
     float totalCellWidth, totalCellHeight;
     private int mazeFinishX, mazeFinishY;

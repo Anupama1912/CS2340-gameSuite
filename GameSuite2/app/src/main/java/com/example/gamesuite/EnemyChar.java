@@ -1,2 +1,15 @@
-package com.example.gamesuite;public class EnemyChar {
+package com.example.gamesuite;
+
+import android.graphics.Canvas;
+
+public class EnemyChar extends Character{
+    @Override
+    public void move() {
+
+    }
+
+    @Override
+    public void draw(Canvas c) {
+
+    }
 }
