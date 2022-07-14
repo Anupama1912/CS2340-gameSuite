@@ -62,7 +62,7 @@ public class MainActivity2 extends AppCompatActivity {
         //goes to Princess Run Screen
         ImageButton pcPlay = findViewById(R.id.pcButton);
         pcPlay.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity2.this, Menu.class);
+            Intent intent = new Intent(MainActivity2.this, princessRunActivity.class);
             startActivity(intent);
         });
         //goes to Chess screen
