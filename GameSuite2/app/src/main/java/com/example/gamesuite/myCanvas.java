@@ -13,7 +13,7 @@ import android.view.View;
 public class myCanvas extends View {
     Paint paint;
     Rect rect;
-    public static Bitmap brick, yellowDot, tiles;
+    public static Bitmap brick, yellowDot, tiles, specialDot, openAva, closedAva;
     static float width;
     static float height;
     int size = 600;
@@ -38,6 +38,8 @@ public class myCanvas extends View {
         brick = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
         tiles = BitmapFactory.decodeResource(getResources(), R.drawable.tiles);
         yellowDot = BitmapFactory.decodeResource(getResources(), R.drawable.yellowcir);
+        openAva = BitmapFactory.decodeResource(getResources(), R.drawable.cindyopenmouth);
+        closedAva = BitmapFactory.decodeResource(getResources(), R.drawable.closedmouthcidy);
         for (int row = 0; row < tileMap.map.length; row++) {
             for (int column = 0; column < tileMap.map[row].length; column++) {
                 if (tileMap.map[row][column] == 1) {
@@ -48,6 +50,9 @@ public class myCanvas extends View {
                 }
                 if (tileMap.map[row][column] == 5) {
                     canvas.drawBitmap(yellowDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
+                }
+                if (tileMap.map[row][column] == 10) {
+                    canvas.drawBitmap(openAva, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
                 }
             }
         }
