@@ -8,7 +8,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 public class myCanvas extends View {
     Paint paint;
@@ -18,8 +21,8 @@ public class myCanvas extends View {
     static float height;
     int size = 600;
     static int vBox = tileMap.map.length, hBox = tileMap.map.length;
-    public myCanvas(Context context) {
-        super(context);
+    public myCanvas(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
         paint = new Paint();
         rect = new Rect();
     }

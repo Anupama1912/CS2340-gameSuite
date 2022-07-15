@@ -53,7 +53,7 @@ public class chessActivity extends AppCompatActivity {
 
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
         Integer index = chessBoard.pieceAt(sColumn, sRow);
-        if ( index != null) {
+        if ( index != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {
             pieces[index].column = fColumn;
             pieces[index].row = fRow;
             Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
