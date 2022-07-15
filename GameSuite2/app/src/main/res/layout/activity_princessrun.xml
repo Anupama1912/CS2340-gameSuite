@@ -6,13 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".princessRunActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.gamesuite.myCanvas
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:id="@+id/chessboard"
+        android:layout_height="match_parent">
+        </com.example.gamesuite.myCanvas>
+
+    <ImageButton
+        android:id="@+id/BackGame"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:src="@android:drawable/ic_menu_revert"
+        android:textColor="#EDB8E8"
+        android:background="#a9c0eb"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
