@@ -15,12 +15,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class princessRunActivity extends AppCompatActivity {
-<<<<<<< HEAD
     myCanvas canvas;
-=======
-//    myCanvas canvas;
-
->>>>>>> f285361d2653b9f0eb653fb798868cc041914b65
+    AnimationDrawable anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
