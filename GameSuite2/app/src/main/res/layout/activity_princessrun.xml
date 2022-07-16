@@ -3,15 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".princessRunActivity">
 
-    <view
-        android:id="@+id/view"
-        class="com.example.gamesuite.princessRunActivity"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.gamesuite.myCanvas
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:id="@+id/chessboard"
+        android:layout_height="match_parent">
+        </com.example.gamesuite.myCanvas>
+
+    <ImageButton
+        android:id="@+id/BackGame"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:src="@android:drawable/ic_menu_revert"
+        android:textColor="#EDB8E8"
+        android:background="#a9c0eb"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

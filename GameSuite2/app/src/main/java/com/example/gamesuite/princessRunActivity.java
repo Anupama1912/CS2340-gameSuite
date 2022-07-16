@@ -1,100 +1,41 @@
 package com.example.gamesuite;
-import android.content.Context;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.util.AttributeSet;
-import android.view.View;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-
-public class princessRunActivity extends View {
-    private Cell[][] cells;
-    private static final int COLS = 12, ROWS = 12;
-    private static final float WALL_THICKNESS = 4;
-    private float cellSize, hMargin, vMargin;
-    private Paint wallPaint;
-    public princessRunActivity(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-
-        wallPaint = new Paint();
-        wallPaint.setColor(Color.BLACK);
-        wallPaint.setStrokeWidth(WALL_THICKNESS);
-        createMaze();
-    }
-
-    private void createMaze() {
-        cells = new Cell [COLS][ROWS]; {
-            for(int x=0; x<COLS; x++) {
-                for(int y=0; y<ROWS; y++) {
-                    cells[x][y] = new Cell(x, y);
-                }
-            }
-        }
-    }
+public class princessRunActivity extends AppCompatActivity {
+//    myCanvas canvas;
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.GREEN);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_main);
+        //tileMap map = new tileMap(tileSize);
+//        canvas = new myCanvas(this);
+//        canvas.setBackgroundColor(Color.parseColor("#3f3851"));
+        setContentView(R.layout.activity_princessrun);
 
-        int width = getWidth();
-        int height = getHeight();
+        ImageButton btn = findViewById(R.id.BackGame);
+        btn.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Back Button Works!");
+            Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
+                    .show();
+            Intent intent = new Intent(princessRunActivity.this, MainActivity2.class);
 
-        if(width/height < COLS/ROWS)
-            cellSize = width/(COLS+1);
-        else
-            cellSize = height/(ROWS+ 1);
-        hMargin = (width-COLS*cellSize)/2;
-        vMargin = (height - ROWS*cellSize)/2;
-        canvas.translate(hMargin, vMargin);
-        for(int x=0; x<COLS; x++) {
-            for(int y=0; y<ROWS; y++) {
-                if(cells[x][y].topWall)
-                    canvas.drawLine(
-                            x*cellSize,
-                            y*cellSize,
-                            (x+1)*cellSize,
-                            y*cellSize,
-                            wallPaint);
-                if(cells[x][y].leftWall)
-                    canvas.drawLine(
-                            x*cellSize,
-                            y*cellSize,
-                            (x)*cellSize,
-                            (y+1)*cellSize,
-                            wallPaint);
-                if(cells[x][y].bottomWall)
-                    canvas.drawLine(
-                            x*cellSize,
-                            (y+1)*cellSize,
-                            (x+1)*cellSize,
-                            (y+1)*cellSize,
-                            wallPaint);
-                if(cells[x][y].topWall)
-                    canvas.drawLine(
-                            (x+1)*cellSize,
-                            y*cellSize,
-                            (x+1)*cellSize,
-                            (y+1)*cellSize,
-                            wallPaint);
-
-            }
-        }
-    }
-    private class Cell {
-        boolean
-          topWall = true,
-          leftWall = true,
-          bottomWall = true,
-          rightWall = true;
-
-        int col, row;
-
-        public Cell(int col, int row) {
-            this.col = col;
-            this.row = row;
-        }
-
+            startActivity(intent);
+        });
     }
 }
+
+
+
 
