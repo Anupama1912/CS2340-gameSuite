@@ -31,6 +31,7 @@ public class myCanvas extends View {
     protected void onDraw(Canvas canvas) {
         paint.setColor(Color.parseColor("#DAE2B6"));
         paint.setStrokeWidth(3);
+        size = getWidth()/2 - 50;
         int top = getHeight()/2 - size;
         int left = getWidth()/2 - size;
         int right = getWidth()/2 + size;
