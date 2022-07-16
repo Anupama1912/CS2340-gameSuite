@@ -21,10 +21,15 @@ public class myCanvas extends View {
     static float height;
     int size = 600;
     static int vBox = tileMap.map.length, hBox = tileMap.map.length;
+    EnemyChar[] enemies = new EnemyChar[3];
     public myCanvas(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         rect = new Rect();
+        for(int i = 0; i < enemies.length; i++){
+            enemies[i] = new EnemyChar(i*50 + 50, 40);
+            System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
+        }
     }
 
     @Override
@@ -75,5 +80,20 @@ public class myCanvas extends View {
                 }
             }
         }
+        for(int i = 0; i < enemies.length; i++) {
+            enemies[i].draw(canvas, paint);
+
+
+        }
+    }
+
+    int tileAt(int x, int y) {
+        int top = getHeight()/2 - size;
+        int left = getWidth()/2 - size;
+        int right = getWidth()/2 + size;
+        int bottom = getHeight()/2 + size;
+        int i = (int) ((x - left)/width);
+        int j = (int) ((y - top)/height);
+        return tileMap.map[i][j];
     }
 }
