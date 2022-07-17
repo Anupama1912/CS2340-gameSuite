@@ -3,14 +3,30 @@ package com.example.gamesuite;
 import android.graphics.Canvas;
 
 public class tileMap {
-    private int tileSize;
-
-    public tileMap(int tileSize) {
-        this.tileSize = tileSize;
+    int tileNum;
+    static int[][] currentmap;
+    public tileMap(int tileNum) {
+        this.tileNum = tileNum;
+        if (tileNum == 1) {
+            currentmap = map;
+        }
+        if (tileNum == 2) {
+            currentmap = map2;
+        }
     }
 
-    public void setCanvasSize(Canvas canvas) {
+    public void setTileNum(int tileNum) {
+        this.tileNum = tileNum;
+        if (tileNum == 1) {
+            currentmap = map;
+        }
+        if (tileNum == 2) {
+            currentmap = map2;
+        }
+    }
 
+    public int getTileNum() {
+        return tileNum;
     }
 
     static int[][] map = new int[][]{
@@ -34,5 +50,25 @@ public class tileMap {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
+    static int[][] map2 = new int[][]{
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,1},
+            {1,2,2,2,5,5,5,2,2,5,5,5,5,5,5,5,5,1},
+            {1,2,5,5,5,5,5,5,2,5,5,5,2,3,5,5,5,1},
+            {1,5,2,5,5,5,5,5,2,5,5,5,2,2,2,2,2,1},
+            {1,5,2,2,2,5,5,5,2,5,5,5,5,5,5,5,5,1},
+            {1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
+            {1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
+            {1,5,2,2,2,2,5,5,5,5,5,5,2,2,2,2,5,1},
+            {1,5,5,5,3,2,5,5,5,5,5,5,5,5,5,5,5,1},
+            {1,5,5,2,2,2,2,2,2,5,5,5,5,5,5,5,5,1},
+            {1,5,5,5,5,5,5,5,5,5,2,5,5,5,5,5,5,1},
+            {1,5,5,5,5,5,5,5,5,5,2,5,5,5,2,2,2,1},
+            {1,5,2,2,2,2,2,5,5,5,2,5,5,5,5,5,5,1},
+            {1,5,5,5,5,5,5,5,5,5,5,5,3,5,5,2,5,1},
+            {1,5,5,5,5,5,5,5,5,5,5,2,2,2,2,2,5,1},
+            {1,5,5,5,5,5,5,5,5,5,5,5,5,5,6,7,8,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+    };
 
 }
