@@ -16,18 +16,14 @@ import androidx.annotation.Nullable;
 public class myCanvas extends View {
     Paint paint;
     Rect rect;
-    public static Bitmap brick, pinkDot, tiles, specialDot, avatar, g1, g2, g3;
+    public static Bitmap brick, pinkDot, tiles, specialDot, avatar, g1, g2, g3, lives;
     static float width;
     static float height;
 
-    int size = 600;
+    int size;
     static int vBox = tileMap.map.length, hBox = tileMap.map.length;
-<<<<<<< HEAD
-    public myCanvas(Context context, AttributeSet attrs) {
-=======
     EnemyChar[] enemies = new EnemyChar[3];
-    public myCanvas(Context context, @Nullable AttributeSet attrs) {
->>>>>>> 4fea9830895b3dd65dfcc3de8c9929b5847eebd1
+    public myCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         rect = new Rect();
@@ -52,6 +48,7 @@ public class myCanvas extends View {
         brick = BitmapFactory.decodeResource(getResources(), R.drawable.brick);
         tiles = BitmapFactory.decodeResource(getResources(), R.drawable.tiles);
         pinkDot = BitmapFactory.decodeResource(getResources(), R.drawable.pinkcir);
+        lives = BitmapFactory.decodeResource(getResources(),R.drawable.lives);
         if (princessRunActivity.currentMap.getTileNum() == 1){
             specialDot = BitmapFactory.decodeResource(getResources(), R.drawable.glassshoes);
             avatar = BitmapFactory.decodeResource(getResources(), R.drawable.cindy);
@@ -61,7 +58,7 @@ public class myCanvas extends View {
 
         }
         if (princessRunActivity.currentMap.getTileNum() == 2){
-            specialDot = BitmapFactory.decodeResource(getResources(), R.drawable.glassshoes);
+            specialDot = BitmapFactory.decodeResource(getResources(), R.drawable.lamp);
             avatar = BitmapFactory.decodeResource(getResources(), R.drawable.jas);
             g1 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg1);
             g2 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg2);
@@ -82,7 +79,7 @@ public class myCanvas extends View {
                     canvas.drawBitmap(avatar, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
                 }
                 if (tileMap.currentmap[row][column] == 5) {
-                    canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width - 10, top + row * height + height - 10),paint);
+                    canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint);
                 }
                 if (tileMap.currentmap[row][column] == 6) {
                     canvas.drawBitmap(g1, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
@@ -95,9 +92,12 @@ public class myCanvas extends View {
                 }
             }
         }
+        for (int live = 0; live < tileMap.livesCount; live++) {
+            canvas.drawBitmap(lives, null, new RectF(left + width * live, bottom + 10,left + width + width * live, bottom + height),paint);
+        }
+
         for(int i = 0; i < enemies.length; i++) {
             enemies[i].draw(canvas, paint);
-
 
         }
     }

@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 
 public class tileMap {
     int tileNum;
+    static int livesCount = 3;
     static int[][] currentmap;
     public tileMap(int tileNum) {
         this.tileNum = tileNum;
@@ -23,6 +24,10 @@ public class tileMap {
         if (tileNum == 2) {
             currentmap = map2;
         }
+    }
+
+    public static void setLivesCount(int livesCount) {
+        tileMap.livesCount = livesCount;
     }
 
     public int getTileNum() {
@@ -67,7 +72,7 @@ public class tileMap {
             {1,5,2,2,2,2,2,5,5,5,2,5,5,5,5,5,5,1},
             {1,5,5,5,5,5,5,5,5,5,5,5,3,5,5,2,5,1},
             {1,5,5,5,5,5,5,5,5,5,5,2,2,2,2,2,5,1},
-            {1,5,5,5,5,5,5,5,5,5,5,5,5,5,6,7,8,1},
+            {1,5,2,5,5,5,5,5,5,5,5,5,5,5,6,7,8,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
