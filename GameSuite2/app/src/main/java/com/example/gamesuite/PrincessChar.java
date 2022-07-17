@@ -1,6 +1,7 @@
 package com.example.gamesuite;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 public class PrincessChar extends Character{
     boolean supercharged = false;
@@ -8,12 +9,12 @@ public class PrincessChar extends Character{
     int points = 0;
 
     @Override
-    public void move() {
+    public void move(myCanvas c) {
 
     }
 
     @Override
-    public void draw(Canvas c) {
+    public void draw(Canvas c, Paint p) {
 
     }
 }
