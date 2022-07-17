@@ -1,19 +1,31 @@
 package com.example.gamesuite;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.graphics.Bitmap;
+
+import java.util.Timer;
 
 public class PrincessChar extends Character{
     boolean supercharged = false;
     int lives = 3;
     int points = 0;
+    Bitmap avatar;
     String direction = new String("");
-    int downX, downY, upX, upY = 0;
     final int THRESHOLD = 100;
-    boolean isDone = false;
+    boolean continueMove = true;
+    Timer timer;
+
+    public PrincessChar() {
+        this.speed = 4;
+    }
 
     public void move() {
+        return;
+    }
+    public void move(int downX, int downY, int upX, int upY, float width, float height) {
         int diffX = upX - downX;
         int diffY = upY - downY;
         Log.i("DIFFX", String.valueOf(diffX));
@@ -34,54 +46,100 @@ public class PrincessChar extends Character{
             }
         }
         Log.i("DIR", direction);
-        downX = downY = upX = upY = 0;
-        /*
-        while (!isDone) {
+        Log.i("xPos", String.valueOf(xPos));
+        Log.i("yPos", String.valueOf(yPos));
+        //while (continueMove) {
+            Log.i("if", "ahhh");
             switch (direction) {
                 case "RIGHT":
                     // continue moving right
-                    xPos++;
+                    if (tileMap.map[yPos][xPos + 1] != 1 && tileMap.map[yPos][xPos + 1] != 2) {
+                        lostLife(xPos + 1, yPos);
+                        tileMap.map[yPos][xPos] = 0;
+                        xPos++;
+                        tileMap.map[yPos][xPos] = 4;
+                    } else {
+                        continueMove = false;
+                    }
                     Log.i("xPos", String.valueOf(xPos));
                     break;
                 case "LEFT":
                     // continue moving left
-                    xPos--;
+                    if (tileMap.map[yPos][xPos - 1] != 1 && tileMap.map[yPos][xPos - 1] != 2) {
+                        lostLife(xPos - 1, yPos);
+                        tileMap.map[yPos][xPos] = 0;
+                        xPos--;
+                        tileMap.map[yPos][xPos] = 4;
+                    } else {
+                        continueMove = false;
+                    }
+                    Log.i("xPos", String.valueOf(xPos));
                     break;
                 case "DOWN":
                     // continue moving down
-                    yPos++;
+                    if (tileMap.map[yPos + 1][xPos] != 1 && tileMap.map[yPos + 1][xPos] != 2) {
+                        lostLife(xPos, yPos + 1);
+                        tileMap.map[yPos][xPos] = 0;
+                        yPos++;
+                        tileMap.map[yPos][xPos] = 4;
+                    } else {
+                        continueMove = false;
+                    }
+                    Log.i("yPos", String.valueOf(yPos));
                     break;
                 case "UP":
                     // continue moving up
-                    yPos--;
+                    if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos + 1] != 2) {
+                        lostLife(xPos, yPos - 1);
+                        tileMap.map[yPos][xPos] = 0;
+                        yPos--;
+                        tileMap.map[yPos][xPos] = 4;
+                    } else {
+                        continueMove = false;
+                    }
+                    Log.i("yPos", String.valueOf(yPos));
                     break;
             }
-        }
-         */
+            Log.i("yPos", "end");
     }
 
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                downX = (int) event.getX();
-                downY = (int) event.getY();
-                Log.i("TAG", "touched down " + String.valueOf(downX) + " " + String.valueOf(downY));
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.i("TAG", "moving:");
-                break;
-            case MotionEvent.ACTION_UP:
-                upX = (int) event.getX();
-                upY = (int) event.getY();
-                Log.i("TAG", "touched up");
-                move();
-                break;
+    public void lostLife(int xPos, int yPos) {
+        if (tileMap.map[yPos][xPos] == 6 || tileMap.map[yPos][xPos] == 7 || tileMap.map[yPos][xPos] == 8) {
+            lives--;
         }
-        return true; // ???
+        if (lives == 0) {
+            Log.i("life", "Game Over!");
+            //game over
+        }
+        Log.i("life", String.valueOf(lives));
     }
 
     @Override
     public void draw(Canvas c) {
 
+    }
+
+    public Bitmap getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Bitmap avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setXPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public void setYPos(int yPos) {
+        this.yPos = yPos;
+    }
+
+    public int getXPos() {
+        return xPos;
+    }
+
+    public int getYPos() {
+        return yPos;
     }
 }

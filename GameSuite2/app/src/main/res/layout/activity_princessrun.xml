@@ -32,7 +32,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="100dp"
         android:layout_width="match_parent"
-        android:id="@+id/chessboard"
+        android:id="@+id/maze"
         android:layout_height="match_parent">
         </com.example.gamesuite.myCanvas>
 

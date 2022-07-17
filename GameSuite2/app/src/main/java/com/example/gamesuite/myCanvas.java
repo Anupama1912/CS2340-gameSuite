@@ -9,18 +9,28 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class myCanvas extends View {
     Paint paint;
     Rect rect;
     public static Bitmap brick, pinkDot, tiles, specialDot, avatar, g1, g2, g3;
-    static float width;
-    static float height;
     int size = 600;
-    static int vBox = tileMap.map.length, hBox = tileMap.map.length;
+    int top, left, right,bottom;
+    int vBox = tileMap.map.length, hBox = tileMap.map.length;
+    float width;
+    float height;
+    int downX, downY, upX, upY = 0;
+
+    PrincessChar princess = new PrincessChar();
+
     public myCanvas(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
@@ -31,10 +41,10 @@ public class myCanvas extends View {
     protected void onDraw(Canvas canvas) {
         paint.setColor(Color.parseColor("#DAE2B6"));
         paint.setStrokeWidth(3);
-        int top = getHeight()/2 - size;
-        int left = getWidth()/2 - size;
-        int right = getWidth()/2 + size;
-        int bottom = getHeight()/2 + size;
+        top = getHeight()/2 - size;
+        left = getWidth()/2 - size;
+        right = getWidth()/2 + size;
+        bottom = getHeight()/2 + size;
         canvas.drawRect(left,top, right, bottom, paint);
         width = (right - left)/vBox;
         height = (bottom - top)/hBox;
@@ -43,6 +53,7 @@ public class myCanvas extends View {
         pinkDot = BitmapFactory.decodeResource(getResources(), R.drawable.pinkcir);
         specialDot = BitmapFactory.decodeResource(getResources(), R.drawable.glassshoes);
         avatar = BitmapFactory.decodeResource(getResources(), R.drawable.cindy);
+        princess.setAvatar(avatar);
         g1 = BitmapFactory.decodeResource(getResources(), R.drawable.cindyg1);
         g2 = BitmapFactory.decodeResource(getResources(), R.drawable.cingyg2);
         g3 = BitmapFactory.decodeResource(getResources(), R.drawable.cindyg3);
@@ -54,11 +65,14 @@ public class myCanvas extends View {
                 if (tileMap.map[row][column] == 2) {
                     canvas.drawBitmap(tiles, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
                 }
-                if (tileMap.map[row][column] == 3) {
+                if (tileMap.map[ row][column] == 3) {
                     canvas.drawBitmap(specialDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
                 }
                 if (tileMap.map[row][column] == 4) {
-                    canvas.drawBitmap(avatar, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
+                    Log.i("Pos", String.valueOf(princess.getXPos()) + " " + String.valueOf(princess.getYPos()));
+                    princess.setXPos(column);
+                    princess.setYPos(row);
+                    canvas.drawBitmap(princess.getAvatar(), null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
                 }
                 if (tileMap.map[row][column] == 5) {
                     canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width - 10, top + row * height + height - 10),paint);
@@ -74,5 +88,37 @@ public class myCanvas extends View {
                 }
             }
         }
+    }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                downX = (int) event.getX();
+                downY = (int) event.getY();
+                Log.i("TAG", "touched down " + String.valueOf(downX) + " " + String.valueOf(downY));
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.i("TAG", "moving:");
+                break;
+            case MotionEvent.ACTION_UP:
+                upX = (int) event.getX();
+                upY = (int) event.getY();
+                Log.i("TAG", "touched up");
+                princess.move(downX, downY, upX, upY, width, height);
+                invalidate();
+                downX = downY = upX = upY = 0;
+                /*
+                new Timer().scheduleAtFixedRate(new TimerTask()
+                {
+                    @Override
+                    public void run() {
+                        princess.move(downX, downY, upX, upY, width, height);
+                        invalidate();
+                        downX = downY = upX = upY = 0;
+                    }
+                }, 0, 1000);
+                 */
+        }
+        return true; // ???
     }
 }
