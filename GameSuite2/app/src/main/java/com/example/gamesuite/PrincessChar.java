@@ -6,9 +6,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.graphics.Bitmap;
 
-import java.util.Timer;
+import android.graphics.Paint;
 
-public class PrincessChar extends Character{
+public class PrincessChar extends Character {
     boolean supercharged = false;
     int lives = 3;
     int points = 0;
@@ -22,9 +22,6 @@ public class PrincessChar extends Character{
         this.speed = 4;
     }
 
-    public void move() {
-        return;
-    }
     public void move(int downX, int downY, int upX, int upY, float width, float height) {
         int diffX = upX - downX;
         int diffY = upY - downY;
@@ -102,6 +99,10 @@ public class PrincessChar extends Character{
             }
             Log.i("yPos", "end");
     }
+    
+    @Override
+    public void move(myCanvas c) {
+    }
 
     public void lostLife(int xPos, int yPos) {
         if (tileMap.map[yPos][xPos] == 6 || tileMap.map[yPos][xPos] == 7 || tileMap.map[yPos][xPos] == 8) {
@@ -115,7 +116,7 @@ public class PrincessChar extends Character{
     }
 
     @Override
-    public void draw(Canvas c) {
+    public void draw(Canvas c, Paint p) {
 
     }
 

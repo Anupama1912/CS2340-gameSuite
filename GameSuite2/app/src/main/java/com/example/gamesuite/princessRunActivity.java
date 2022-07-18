@@ -11,12 +11,13 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class princessRunActivity extends AppCompatActivity {
     myCanvas canvas;
-    AnimationDrawable anim;
+    static tileMap currentMap = new tileMap(1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,19 @@ public class princessRunActivity extends AppCompatActivity {
 //        canvas = new myCanvas(this);
 //        canvas.setBackgroundColor(Color.parseColor("#3f3851"));
         setContentView(R.layout.activity_princessrun);
+        ImageButton easyMode = findViewById(R.id.easyMode);
+        easyMode.setOnClickListener(v -> {
+            currentMap.setTileNum(1);
+            View curr = findViewById(R.id.maze);
+            curr.invalidate();
+        });
+
+        ImageButton hardMode = findViewById(R.id.hardMode);
+        hardMode.setOnClickListener(v -> {
+            currentMap.setTileNum(2);
+            View curr = findViewById(R.id.maze);
+            curr.invalidate();
+        });
 
         ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
