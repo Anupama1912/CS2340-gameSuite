@@ -8,11 +8,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.text.method.KeyListener;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Timer;
@@ -26,6 +28,8 @@ public class myCanvas extends View {
     static float height;
     int top, left, right,bottom;
     int downX, downY, upX, upY = 0;
+    Timer timer = new Timer();
+    static String direction = "";
 
     int size;
     static int vBox = tileMap.map.length, hBox = tileMap.map.length;
@@ -40,6 +44,15 @@ public class myCanvas extends View {
             enemies[i] = new EnemyChar(i*50 + 50, 40);
             System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
         }
+
+        timer.scheduleAtFixedRate(new TimerTask()
+        {
+            @Override
+            public void run() {
+                PrincessChar.moveTimer(direction);
+                invalidate();
+            }
+        }, 0, 1000);
     }
 
     @Override
@@ -126,7 +139,9 @@ public class myCanvas extends View {
         return tileMap.map[i][j];
     }
 
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(@NonNull MotionEvent event) {
+        //timer.cancel();
+        PrincessChar.view = findViewById(R.id.maze);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 downX = (int) event.getX();
@@ -140,20 +155,11 @@ public class myCanvas extends View {
                 upX = (int) event.getX();
                 upY = (int) event.getY();
                 Log.i("TAG", "touched up");
-                princess.move(downX, downY, upX, upY, width, height);
-                invalidate();
+                //princess.move(downX, downY, upX, upY, width, height);
+                //invalidate();
+                //downX = downY = upX = upY = 0;
+                direction = princess.move(downX, downY, upX, upY, width, height);
                 downX = downY = upX = upY = 0;
-                /*
-                new Timer().scheduleAtFixedRate(new TimerTask()
-                {
-                    @Override
-                    public void run() {
-                        princess.move(downX, downY, upX, upY, width, height);
-                        invalidate();
-                        downX = downY = upX = upY = 0;
-                    }
-                }, 0, 1000);
-                 */
         }
         return true; // ???
     }
