@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cc7067e-352f-4016-97d8-bc28a2ed546c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GameSuite2/app/src/main/java/com/example/gamesuite/MainActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/GameSuite2/app/src/main/java/com/example/gamesuite/MainActivity2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameSuite2/app/src/main/res/layout/activity_main2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GameSuite2/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7cc7067e-352f-4016-97d8-bc28a2ed546c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

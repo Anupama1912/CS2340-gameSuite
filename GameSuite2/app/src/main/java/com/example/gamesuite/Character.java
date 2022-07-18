@@ -5,8 +5,8 @@ import android.graphics.Paint;
 
 public abstract class Character {
     int size;
-    int xPos;
-    int yPos;
+    static int xPos;
+    static int yPos;
     int speed;
     int pictureID;
     public abstract void move(myCanvas c);
