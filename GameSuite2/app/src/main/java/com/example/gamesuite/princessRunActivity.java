@@ -2,6 +2,7 @@ package com.example.gamesuite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,6 +13,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -49,6 +51,27 @@ public class princessRunActivity extends AppCompatActivity {
 
             startActivity(intent);
         });
+
+        ImageButton info = findViewById(R.id.infoP);
+        info.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Info Button works!");
+            showInstructions();
+        });
+    }
+
+    void showInstructions() {
+        Dialog instrP = new Dialog(princessRunActivity.this);
+        //Have already added custom title in layout. So disable the default title
+        instrP.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Can cancel the dialog by clicking anywhere outside the dialog
+        instrP.setCancelable(true);
+        //Set layout of dialog
+        instrP.setContentView(R.layout.instr_p);
+
+        ImageButton close = instrP.findViewById(R.id.close);
+        close.setOnClickListener(v -> instrP.dismiss());
+
+        instrP.show();
     }
 }
 
