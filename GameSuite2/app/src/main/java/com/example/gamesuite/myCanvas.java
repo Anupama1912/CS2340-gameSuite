@@ -35,24 +35,32 @@ public class myCanvas extends View {
     static int vBox = tileMap.map.length, hBox = tileMap.map.length;
     PrincessChar princess = new PrincessChar();
     EnemyChar[] enemies = new EnemyChar[3];
+    //EnemyChar enemy = new EnemyChar(16, 16, 8);
 
     public myCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         rect = new Rect();
         for(int i = 0; i < enemies.length; i++){
-            enemies[i] = new EnemyChar(i*50 + 50, 40);
-            System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
+            enemies[i] = new EnemyChar(14+i, 16, 6+i);
+            enemies[i].prevAtCurr = tileMap.currentmap[enemies[i].y][enemies[i].x];
+            //System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
         }
+        myCanvas temp = this;
 
         timer.scheduleAtFixedRate(new TimerTask()
         {
             @Override
             public void run() {
                 PrincessChar.moveTimer(direction);
+                for (int i = 0; i < enemies.length; i++) {
+                    EnemyChar enemy = enemies[i];
+                    enemy.move();
+                    System.out.println("Enemy#" + (i+1) +  " X: " + enemy.x + ", Y: " +enemy.y);
+                }
                 invalidate();
             }
-        }, 0, 1000);
+        }, 0, 500);
     }
 
     @Override
@@ -123,10 +131,13 @@ public class myCanvas extends View {
             canvas.drawBitmap(lives, null, new RectF(left + width * live, bottom + 10,left + width + width * live, bottom + height),paint);
         }
 
-        for(int i = 0; i < enemies.length; i++) {
-            enemies[i].draw(canvas, paint);
-
-        }
+        /*for(int i = 0; i < enemies.length; i++) {
+            canvas.drawBitmap(g1, null,
+                    new RectF(enemies[i].xPos - enemies[i].size,
+                            enemies[i].yPos-enemies[i].size,
+                            enemies[i].xPos + enemies[i].size,
+                            enemies[i].yPos-enemies[i].size),paint);
+        }*/
     }
 
     int tileAt(int x, int y) {
@@ -134,9 +145,13 @@ public class myCanvas extends View {
         int left = getWidth()/2 - size;
         int right = getWidth()/2 + size;
         int bottom = getHeight()/2 + size;
+        int r = x - left;
+        float w = width;
+        System.out.println("x - left = " + r);
+        //System.out.println("w = ", + w);
         int i = (int) ((x - left)/width);
         int j = (int) ((y - top)/height);
-        return tileMap.map[i][j];
+        return tileMap.map[j][i];
     }
 
     public boolean onTouchEvent(@NonNull MotionEvent event) {
