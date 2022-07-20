@@ -5,14 +5,21 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class EnemyChar extends Character{
-    int dir = 90;
+    int dirX = 1;
+    int dirY = 0;
+    int avatarNum;
+    public int prevAtCurr = 0;
+    int x;
+    int y;
+    int times = 0;
 
-    public EnemyChar(int x, int y){
+    public EnemyChar(int x, int y, int a){
         this.speed = 4;
         this.pictureID = 0;
-        this.xPos = x;
-        this.yPos = y;
+        this.x = x;
+        this.y = y;
         this.size = 10;
+        this.avatarNum = a;
     }
 
     //0, no movement, 1 E, 2 W, 3 N, 4 S
@@ -40,18 +47,35 @@ public class EnemyChar extends Character{
         25% chance: switch direction, this.move
      */
     @Override
-    public void move(myCanvas c) {
-        if(!this.canMove(c)){
+    public void move() {
+        times++;
+        if(times >= 30){
+            System.out.println("Impossible to move");
+            return;
+        }
+        if(!this.canMove()){
+            System.out.println("Can't move");
             randSwitchDir();
-            move(c);
+            move();
         } else {
             double randomizer = Math.random();
-            if(randomizer <= 0.75){
-                this.xPos += (int) Math.cos(Math.toRadians(dir)) * speed;
-                this.yPos += (int) Math.sin(Math.toRadians(dir)) * speed;
+            if(randomizer <= momentumStrength){
+                System.out.println("Went forward");
+                times = 0;
+                tileMap.currentmap[y][x] = prevAtCurr;
+                x += dirX;
+                y += dirY;
+                int p = tileMap.currentmap[y][x];
+                if(p == 4){
+                    prevAtCurr = 5;
+                } else if(p>=6 && p<=8) {
+                    prevAtCurr = tileMap.currentmap[y][x];
+                }
+                tileMap.currentmap[y][x] = this.avatarNum;
             } else {
+                System.out.println("Still turned");
                 randSwitchDir();
-                this.move(c);
+                this.move();
             }
         }
 
@@ -92,17 +116,41 @@ public class EnemyChar extends Character{
      */
     @Override
     public void draw(Canvas c, Paint p) {
-        c.drawCircle(xPos, yPos, size/2, p);
+        //c.drawCircle(xPos, yPos, size/2, p);
     }
 
     public void randSwitchDir() {
+        int newX;
+        int newY;
         int randomizer = 1 + (int) (Math.random()*3);
-        this.dir = (dir + (randomizer*90)) % 360;
+        if(randomizer == 1) {
+            newX = -dirX;
+            newY = -dirY;
+        }else if(randomizer == 2) {
+            newX = -dirY;
+            newY = dirX;
+        } else {
+            newX = dirY;
+            newY = -dirX;
+        }
+        dirX = newX;
+        dirY = newY;
     }
 
-    public boolean canMove(myCanvas c){
-        int i = c.tileAt(xPos + (int) Math.cos(Math.toRadians(dir)) * speed,
-                yPos + (int) Math.sin(Math.toRadians(dir)) * speed);
-        return i != 1 && i != 2;
+    public boolean canMove(){
+        /*System.out.println(this.xPos);
+        int i = c.tileAt(xPos ,
+                yPos);
+        */
+        int newX = x + dirX;
+        int newY = y + dirY;
+        if(newX < 0 || newX > tileMap.currentmap[0].length) {
+            return false;
+        }
+        if(newY < 0 || newY > tileMap.currentmap[0].length) {
+            return false;
+        }
+        int i = tileMap.currentmap[newY][newX];
+        return i != 1 && i != 2 && i != 6 && i != 7 && i != 8 ;
     }
 }

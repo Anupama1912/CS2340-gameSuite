@@ -190,7 +190,7 @@ public class PrincessChar extends Character {
     }
 
     @Override
-    public void move(myCanvas c) {
+    public void move() {
     }
 
     public static boolean lostLife(int xPos, int yPos) {
