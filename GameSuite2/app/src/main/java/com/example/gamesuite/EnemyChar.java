@@ -50,17 +50,17 @@ public class EnemyChar extends Character{
     public void move() {
         times++;
         if(times >= 30){
-            System.out.println("Impossible to move");
+            //System.out.println("Impossible to move");
             return;
         }
         if(!this.canMove()){
-            System.out.println("Can't move");
+            //System.out.println("Can't move");
             randSwitchDir();
             move();
         } else {
             double randomizer = Math.random();
             if(randomizer <= momentumStrength){
-                System.out.println("Went forward");
+                //System.out.println("Went forward");
                 times = 0;
                 tileMap.currentmap[y][x] = prevAtCurr;
                 x += dirX;
@@ -73,7 +73,7 @@ public class EnemyChar extends Character{
                 }
                 tileMap.currentmap[y][x] = this.avatarNum;
             } else {
-                System.out.println("Still turned");
+                //System.out.println("Still turned");
                 randSwitchDir();
                 this.move();
             }

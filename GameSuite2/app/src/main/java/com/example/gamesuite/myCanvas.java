@@ -28,7 +28,7 @@ public class myCanvas extends View {
     static float height;
     int top, left, right,bottom;
     int downX, downY, upX, upY = 0;
-    Timer timer = new Timer();
+    static Timer timer = new Timer();
     static String direction = "";
 
     int size;
@@ -52,13 +52,17 @@ public class myCanvas extends View {
         {
             @Override
             public void run() {
-                PrincessChar.moveTimer(direction);
-                for (int i = 0; i < enemies.length; i++) {
-                    EnemyChar enemy = enemies[i];
-                    enemy.move();
-                    System.out.println("Enemy#" + (i+1) +  " X: " + enemy.x + ", Y: " +enemy.y);
+                if (direction != "") {
+                    princess.moveTimer(direction);
+                    for (int i = 0; i < enemies.length; i++) {
+                        EnemyChar enemy = enemies[i];
+                        enemy.move();
+                        //System.out.println("Enemy#" + (i + 1) + " X: " + enemy.x + ", Y: " + enemy.y);
+                    }
+                    invalidate();
+                } else {
+
                 }
-                invalidate();
             }
         }, 0, 500);
     }
@@ -147,7 +151,7 @@ public class myCanvas extends View {
         int bottom = getHeight()/2 + size;
         int r = x - left;
         float w = width;
-        System.out.println("x - left = " + r);
+        //System.out.println("x - left = " + r);
         //System.out.println("w = ", + w);
         int i = (int) ((x - left)/width);
         int j = (int) ((y - top)/height);
@@ -164,7 +168,7 @@ public class myCanvas extends View {
                 Log.i("TAG", "touched down " + String.valueOf(downX) + " " + String.valueOf(downY));
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.i("TAG", "moving:");
+                //Log.i("TAG", "moving:");
                 break;
             case MotionEvent.ACTION_UP:
                 upX = (int) event.getX();
@@ -173,7 +177,7 @@ public class myCanvas extends View {
                 //princess.move(downX, downY, upX, upY, width, height);
                 //invalidate();
                 //downX = downY = upX = upY = 0;
-                direction = princess.move(downX, downY, upX, upY, width, height);
+                direction = princess.move(downX, downY, upX, upY);
                 downX = downY = upX = upY = 0;
         }
         return true; // ???

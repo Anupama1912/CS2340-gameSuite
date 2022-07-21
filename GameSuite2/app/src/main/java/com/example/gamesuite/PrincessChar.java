@@ -22,7 +22,7 @@ public class PrincessChar extends Character {
         this.speed = 4;
     }
 
-    public String move(int downX, int downY, int upX, int upY, float width, float height) {
+    public String move(int downX, int downY, int upX, int upY) {
         int diffX = upX - downX;
         int diffY = upY - downY;
         Log.i("DIFFX", String.valueOf(diffX));
@@ -42,6 +42,7 @@ public class PrincessChar extends Character {
                 direction = "UP";
             }
         }
+
         Log.i("DIR", direction);
         Log.i("xPos", String.valueOf(xPos));
         Log.i("yPos", String.valueOf(yPos));
@@ -120,7 +121,7 @@ public class PrincessChar extends Character {
         //}
     }
 
-    public static void moveTimer(String direction) {
+    public void moveTimer(String direction) {
         switch (direction) {
             case "RIGHT":
                 // continue moving right
@@ -172,7 +173,7 @@ public class PrincessChar extends Character {
                 break;
             case "UP":
                 // continue moving up
-                if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos + 1] != 2) {
+                if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos] != 2) {
                     if (lostLife(xPos, yPos - 1)) {
                         break;
                     }
@@ -201,6 +202,7 @@ public class PrincessChar extends Character {
         }
         if (tileMap.livesCount == 0) {
             Log.i("life", "Game Over!");
+            myCanvas.timer.cancel();
             //game over
         }
         Log.i("life", String.valueOf(tileMap.livesCount));

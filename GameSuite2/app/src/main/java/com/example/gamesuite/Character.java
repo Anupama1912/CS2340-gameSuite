@@ -1,5 +1,6 @@
 package com.example.gamesuite;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -10,6 +11,7 @@ public abstract class Character {
     static int yPos;
     int speed;
     int pictureID;
+    Bitmap avatar;
     public abstract void move();
     public abstract void draw(Canvas c, Paint p);
 }
