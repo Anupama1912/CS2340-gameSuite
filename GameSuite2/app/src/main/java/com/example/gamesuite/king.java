@@ -20,14 +20,18 @@ public class king extends chessPiece{
                 if (cDif == 0 && rDif == 0) {
                     continue;
                 } else {
-                    chessPiece piece = chessBoard.pieceAt(column + cDif, row + rDif);
-                    if (piece == null || piece.color != this.color) {
-                        boolean canCheck = checkDetector(column + cDif, row + rDif);
-                        if (!canCheck) {
-                            legalMoves.add(new Pair<>(column + cDif, row + rDif));
+                    int fcolumn = column + cDif;
+                    int frow = row + rDif;
+                    if (fcolumn >= 0 && fcolumn <= 7 && frow >= 0 && frow <= 7) {
+                        chessPiece piece = chessBoard.pieceAt(column + cDif, row + rDif);
+                        if (piece == null || piece.color != this.color) {
+                            boolean canCheck = checkDetector(column + cDif, row + rDif);
+                            if (!canCheck) {
+                                legalMoves.add(new Pair<>(column + cDif, row + rDif));
+                            }
+                        } else {
+                            continue;
                         }
-                    } else {
-                        continue;
                     }
                 }
             }
@@ -87,10 +91,10 @@ public class king extends chessPiece{
                     chessActivity.boardPieces.put(new Pair<>(3, this.row), rook);
                 }
             }
+            chessActivity.boardPieces.put(new Pair<>(column, row), this);
             chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
-            chessActivity.boardPieces.put(new Pair<>(column, row), this);
             moves++;
             return true;
         }
