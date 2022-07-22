@@ -23,8 +23,8 @@ public class chessActivity extends AppCompatActivity {
         for (int i = 0; i < 8; i++) {
             boardPieces.put(new Pair<>(i, 1), new pawn(i, 1,chessColor.WHITE));
         }
-        for (int i = 8; i < 16; i++) {
-            boardPieces.put(new Pair<>(i - 8, 6), new pawn(i, 1,chessColor.BLACK));
+        for (int i = 0; i < 8; i++) {
+            boardPieces.put(new Pair<>(i, 6), new pawn(i, 6,chessColor.BLACK));
 
         }
         for (int i = 0; i < 2; i++ ) {
