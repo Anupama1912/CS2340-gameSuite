@@ -16,13 +16,21 @@ public class pawn extends chessPiece{
 
     @Override
     boolean validateMove(int column, int row) {
-        return false;
+        return true;
     }
 
     @Override
     boolean move(int column, int row) {
-        return false;
+        if (validateMove(column, row)) {
+            chessActivity.boardPieces.put(new Pair<>(column, row), this);
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
+            this.column = column;
+            this.row = row;
+            moves++;
+        }
+        return true;
     }
+
 
     @Override
     boolean canCheck(int column, int row) {

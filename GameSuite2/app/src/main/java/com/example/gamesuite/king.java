@@ -28,19 +28,21 @@ public class king extends chessPiece{
 
     @Override
     boolean validateMove(int column, int row) {
-        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-        return legalMoves.contains(new Pair(column, row));
+        return true;
     }
 
     @Override
     boolean move(int column, int row) {
         if (validateMove(column, row)) {
+            chessActivity.boardPieces.put(new Pair<>(column, row), this);
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
-            return true;
+            moves++;
         }
-        return false;
+        return true;
     }
+
 
     @Override
     boolean canCheck(int column, int row) {
