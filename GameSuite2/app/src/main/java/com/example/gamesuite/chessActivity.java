@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
+    public static int whiteColumn;
+    public static int whiteRow;
+    public static int blackColumn;
+    public static int blackRow;
     public static boolean inCheck;
 
     public static void resetPieces() {
