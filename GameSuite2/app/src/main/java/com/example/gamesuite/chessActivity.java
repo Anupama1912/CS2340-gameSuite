@@ -16,6 +16,7 @@ import java.util.Map;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
+    public static boolean inCheck;
 
     public static void resetPieces() {
         boardPieces = new HashMap<>();
