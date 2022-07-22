@@ -11,6 +11,7 @@ public abstract class chessPiece {
     chessColor color;
     chessRank rank;
     int id;
+    int moves;
 
     public chessPiece(int column, int row, chessColor color, chessRank rank, int id) {
         this.column = column;
@@ -18,6 +19,7 @@ public abstract class chessPiece {
         this.color = color;
         this.rank = rank;
         this.id = id;
+        moves = 0;
     }
 
     /**
