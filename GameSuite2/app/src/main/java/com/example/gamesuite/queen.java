@@ -16,19 +16,12 @@ public class queen extends chessPiece{
 
     @Override
     boolean validateMove(int column, int row) {
-        return true;
+        return false;
     }
 
     @Override
     boolean move(int column, int row) {
-        if (validateMove(column, row)) {
-            chessActivity.boardPieces.put(new Pair<>(column, row), this);
-            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
-            this.column = column;
-            this.row = row;
-            moves++;
-        }
-        return true;
+        return false;
     }
 
     @Override
