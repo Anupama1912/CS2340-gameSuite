@@ -35,6 +35,7 @@ public class queen extends chessPiece{
             if (row < 0 || row > 7) {
                 break;
             }
+            boolean pieceExist = chessBoard.pieceAt(column, row) == null;
             if (chessActivity.inCheck) {
                 boolean prevIsNull = false;
                 chessPiece prev = chessBoard.pieceAt(column, row);
@@ -66,6 +67,9 @@ public class queen extends chessPiece{
                 }
             } else {
                 legalMoves.add(new Pair<>(column, row));
+                if(!pieceExist) {
+                    break;
+                }
             }
             column += columnIncre;
             row += rowIncre;
