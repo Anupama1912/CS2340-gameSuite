@@ -1,38 +1,43 @@
 package com.example.gamesuite;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class chessActivity extends AppCompatActivity {
-    public static chessPiece[] pieces;
+    public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
 
     public static void resetPieces() {
-        pieces = new chessPiece[32];
+        boardPieces = new HashMap<>();
         for (int i = 0; i < 8; i++) {
-            pieces[i] = new pawn(i, 1,chessColor.WHITE);
+            boardPieces.put(new Pair<>(i, 1), new pawn(i, 1,chessColor.WHITE));
         }
         for (int i = 8; i < 16; i++) {
-            pieces[i] = new pawn(i - 8, 6,chessColor.BLACK);
-        }
-        int index = 16;
-        for (int i = 0; i < 2; i++ ) {
-            pieces[index++] = new rook(i * 7, 0, chessColor.WHITE);
-            pieces[index++] = new rook(i * 7, 7, chessColor.BLACK);
-            pieces[index++] = new knight(1 + i * 5, 0, chessColor.WHITE);
-            pieces[index++] = new knight(1 + i * 5, 7, chessColor.BLACK);
-            pieces[index++] = new bishop(2 + i * 3, 0, chessColor.WHITE);
-            pieces[index++] = new bishop(2 + i * 3, 7, chessColor.BLACK);
-        }
-        pieces[index++] = new queen(3, 0, chessColor.WHITE);
-        pieces[index++] = new queen(3, 7, chessColor.BLACK);
-        pieces[index++] = new king(4, 0, chessColor.WHITE);
-        pieces[index++] = new king(4, 7, chessColor.BLACK);
+            boardPieces.put(new Pair<>(i - 8, 6), new pawn(i, 1,chessColor.BLACK));
 
+        }
+        for (int i = 0; i < 2; i++ ) {
+            boardPieces.put(new Pair<>(i * 7, 0), new rook(i * 7, 0, chessColor.WHITE));
+            boardPieces.put(new Pair<>(i * 7, 7), new rook(i * 7, 7, chessColor.BLACK));
+            boardPieces.put(new Pair<>(1 + i * 5, 0), new knight(1 + i * 5, 0, chessColor.WHITE));
+            boardPieces.put(new Pair<>(1 + i * 5, 7), new knight(1 + i * 5, 7, chessColor.BLACK));
+            boardPieces.put(new Pair<>(2 + i * 3, 0), new bishop(2 + i * 3, 0, chessColor.WHITE));
+            boardPieces.put(new Pair<>(2 + i * 3, 7), new bishop(2 + i * 3, 7, chessColor.BLACK));
+        }
+        boardPieces.put(new Pair<>(3, 0),new queen(3, 0, chessColor.WHITE));
+        boardPieces.put(new Pair<>(3, 7),new queen(3, 7, chessColor.BLACK));
+        boardPieces.put(new Pair<>(4, 0),new king(4, 0, chessColor.WHITE));
+        boardPieces.put(new Pair<>(4, 7),new king(4, 7, chessColor.BLACK));
     }
 
     @Override
@@ -51,11 +56,14 @@ public class chessActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
-        Integer index = chessBoard.pieceAt(sColumn, sRow);
-        if ( index != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {
-            pieces[index].column = fColumn;
-            pieces[index].row = fRow;
+        chessPiece piece = chessBoard.pieceAt(sColumn, sRow);
+        if ( piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {
+            piece.column = fColumn;
+            piece.row = fRow;
+            boardPieces.put(new Pair<>(sColumn, sRow), null);
+            boardPieces.put(new Pair<>(fColumn, fRow), piece);
             Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
         }
     }
