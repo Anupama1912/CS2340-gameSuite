@@ -3,6 +3,7 @@ package com.example.gamesuite;
 import android.util.Pair;
 
 import java.util.List;
+import java.util.Set;
 
 public abstract class chessPiece {
     int column;
@@ -23,7 +24,7 @@ public abstract class chessPiece {
      *  Returns possible moves of this piece
      * @return A list of pairs representing cells the piece can move to.
      */
-    abstract List<Pair<Integer, Integer>> getLegalMovements();
+    abstract Set<Pair<Integer, Integer>> getLegalMovements();
 
     /**
      * Checks move legality
@@ -40,4 +41,12 @@ public abstract class chessPiece {
      * @return whether the move was successful
      */
     abstract boolean move(int column, int row);
+
+    /**
+     *
+     * @param column the column of the cell the king wants to move to
+     * @param row the row of the cell the king wants to move to
+     * @return whether the piece would put opposing king at check at that cell
+     */
+    abstract boolean canCheck(int column, int row);
 }
