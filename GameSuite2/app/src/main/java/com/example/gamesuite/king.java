@@ -75,19 +75,19 @@ public class king extends chessPiece{
             if (Math.abs(distance) == 2) {
                 if (distance > 0) {
                     chessPiece rook = chessBoard.pieceAt(7, this.row);
-                    chessActivity.boardPieces.put(new Pair<>(7, this.row), null);
+                    chessActivity.boardPieces.remove(new Pair<>(7, this.row));
                     rook.column = 5;
                     rook.moves++;
                     chessActivity.boardPieces.put(new Pair<>(5, this.row), rook);
                 } else {
                     chessPiece rook = chessBoard.pieceAt(0, this.row);
-                    chessActivity.boardPieces.put(new Pair<>(0, this.row), null);
+                    chessActivity.boardPieces.remove(new Pair<>(0, this.row));
                     rook.column = 3;
                     rook.moves++;
                     chessActivity.boardPieces.put(new Pair<>(3, this.row), rook);
                 }
             }
-            chessActivity.boardPieces.put(new Pair<>(this.column, this.row), null);
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
             chessActivity.boardPieces.put(new Pair<>(column, row), this);

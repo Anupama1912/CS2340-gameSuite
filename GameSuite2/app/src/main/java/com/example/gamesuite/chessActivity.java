@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
@@ -66,5 +67,11 @@ public class chessActivity extends AppCompatActivity {
             boardPieces.put(new Pair<>(fColumn, fRow), piece);
             Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
         }
+    }
+
+    public static void main(String[] args) {
+        chessPiece king = chessBoard.pieceAt(4, 7);
+        Set<Pair<Integer, Integer>> moves = king.getLegalMovements();
+        System.out.print(moves.size());
     }
 }
