@@ -56,7 +56,6 @@ public class chessActivity extends AppCompatActivity {
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
         chessPiece piece = chessBoard.pieceAt(sColumn, sRow);
         if ( piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {

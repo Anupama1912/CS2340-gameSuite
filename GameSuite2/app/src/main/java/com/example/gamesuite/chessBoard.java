@@ -135,8 +135,7 @@ public class chessBoard extends View {
         canvas.drawBitmap(piece, null, new RectF(startleft + column * squarelength, starttop + (7 - row) * squarelength, startleft + 130f + column * squarelength, starttop + 130f + (7 - row) * squarelength), paint);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     protected static chessPiece pieceAt(int column, int row) {
-        return chessActivity.boardPieces.getOrDefault(new Pair<>(column, row), null);
+        return chessActivity.boardPieces.get(new Pair<>(column, row));
     }
 }
