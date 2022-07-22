@@ -85,8 +85,10 @@ public class chessBoard extends View {
                 fcolumn = (int) ((event.getX() - startleft) / squarelength);
                 frow = 7 - (int) ((event.getY() - starttop) / squarelength);
                 if (scolumn >= 0 && scolumn <= 7 && srow >= 0 && srow <= 7) {
-                    chessActivity.movePiece(scolumn, srow, fcolumn, frow);
-                    view1.invalidate();
+                    if (scolumn != fcolumn || srow != frow) {
+                        chessActivity.movePiece(scolumn, srow, fcolumn, frow);
+                        view1.invalidate();
+                    }
                 }
                 break;
         }
