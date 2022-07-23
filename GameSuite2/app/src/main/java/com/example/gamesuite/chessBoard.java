@@ -10,14 +10,17 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +60,7 @@ public class chessBoard extends View {
         initialLayout(canvas);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
@@ -80,8 +84,12 @@ public class chessBoard extends View {
                 Log.i("TAG", "touched up");
                 fcolumn = (int) ((event.getX() - startleft) / squarelength);
                 frow = 7 - (int) ((event.getY() - starttop) / squarelength);
-                chessActivity.movePiece(scolumn, srow, fcolumn, frow);
-                view1.invalidate();
+                if (scolumn >= 0 && scolumn <= 7 && srow >= 0 && srow <= 7) {
+                    if (scolumn != fcolumn || srow != frow) {
+                        chessActivity.movePiece(scolumn, srow, fcolumn, frow);
+                        view1.invalidate();
+                    }
+                }
                 break;
         }
 
@@ -114,7 +122,7 @@ public class chessBoard extends View {
     }
 
     protected void initialLayout(Canvas canvas) {
-        for (chessPiece piece: chessActivity.pieces) {
+        for (chessPiece piece: chessActivity.boardPieces.values()) {
             if (piece == null) {
                 continue;
             } else {
@@ -129,16 +137,7 @@ public class chessBoard extends View {
         canvas.drawBitmap(piece, null, new RectF(startleft + column * squarelength, starttop + (7 - row) * squarelength, startleft + 130f + column * squarelength, starttop + 130f + (7 - row) * squarelength), paint);
     }
 
-    protected static Integer pieceAt(int column, int row) {
-        for (int i = 0; i < chessActivity.pieces.length; i++) {
-            if (chessActivity.pieces[i] == null) {
-                continue;
-            }
-            chessPiece piece = chessActivity.pieces[i];
-            if (piece.column == column && piece.row == row) {
-                return i;
-            }
-        }
-        return null;
+    protected static chessPiece pieceAt(int column, int row) {
+        return chessActivity.boardPieces.get(new Pair<>(column, row));
     }
 }

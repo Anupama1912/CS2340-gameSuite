@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/alex_brush</item>
         <item>@font/averia_serif_libre_bold</item>
         <item>@font/changa_one</item>
+        <item>@font/ibm_plex_serif</item>
         <item>@font/press_start_2p</item>
         <item>@font/staatliches</item>
     </array>

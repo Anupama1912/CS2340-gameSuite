@@ -9,18 +9,6 @@
     tools:context=".MainActivity">
 
 
-<!--    <ToggleButton-->
-<!--        android:id="@+id/toggleButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|end"-->
-<!--        android:textOff="Night"-->
-<!--        android:textOn="Day"-->
-<!--        android:checked="false"-->
-<!--        android:textColor="@color/button_txt"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:backgroundTint="@color/button_bg" />-->
-
     <LinearLayout
         android:layout_width="262dp"
         android:layout_height="251dp"
@@ -29,14 +17,7 @@
         android:orientation="vertical">
 
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/title"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Royal Triad"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:textColor="@color/dTitle"-->
-        <!--            android:textSize="24sp"/>-->
+
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
