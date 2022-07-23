@@ -47,7 +47,9 @@ public class princessRunActivity extends AppCompatActivity {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
                     .show();
-            myCanvas.timer.cancel();
+            if (tileMap.livesCount != 0) {
+                myCanvas.timer.cancel();
+            }
             Intent intent = new Intent(princessRunActivity.this, MainActivity2.class);
 
             startActivity(intent);
