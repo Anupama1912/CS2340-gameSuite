@@ -99,6 +99,16 @@ public class queen extends chessPiece{
 
     @Override
     boolean canCheck(int column, int row) {
-        return validateMove(column, row);
+        if (chessBoard.pieceAt(column, row) == null || chessBoard.pieceAt(column, row).color == this.color) {
+            chessPiece prev = chessBoard.pieceAt(column, row);
+            boolean prevEmpty = prev == null;
+            chessActivity.boardPieces.remove(new Pair<>(column, row));
+            Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
+            if (!prevEmpty) {
+                chessActivity.boardPieces.put(new Pair<>(column, row), prev);
+            }
+            return legalMoves.contains(new Pair<>(column, row));
+        }
+        return false;
     }
 }
