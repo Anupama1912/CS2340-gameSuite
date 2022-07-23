@@ -28,19 +28,19 @@ public class princessRunActivity extends AppCompatActivity {
 //        canvas = new myCanvas(this);
 //        canvas.setBackgroundColor(Color.parseColor("#3f3851"));
         setContentView(R.layout.activity_princessrun);
-        ImageButton easyMode = findViewById(R.id.easyMode);
-        easyMode.setOnClickListener(v -> {
-            currentMap.setTileNum(1);
-            View curr = findViewById(R.id.maze);
-            curr.invalidate();
-        });
-
-        ImageButton hardMode = findViewById(R.id.hardMode);
-        hardMode.setOnClickListener(v -> {
-            currentMap.setTileNum(2);
-            View curr = findViewById(R.id.maze);
-            curr.invalidate();
-        });
+//        ImageButton easyMode = findViewById(R.id.easyMode);
+//        easyMode.setOnClickListener(v -> {
+//            currentMap.setTileNum(1);
+//            View curr = findViewById(R.id.maze);
+//            curr.invalidate();
+//        });
+//
+//        ImageButton hardMode = findViewById(R.id.hardMode);
+//        hardMode.setOnClickListener(v -> {
+//            currentMap.setTileNum(2);
+//            View curr = findViewById(R.id.maze);
+//            curr.invalidate();
+//        });
 
         ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
@@ -48,7 +48,7 @@ public class princessRunActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
                     .show();
             myCanvas.timer.cancel();
-            Intent intent = new Intent(princessRunActivity.this, MainActivity2.class);
+            Intent intent = new Intent(princessRunActivity.this, princessRunWelcome.class);
 
             startActivity(intent);
         });

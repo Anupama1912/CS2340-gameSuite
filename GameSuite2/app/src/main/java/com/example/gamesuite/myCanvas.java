@@ -41,12 +41,15 @@ public class myCanvas extends View {
         super(context, attrs);
         paint = new Paint();
         rect = new Rect();
-        for(int i = 0; i < enemies.length; i++){
+        enemies[0] = new EnemyChar(14, 16, 6);
+        enemies[1] = new EnemyChar(15, 16, 7);
+        enemies[2] = new EnemyChar(16, 16, 8);
+        /*for(int i = 0; i < enemies.length; i++){
             enemies[i] = new EnemyChar(14+i, 16, 6+i);
             enemies[i].prevAtCurr = tileMap.currentmap[enemies[i].y][enemies[i].x];
             //System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
         }
-        myCanvas temp = this;
+        myCanvas temp = this;*/
 
         timer.scheduleAtFixedRate(new TimerTask()
         {
@@ -120,7 +123,7 @@ public class myCanvas extends View {
                 if (tileMap.currentmap[row][column] == 5) {
                     canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint);
                 }
-                if (tileMap.currentmap[row][column] == 6) {
+                /*if (tileMap.currentmap[row][column] == 6) {
                     canvas.drawBitmap(g1, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
                 }
                 if (tileMap.currentmap[row][column] == 7) {
@@ -128,20 +131,26 @@ public class myCanvas extends View {
                 }
                 if (tileMap.currentmap[row][column] == 8) {
                     canvas.drawBitmap(g3, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
-                }
+                }*/
             }
         }
         for (int live = 0; live < tileMap.livesCount; live++) {
             canvas.drawBitmap(lives, null, new RectF(left + width * live, bottom + 10,left + width + width * live, bottom + height),paint);
         }
 
-        /*for(int i = 0; i < enemies.length; i++) {
-            canvas.drawBitmap(g1, null,
-                    new RectF(enemies[i].xPos - enemies[i].size,
-                            enemies[i].yPos-enemies[i].size,
-                            enemies[i].xPos + enemies[i].size,
-                            enemies[i].yPos-enemies[i].size),paint);
-        }*/
+        for(int i = 0; i < enemies.length; i++){
+            EnemyChar enemy = enemies[i];
+            Bitmap b = g1;
+            if(enemy.avatarNum == 7){
+                b = g2;
+            }
+            if(enemy.avatarNum == 8){
+                b = g3;
+            }
+            int col = enemy.x;
+            int row = enemy.y;
+            canvas.drawBitmap(b, null, new RectF(left + col * width, top + row * height, left + col * width + width, top + row * height + height),paint);
+        }
     }
 
     int tileAt(int x, int y) {
