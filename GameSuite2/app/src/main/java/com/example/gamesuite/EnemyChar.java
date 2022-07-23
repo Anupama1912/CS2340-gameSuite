@@ -8,7 +8,7 @@ public class EnemyChar extends Character{
     int dirX = 1;
     int dirY = 0;
     int avatarNum;
-    public int prevAtCurr = 0;
+    //public int prevAtCurr = 0;
     int x;
     int y;
     int times = 0;
@@ -62,16 +62,19 @@ public class EnemyChar extends Character{
             if(randomizer <= momentumStrength){
                 //System.out.println("Went forward");
                 times = 0;
-                tileMap.currentmap[y][x] = prevAtCurr;
+                //tileMap.currentmap[y][x] = prevAtCurr;
                 x += dirX;
                 y += dirY;
-                int p = tileMap.currentmap[y][x];
+                if(tileMap.currentmap[y][x] == 4){
+                    PrincessChar.lostLife();
+                }
+               /* int p = tileMap.currentmap[y][x];
                 if(p == 4){
                     prevAtCurr = 5;
                 } else if(p>=6 && p<=8) {
                     prevAtCurr = tileMap.currentmap[y][x];
                 }
-                tileMap.currentmap[y][x] = this.avatarNum;
+                tileMap.currentmap[y][x] = this.avatarNum;*/
             } else {
                 //System.out.println("Still turned");
                 randSwitchDir();

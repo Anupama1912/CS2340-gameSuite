@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFAED"
+    android:padding="10dp">
+
+    <ImageButton
+        android:id="@+id/close"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top|end"
+        android:backgroundTint="#6B4F4F"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Princess Run"
+        android:fontFamily="@font/press_start_2p"
+        android:textColor="#6B4F4F"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/easy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/press_start_2p"
+        android:textSize="10dp"
+        android:padding="10dp"
+        android:text="easy mode"
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/hard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/press_start_2p"
+        android:textSize="10dp"
+        android:padding="10dp"
+        android:text="hard mode"
+        android:background="@drawable/button"/>
+</LinearLayout>

@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background = "#F7EDDB">
-    <ImageButton
-        android:id="@+id/BackGame"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="top|left"
-        android:orientation="vertical"
-        android:src="@android:drawable/ic_menu_revert"
-        android:textColor="#EDB8E8"
-        android:background="#a9c0eb"/>
-
-    <ImageButton
-        android:id="@+id/infoP"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        app:srcCompat="@android:drawable/ic_menu_info_details"
-        android:textColor="@color/dButtonTxt"
-        android:background="#a9c0eb" />
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/BackGame"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="top|left"
+            android:orientation="vertical"
+            android:src="@android:drawable/ic_menu_revert"
+            android:textColor="#EDB8E8"
+            android:background="#a9c0eb"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/infoP"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="top|right"
+            android:background="#a9c0eb"
+            android:textColor="@color/dButtonTxt"
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/press_start_2p"
         android:gravity="center_horizontal"
-        android:padding="0dp"
         android:text="Princess Run"
         android:textColor="#6B4F4F"
         android:textSize="30dp"
@@ -38,36 +48,36 @@
 
     <com.example.gamesuite.myCanvas
         android:id="@+id/maze"
-        android:layout_width="367dp"
-        android:layout_height="411dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
         android:layout_marginBottom="100dp"
         android:paddingBottom="0dp"></com.example.gamesuite.myCanvas>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="450dp">
+    <!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="450dp">-->
 
-        <ImageButton
-            android:id="@+id/easyMode"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="right"
-            android:layout_marginLeft="255dp"
-            android:orientation="vertical"
-            android:background="@null"
-            android:src="@drawable/easybtn" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/easyMode"-->
+<!--            android:layout_width="65dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:layout_marginLeft="255dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="@null"-->
+<!--            android:src="@drawable/easybtn" />-->
 
-        <ImageButton
-            android:id="@+id/hardMode"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="right"
-            android:background="@null"
-            android:orientation="vertical"
-            android:src="@drawable/hardbtn" />
-    </LinearLayout>
+<!--        <ImageButton-->
+<!--            android:id="@+id/hardMode"-->
+<!--            android:layout_width="65dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:background="@null"-->
+<!--            android:orientation="vertical"-->
+<!--            android:src="@drawable/hardbtn" />-->
+<!--    </LinearLayout>-->
 
-</FrameLayout>
+</LinearLayout>
