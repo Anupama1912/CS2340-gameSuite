@@ -27,13 +27,13 @@ public class chessActivity extends AppCompatActivity {
     public static void resetPieces() {
         boardPieces = new HashMap<>();
         for (int i = 0; i < 8; i++) {
-            boardPieces.put(new Pair<>(i, 1), new pawn(i, 1,chessColor.WHITE));
+            boardPieces.put(new Pair<>(i, 1), new pawn(i, 1, chessColor.WHITE));
         }
         for (int i = 0; i < 8; i++) {
-            boardPieces.put(new Pair<>(i, 6), new pawn(i, 6,chessColor.BLACK));
+            boardPieces.put(new Pair<>(i, 6), new pawn(i, 6, chessColor.BLACK));
 
         }
-        for (int i = 0; i < 2; i++ ) {
+        for (int i = 0; i < 2; i++) {
             boardPieces.put(new Pair<>(i * 7, 0), new rook(i * 7, 0, chessColor.WHITE));
             boardPieces.put(new Pair<>(i * 7, 7), new rook(i * 7, 7, chessColor.BLACK));
             boardPieces.put(new Pair<>(1 + i * 5, 0), new knight(1 + i * 5, 0, chessColor.WHITE));
@@ -41,10 +41,10 @@ public class chessActivity extends AppCompatActivity {
             boardPieces.put(new Pair<>(2 + i * 3, 0), new bishop(2 + i * 3, 0, chessColor.WHITE));
             boardPieces.put(new Pair<>(2 + i * 3, 7), new bishop(2 + i * 3, 7, chessColor.BLACK));
         }
-        boardPieces.put(new Pair<>(3, 0),new queen(3, 0, chessColor.WHITE));
-        boardPieces.put(new Pair<>(3, 7),new queen(3, 7, chessColor.BLACK));
-        boardPieces.put(new Pair<>(4, 0),new king(4, 0, chessColor.WHITE));
-        boardPieces.put(new Pair<>(4, 7),new king(4, 7, chessColor.BLACK));
+        boardPieces.put(new Pair<>(3, 0), new queen(3, 0, chessColor.WHITE));
+        boardPieces.put(new Pair<>(3, 7), new queen(3, 7, chessColor.BLACK));
+        boardPieces.put(new Pair<>(4, 0), new king(4, 0, chessColor.WHITE));
+        boardPieces.put(new Pair<>(4, 7), new king(4, 7, chessColor.BLACK));
     }
 
     @Override
@@ -63,14 +63,16 @@ public class chessActivity extends AppCompatActivity {
         });
     }
 
+
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
         chessPiece piece = chessBoard.pieceAt(sColumn, sRow);
-        if ( piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {piece.move(fColumn, fRow);
-          piece.column = fColumn;
-          piece.row = fRow;
-          boardPieces.put(new Pair<>(sColumn, sRow), null);
-          boardPieces.put(new Pair<>(fColumn, fRow), piece);
-          Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
+        if (piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {
+//            piece.column = fColumn;
+//            piece.row = fRow;
+//            boardPieces.put(new Pair<>(sColumn, sRow), null);
+//            boardPieces.put(new Pair<>(fColumn, fRow), piece);
+            piece.move(fColumn, fRow);
+            Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
         }
     }
 }
