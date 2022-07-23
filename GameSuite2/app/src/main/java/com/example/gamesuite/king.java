@@ -9,13 +9,6 @@ public class king extends chessPiece{
 
     public king(int column, int row, chessColor color) {
         super(column, row, color, chessRank.KING, (color == chessColor.BLACK)? R.drawable.blackking: R.drawable.whiteking);
-        if (color == chessColor.BLACK) {
-            chessActivity.blackColumn = column;
-            chessActivity.blackRow = row;
-        } else {
-            chessActivity.whiteColumn = column;
-            chessActivity.whiteRow = row;
-        }
     }
 
     @Override
@@ -46,11 +39,11 @@ public class king extends chessPiece{
             this.column = column;
             this.row = row;
             if (color == chessColor.BLACK) {
-                chessActivity.blackColumn = column;
-                chessActivity.blackRow = row;
+                chessActivity.bKingCol = column;
+                chessActivity.bKingRow = row;
             } else {
-                chessActivity.whiteColumn = column;
-                chessActivity.whiteRow = row;
+                chessActivity.wKingCol = column;
+                chessActivity.wKingRow = row;
             }
             moves++;
         }
