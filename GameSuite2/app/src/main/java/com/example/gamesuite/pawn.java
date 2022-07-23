@@ -15,6 +15,10 @@ public class pawn extends chessPiece{
 
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
+        return getLegalMovements(false);
+    }
+
+    Set<Pair<Integer, Integer>> getLegalMovements(boolean king) {
         Map<Pair<Integer, Integer>, chessPiece> chessPieces = chessActivity.boardPieces;
         Set<Pair<Integer, Integer>> legalMovements = new HashSet<Pair<Integer, Integer>>();
         int color = 1;
@@ -25,7 +29,7 @@ public class pawn extends chessPiece{
         }
         if(column < 8) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column+1, row + color))
-                    && chessPieces.get(new Pair<Integer, Integer>(column + 1, row + color)).color == opposite){
+                    && (chessPieces.get(new Pair<Integer, Integer>(column + 1, row + color)).color == opposite || king)){
                 legalMovements.add(new Pair<Integer, Integer>(column + 1, row + color));
             }
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column+1, row))) {
@@ -37,7 +41,7 @@ public class pawn extends chessPiece{
         }
         if(column > 0) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column-1, row + color))
-                    && chessPieces.get(new Pair<Integer, Integer>(column-1, row + color)).color == opposite){
+                    && (chessPieces.get(new Pair<Integer, Integer>(column-1, row + color)).color == opposite || king)){
                 legalMovements.add(new Pair<Integer, Integer>(column-1, row + color));
             }
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column-1, row))) {
@@ -47,10 +51,10 @@ public class pawn extends chessPiece{
                 }
             }
         }
-        if(!chessPieces.containsKey(new Pair<Integer, Integer>(column, row + 1))){
+        if(!chessPieces.containsKey(new Pair<Integer, Integer>(column, row + 1)) && !king){
             legalMovements.add(new Pair<Integer, Integer>(column, row + 1));
         }
-        if(numMoves == 0 && !chessPieces.containsKey(new Pair<Integer, Integer>(column, row + 2))){
+        if(numMoves == 0 && !chessPieces.containsKey(new Pair<Integer, Integer>(column, row + 2)) && !king){
             legalMovements.add(new Pair<Integer, Integer>(column, row + 2));
         }
         return legalMovements;
@@ -94,7 +98,8 @@ public class pawn extends chessPiece{
 
     @Override
     boolean canCheck(int column, int row) {
-        if(validateMove(column, row)) {
+        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements(true);
+        if(legalMoves.contains(new Pair<Integer, Integer>(column, row))){
             return true;
         }
         return false;
