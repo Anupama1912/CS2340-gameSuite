@@ -62,6 +62,16 @@ public abstract class chessPiece {
      * @return whether or not the king would be in check if this move where to happen
      */
     boolean kingInCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces){
+        chessColor opposite = chessColor.BLACK;
+        if(this.color == chessColor.BLACK) {
+            opposite = chessColor.WHITE;
+        }
+        for(Map.Entry<Pair<Integer, Integer>,chessPiece> entry : chessPieces.entrySet()) {
+            HashMap<Pair<Integer, Integer>, chessPiece> toPass = new HashMap<Pair<Integer, Integer>, chessPiece>(chessPieces);
+            if(entry.getValue().color == opposite && entry.getValue().canCheck(toPass)) {
+                return true;
+            }
+        }
         return false;
     }
 }
