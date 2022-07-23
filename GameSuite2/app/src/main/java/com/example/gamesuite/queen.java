@@ -92,6 +92,8 @@ public class queen extends chessPiece{
             chessActivity.boardPieces.put(new Pair<>(column, row), this);
             this.column = column;
             this.row = row;
+            Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
+
             return true;
         }
         return false;
