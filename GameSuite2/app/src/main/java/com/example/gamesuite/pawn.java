@@ -82,8 +82,11 @@ public class pawn extends chessPiece{
             } else {
                 this.taking = 0;
             }
+
+            chessActivity.boardPieces.remove(new Pair<Integer, Integer>(this.column, this.row));
             this.column = column;
             this.row = row;
+            chessActivity.boardPieces.put(new Pair<Integer, Integer>(this.column, this.row), this);
             return true;
         }
         return false;
