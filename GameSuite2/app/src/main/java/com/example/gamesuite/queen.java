@@ -6,8 +6,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class queen extends chessPiece{
+    boolean inCheck;
+    chessColor oppColor;
+    boolean oppInCheck;
+    int oppColumn;
+    int oppRow;
     public queen(int column, int row, chessColor color) {
         super(column, row, color, chessRank.QUEEN, (color == chessColor.BLACK)? R.drawable.blackqueen: R.drawable.whitequeen);
+        if(color == chessColor.BLACK) {
+            inCheck = chessActivity.blackInCheck;
+            oppInCheck = chessActivity.whiteInCheck;
+            oppColor = chessColor.WHITE;
+            oppColumn = chessActivity.whiteColumn;
+            oppRow = chessActivity.whiteRow;
+        } else {
+            inCheck = chessActivity.whiteInCheck;
+            oppInCheck = chessActivity.blackInCheck;
+            oppColor = chessColor.BLACK;
+            oppColumn = chessActivity.blackColumn;
+            oppRow = chessActivity.blackRow;
+        }
     }
 
     @Override
@@ -93,7 +111,14 @@ public class queen extends chessPiece{
             this.column = column;
             this.row = row;
             Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-
+            if (legalMoves.contains(new Pair<>(oppColumn, oppRow))) {
+                oppInCheck = true;
+            }
+            if (oppColor == chessColor.BLACK) {
+                chessActivity.blackInCheck = oppInCheck;
+            } else {
+                chessActivity.whiteInCheck = oppInCheck;
+            }
             return true;
         }
         return false;

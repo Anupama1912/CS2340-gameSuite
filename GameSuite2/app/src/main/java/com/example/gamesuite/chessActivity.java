@@ -21,6 +21,8 @@ public class chessActivity extends AppCompatActivity {
     public static int blackColumn;
     public static int blackRow;
     public static boolean inCheck;
+    public static boolean blackInCheck;
+    public static boolean whiteInCheck;
 
     public static void resetPieces() {
         boardPieces = new HashMap<>();
