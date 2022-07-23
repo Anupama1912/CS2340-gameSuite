@@ -7,15 +7,72 @@
     android:background="@drawable/wordlebg"
     tools:context=".WordleActivity">
 
-    <ImageButton
-        android:id="@+id/BackGame"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="top"
-        android:orientation="vertical"
-        android:src="@android:drawable/ic_menu_revert"
-        android:textColor="#EDB8E8"
-        android:background="#a9c0eb"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/BackGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#a9c0eb"
+            android:orientation="vertical"
+            android:src="@android:drawable/ic_menu_revert"
+            android:textColor="#EDB8E8" />
+        <ImageButton
+            android:id="@+id/stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:rotation="270"
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+            android:textColor="@color/dButtonTxt"
+            android:background="#a9c0eb" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Wordle"
+            android:fontFamily="@font/alex_brush"
+            android:textColor="#E681DD"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <ImageButton
+            android:id="@+id/infoWordle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+
+            app:srcCompat="@android:drawable/ic_menu_info_details"
+            android:textColor="@color/dButtonTxt"
+            android:background="#a9c0eb" />
+
+
+        <ImageButton
+            android:id="@+id/restartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:background="#a9c0eb"
+            android:textColor="@color/dButtonTxt"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+    </LinearLayout>
+
 
 <!--    <EditText-->
 <!--        android:id="@+id/editText"-->
@@ -54,24 +111,7 @@
 <!--    tools:layout_editor_absoluteX="139dp"-->
 <!--    tools:layout_editor_absoluteY="210dp"-->
 
-    <ImageButton
-        android:id="@+id/infoWordle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        app:srcCompat="@android:drawable/ic_menu_info_details"
-        android:textColor="@color/dButtonTxt"
-        android:background="#a9c0eb" />
 
-    <ImageButton
-        android:id="@+id/restartBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="30dp"
-        android:background="#a9c0eb"
-        android:textColor="@color/dButtonTxt"
-        app:srcCompat="@android:drawable/ic_menu_rotate" />
 
 
 </FrameLayout>

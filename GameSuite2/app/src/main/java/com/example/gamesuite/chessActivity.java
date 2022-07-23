@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
+    public static int whiteColumn;
+    public static int whiteRow;
+    public static int blackColumn;
+    public static int blackRow;
     public static boolean inCheck;
 
     public static void resetPieces() {
@@ -59,12 +63,12 @@ public class chessActivity extends AppCompatActivity {
 
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
         chessPiece piece = chessBoard.pieceAt(sColumn, sRow);
-        if ( piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {
-            piece.column = fColumn;
-            piece.row = fRow;
-            boardPieces.put(new Pair<>(sColumn, sRow), null);
-            boardPieces.put(new Pair<>(fColumn, fRow), piece);
-            Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
+        if ( piece != null && fColumn >= 0 && fColumn <= 7 && fRow >= 0 && fRow <= 7) {piece.move(fColumn, fRow);
+          piece.column = fColumn;
+          piece.row = fRow;
+          boardPieces.put(new Pair<>(sColumn, sRow), null);
+          boardPieces.put(new Pair<>(fColumn, fRow), piece);
+          Log.i("TAG", "moving piece: (" + fColumn + ", " + fRow + ")");
         }
     }
 }

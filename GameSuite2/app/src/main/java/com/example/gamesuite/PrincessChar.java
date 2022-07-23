@@ -126,9 +126,9 @@ public class PrincessChar extends Character {
             case "RIGHT":
                 // continue moving right
                 if (tileMap.map[yPos][xPos + 1] != 1 && tileMap.map[yPos][xPos + 1] != 2) {
-                    if (lostLife(xPos + 1, yPos)) {
-                        break;
-                    }
+//                    if (lostLife(xPos + 1, yPos)) {
+//                        break;
+//                    }
                     ;
                     tileMap.map[yPos][xPos] = 0;
                     xPos++;
@@ -142,9 +142,9 @@ public class PrincessChar extends Character {
             case "LEFT":
                 // continue moving left
                 if (tileMap.map[yPos][xPos - 1] != 1 && tileMap.map[yPos][xPos - 1] != 2) {
-                    if (lostLife(xPos - 1, yPos)) {
-                        break;
-                    }
+//                    if (lostLife(xPos - 1, yPos)) {
+//                        break;
+//                    }
                     ;
                     tileMap.map[yPos][xPos] = 0;
                     xPos--;
@@ -158,10 +158,10 @@ public class PrincessChar extends Character {
             case "DOWN":
                 // continue moving down
                 if (tileMap.map[yPos + 1][xPos] != 1 && tileMap.map[yPos + 1][xPos] != 2) {
-                    if (lostLife(xPos, yPos + 1)) {
-                        Log.i("lostLife", String.valueOf("true"));
-                        break;
-                    }
+//                    if (lostLife(xPos, yPos + 1)) {
+//                        Log.i("lostLife", String.valueOf("true"));
+//                        break;
+//                    }
                     tileMap.map[yPos][xPos] = 0;
                     yPos++;
                     tileMap.map[yPos][xPos] = 4;
@@ -174,9 +174,9 @@ public class PrincessChar extends Character {
             case "UP":
                 // continue moving up
                 if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos] != 2) {
-                    if (lostLife(xPos, yPos - 1)) {
-                        break;
-                    }
+//                    if (lostLife(xPos, yPos - 1)) {
+//                        break;
+//                    }
                     ;
                     tileMap.map[yPos][xPos] = 0;
                     yPos--;
@@ -194,19 +194,19 @@ public class PrincessChar extends Character {
     public void move() {
     }
 
-    public static boolean lostLife(int xPos, int yPos) {
+    public static void lostLife() {
         boolean lost = false;
-        if (tileMap.map[yPos][xPos] == 6 || tileMap.map[yPos][xPos] == 7 || tileMap.map[yPos][xPos] == 8) {
+        /*if (tileMap.map[yPos][xPos] == 6 || tileMap.map[yPos][xPos] == 7 || tileMap.map[yPos][xPos] == 8) {
             tileMap.setLivesCount(tileMap.livesCount - 1);
             lost = true;
-        }
+        }*/
+        tileMap.setLivesCount(tileMap.livesCount - 1);
         if (tileMap.livesCount == 0) {
             Log.i("life", "Game Over!");
             myCanvas.timer.cancel();
             //game over
         }
         Log.i("life", String.valueOf(tileMap.livesCount));
-        return lost;
     }
 
     @Override
