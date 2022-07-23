@@ -48,6 +48,9 @@ public class EnemyChar extends Character{
      */
     @Override
     public void move() {
+        if(tileMap.currentmap[y][x] == 4){
+            PrincessChar.lostLife();
+        }
         times++;
         if(times >= 30){
             //System.out.println("Impossible to move");
