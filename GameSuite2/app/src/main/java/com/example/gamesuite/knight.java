@@ -2,6 +2,7 @@ package com.example.gamesuite;
 
 import android.util.Pair;
 
+import java.util.HashMap;
 import java.util.Set;
 
 public class knight extends chessPiece{
@@ -33,7 +34,7 @@ public class knight extends chessPiece{
     }
 
     @Override
-    boolean canCheck(int column, int row) {
+    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
         return false;
     }
 }

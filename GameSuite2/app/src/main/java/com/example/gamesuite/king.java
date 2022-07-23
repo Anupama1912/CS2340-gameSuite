@@ -2,7 +2,11 @@ package com.example.gamesuite;
 
 import android.util.Pair;
 
+<<<<<<< HEAD
 
+=======
+import java.util.HashMap;
+>>>>>>> 101761e3bdeca049997bbbe8f464a655ef2aeaf9
 import java.util.HashSet;
 import java.util.Set;
 
@@ -102,7 +106,7 @@ public class king extends chessPiece{
     }
 
     @Override
-    boolean canCheck(int column, int row) {
+    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
         Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
         return legalMoves.contains(new Pair(column, row));
     }

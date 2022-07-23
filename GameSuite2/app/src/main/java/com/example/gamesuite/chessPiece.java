@@ -2,7 +2,9 @@ package com.example.gamesuite;
 
 import android.util.Pair;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public abstract class chessPiece {
@@ -46,9 +48,20 @@ public abstract class chessPiece {
 
     /**
      *
-     * @param column the column of the cell the king wants to move to
-     * @param row the row of the cell the king wants to move to
-     * @return whether the piece would put opposing king at check at that cell
+     * @param chessPieces a Map which is a COPY of the original map (this can be a map of a
+     *                    hypothetical move or just a copy of the original hashmap)
+     * @return whether the piece can put opposing king at check
      */
-    abstract boolean canCheck(int column, int row);
+    abstract boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces);
+
+    /**
+     * Returns whether the current pieces king is in check in a map of pieces representing
+     * a hypothetical move
+     * @param chessPieces a Map which is a COPY of the original map, with a hypothetical move the
+     *                   piece wants to make already made
+     * @return whether or not the king would be in check if this move where to happen
+     */
+    boolean kingInCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces){
+        return false;
+    }
 }

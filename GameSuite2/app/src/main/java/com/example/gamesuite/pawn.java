@@ -2,8 +2,12 @@ package com.example.gamesuite;
 
 import android.util.Pair;
 
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Map;
+=======
+import java.util.HashMap;
+>>>>>>> 101761e3bdeca049997bbbe8f464a655ef2aeaf9
 import java.util.Set;
 
 public class pawn extends chessPiece{
@@ -97,11 +101,15 @@ public class pawn extends chessPiece{
     }
 
     @Override
+<<<<<<< HEAD
     boolean canCheck(int column, int row) {
         Set<Pair<Integer, Integer>> legalMoves = getLegalMovements(true);
         if(legalMoves.contains(new Pair<Integer, Integer>(column, row))){
             return true;
         }
+=======
+    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
+>>>>>>> 101761e3bdeca049997bbbe8f464a655ef2aeaf9
         return false;
     }
 }
