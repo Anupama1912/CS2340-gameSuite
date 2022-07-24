@@ -26,7 +26,8 @@ public class rook extends chessPiece{
     }
 
     @Override
-    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
+    boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
         return false;
     }
+
 }

@@ -51,10 +51,9 @@ public class king extends chessPiece{
         return true;
     }
 
-
     @Override
-    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
-        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-        return legalMoves.contains(new Pair(column, row));
+    boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
+        return false;
     }
+
 }

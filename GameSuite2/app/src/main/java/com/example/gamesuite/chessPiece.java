@@ -3,8 +3,6 @@ package com.example.gamesuite;
 import android.util.Pair;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public abstract class chessPiece {
@@ -52,7 +50,7 @@ public abstract class chessPiece {
      *                    hypothetical move or just a copy of the original hashmap)
      * @return whether the piece can put opposing king at check
      */
-    abstract boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces);
+    abstract boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces, int col, int row);
 
     /**
      * Returns whether the current pieces king is in check in a map of pieces representing

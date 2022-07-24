@@ -48,9 +48,6 @@ public class chessActivity extends AppCompatActivity {
         boardPieces.put(new Pair<>(3, 7),new queen(3, 7, chessColor.BLACK));
         boardPieces.put(new Pair<>(4, 0),new king(4, 0, chessColor.WHITE));
         boardPieces.put(new Pair<>(4, 7),new king(4, 7, chessColor.BLACK));
-        for (chessPiece piece: boardPieces.values()) {
-            board.put(new Pair<>(piece.column, piece.row), piece);
-        }
         wKingRow = 0;
         bKingRow = 7;
         wKingCol = 4;
@@ -147,5 +144,4 @@ public class chessActivity extends AppCompatActivity {
             whiteInCheck = check;
         }
     }
-}
 }
