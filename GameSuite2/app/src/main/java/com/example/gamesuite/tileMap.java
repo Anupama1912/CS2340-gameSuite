@@ -1,11 +1,9 @@
 package com.example.gamesuite;
 
-import android.graphics.Canvas;
-
 public class tileMap {
     int tileNum;
-    static int livesCount = 3;
-    static int[][] currentmap;
+    int livesCount = 3;
+    int[][] currentmap;
     public tileMap(int tileNum) {
         this.tileNum = tileNum;
         if (tileNum == 1) {
@@ -15,7 +13,7 @@ public class tileMap {
             currentmap = map2;
         }
     }
-
+/*
     public void setTileNum(int tileNum) {
         this.tileNum = tileNum;
         if (tileNum == 1) {
@@ -25,16 +23,20 @@ public class tileMap {
             currentmap = map2;
         }
     }
+*/
+    public int getLivesCount() {
+        return livesCount;
+    }
 
-    public static void setLivesCount(int livesCount) {
-        tileMap.livesCount = livesCount;
+    public void setLivesCount(int livesCount) {
+        this.livesCount = livesCount;
     }
 
     public int getTileNum() {
         return tileNum;
     }
 
-    static int[][] map = new int[][]{
+    int[][] map = new int[][]{
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,1},
             {1,2,2,2,5,5,5,2,2,5,5,5,5,5,5,5,5,1},
@@ -55,7 +57,7 @@ public class tileMap {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
-    static int[][] map2 = new int[][]{
+    int[][] map2 = new int[][]{
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,1},
             {1,2,2,2,5,5,5,2,2,5,5,5,5,5,5,5,5,1},
@@ -75,5 +77,26 @@ public class tileMap {
             {1,5,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
+
+//    int[][] map2 = new int[][]{
+//            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,4,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+//            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+//    };
 
 }

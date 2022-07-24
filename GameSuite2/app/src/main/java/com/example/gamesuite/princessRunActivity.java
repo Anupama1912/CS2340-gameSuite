@@ -15,11 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class princessRunActivity extends AppCompatActivity {
-    myCanvas canvas;
-    static tileMap currentMap = new tileMap(1);
+    static tileMap currentMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +41,43 @@ public class princessRunActivity extends AppCompatActivity {
 //            View curr = findViewById(R.id.maze);
 //            curr.invalidate();
 //        });
+        TextView score = findViewById(R.id.score);
+        Thread t = new Thread(){
+            @Override
+            public void run() {
+                while (!isInterrupted()) {
+                    try {
+                        Thread.sleep(500);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                score.setText("Score: " + PrincessChar.points);
+                                if(PrincessChar.gameWon() == 1) {
+                                    score.setTextSize(8);
+                                    score.setText("You WON! Best score: " + MainActivity2.prBestScore + " Current score: " + PrincessChar.points);
+                                } else if (PrincessChar.gameWon() == 2) {
+                                    score.setTextSize(8);
+                                    score.setText("You LOST! Best score: " + MainActivity2.prBestScore + " Current score: " + PrincessChar.points);
+                                }
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
 
         ImageButton btn = findViewById(R.id.BackGame);
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
                     .show();
-            myCanvas.timer.cancel();
+            if (princessRunActivity.currentMap.getLivesCount() != 0) {
+                myCanvas.timer.cancel();
+            }
+            PrincessChar.points = 0;
             Intent intent = new Intent(princessRunActivity.this, princessRunWelcome.class);
 
             startActivity(intent);
@@ -59,6 +89,7 @@ public class princessRunActivity extends AppCompatActivity {
             showInstructions();
         });
     }
+
 
     void showInstructions() {
         Dialog instrP = new Dialog(princessRunActivity.this);
@@ -74,6 +105,7 @@ public class princessRunActivity extends AppCompatActivity {
 
         instrP.show();
     }
+
 }
 
 
