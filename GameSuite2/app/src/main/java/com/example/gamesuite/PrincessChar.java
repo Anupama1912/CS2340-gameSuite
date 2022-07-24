@@ -168,7 +168,7 @@ public class PrincessChar extends Character {
     public static int gameWon() {
         if (princessRunActivity.currentMap.getLivesCount() > 0 && myCanvas.dotCount <= 0) {
             return 1;
-        } else if (princessRunActivity.currentMap.getLivesCount() == 0) {
+        } else if (princessRunActivity.currentMap.getLivesCount() <= 0) {
             return 2;
         }
         return 0;

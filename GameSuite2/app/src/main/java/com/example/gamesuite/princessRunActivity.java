@@ -79,7 +79,7 @@ public class princessRunActivity extends AppCompatActivity {
             }
             PrincessChar.points = 0;
             Intent intent = new Intent(princessRunActivity.this, princessRunWelcome.class);
-
+            t.interrupt();
             startActivity(intent);
         });
 

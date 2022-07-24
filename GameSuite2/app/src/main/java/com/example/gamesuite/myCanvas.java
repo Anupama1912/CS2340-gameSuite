@@ -32,7 +32,6 @@ public class myCanvas extends View {
     int downX, downY, upX, upY = 0;
     static Timer timer;
     static int dotCount = 100;
-    TextView score = findViewById(R.id.score);
     //static String direction = "";
 
     int size;
