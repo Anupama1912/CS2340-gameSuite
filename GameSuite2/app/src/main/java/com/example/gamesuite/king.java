@@ -18,7 +18,8 @@ public class king extends chessPiece{
     Set<Pair<Integer, Integer>> getLegalMovements() {
         Set<Pair<Integer, Integer>> legalMoves = new HashSet<>();
         HashMap<Pair<Integer, Integer>, chessPiece> board = new HashMap<>();
-        for (chessPiece piece: chessActivity.boardPieces.values()) {
+        Log.i("ksize", " " + legalMoves.size());
+        for (chessPiece piece : chessActivity.boardPieces.values()) {
             board.put(new Pair<>(piece.column, piece.row), piece);
         }
 
@@ -30,12 +31,14 @@ public class king extends chessPiece{
                     int fcolumn = column + cDif;
                     int frow = row + rDif;
                     if (fcolumn >= 0 && fcolumn <= 7 && frow >= 0 && frow <= 7) {
-                        chessPiece piece = chessBoard.pieceAt(column + cDif, row + rDif);
+                        chessPiece piece = chessBoard.pieceAt(fcolumn, frow);
                         if (piece == null || piece.color != this.color) {
                             board.remove(new Pair<>(this.column, this.row));
-                            board.put(new Pair<>(piece.column, piece.row), this);
-                            boolean canCheck = kingInCheck(board, column + cDif, row + rDif);
-                            board.put(new Pair<>(piece.column, piece.row), piece);
+                            board.put(new Pair<>(fcolumn, frow), this);
+                            boolean canCheck = kingInCheck(board, fcolumn, frow);
+                            if (piece != null) {
+                                board.put(new Pair<>(piece.column, piece.row), piece);
+                            }
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(column + cDif, row + rDif));
                             }
@@ -52,10 +55,10 @@ public class king extends chessPiece{
                     if (left.rank == chessRank.ROOK && left.moves == 0) {
                         if (chessBoard.pieceAt(3, row) == null && chessBoard.pieceAt(2, row) == null) {
                             board.put(new Pair<>(3, row), this);
-                            boolean canCheck = kingInCheck(board, 3, row);
+                            boolean canCheck1 = kingInCheck(board, 3, row);
                             board.remove(new Pair<>(3, row));
                             board.put(new Pair<>(2, row), this);
-                            canCheck = canCheck && kingInCheck(board, 2, row);
+                            boolean canCheck = canCheck1 && kingInCheck(board, 2, row);
                             board.remove(new Pair<>(2, row));
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(2, row));
@@ -67,24 +70,23 @@ public class king extends chessPiece{
                     if (right.rank == chessRank.ROOK && right.moves == 0) {
                         if (chessBoard.pieceAt(5, row) == null && chessBoard.pieceAt(6, row) == null) {
                             board.put(new Pair<>(5, row), this);
-                            boolean canCheck = kingInCheck(board, 5, row);
+                            boolean canCheck1 = kingInCheck(board, 5, row);
                             board.remove(new Pair<>(5, row));
                             board.put(new Pair<>(6, row), this);
-                            canCheck = canCheck && kingInCheck(board, 6, row);
+                            boolean canCheck = canCheck1 && kingInCheck(board, 6, row);
                             board.remove(new Pair<>(6, row));
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(6, row));
                             }
                         }
-
                     }
                 }
             }
         }
+        board.put(new Pair<>(this.column, this.row), this);
+        Log.i("ksize", " " + legalMoves.size());
         return legalMoves;
     }
-
-
     @Override
     boolean validateMove(int column, int row) {
         Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
@@ -111,10 +113,10 @@ public class king extends chessPiece{
                     chessActivity.boardPieces.put(new Pair<>(3, this.row), rook);
                 }
             }
-            chessActivity.boardPieces.put(new Pair<>(column, row), this);
-            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
+            chessActivity.boardPieces.put(new Pair<>(column, row), this);
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             if (color == chessColor.BLACK) {
                 chessActivity.bKingCol = column;
                 chessActivity.bKingRow = row;
@@ -132,10 +134,7 @@ public class king extends chessPiece{
     boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
         int colD = Math.abs(col - column);
         int rowD = Math.abs(row - this.row);
-        if ((colD == 1 || colD == 0) && (rowD == 1 || rowD == 0)) {
-            return true;
-        }
-        return false;
+        return (colD == 1 || colD == 0) && (rowD == 1 || rowD == 0);
     }
 
 

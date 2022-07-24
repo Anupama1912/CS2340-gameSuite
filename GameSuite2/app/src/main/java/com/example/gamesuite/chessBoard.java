@@ -24,6 +24,7 @@ import androidx.annotation.RequiresApi;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class chessBoard extends View {
     float startleft;
@@ -31,20 +32,14 @@ public class chessBoard extends View {
     float squarelength = 130f;
     int scolumn;
     int srow;
+    int row;
+    int column;
+    boolean showPieces = false;
+    Pair<Integer, Integer> pair;
     View view1;
     Map<Integer, Bitmap> pieces = new HashMap<>();
     public chessBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        Paint paint = new Paint();
-        startleft = getWidth()/2f - 130f *4;
-        starttop = getHeight()/2f - 130f * 4;
-        super.onDraw(canvas);
-        view1 = findViewById(R.id.chessboard);
-        drawBoard(canvas);
         pieces.put(R.drawable.blackbishop, BitmapFactory.decodeResource(getResources(), R.drawable.blackbishop));
         pieces.put(R.drawable.blackrook, BitmapFactory.decodeResource(getResources(), R.drawable.blackrook));
         pieces.put(R.drawable.blackknight, BitmapFactory.decodeResource(getResources(), R.drawable.blackknight));
@@ -57,10 +52,26 @@ public class chessBoard extends View {
         pieces.put(R.drawable.whitequeen, BitmapFactory.decodeResource(getResources(), R.drawable.whitequeen));
         pieces.put(R.drawable.whiteking, BitmapFactory.decodeResource(getResources(), R.drawable.whiteking));
         pieces.put(R.drawable.whitepawn, BitmapFactory.decodeResource(getResources(), R.drawable.whitepawn));
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Paint paint = new Paint();
+        startleft = getWidth()/2f - 130f *4;
+        starttop = getHeight()/2f - 130f * 4;
+        super.onDraw(canvas);
+        view1 = findViewById(R.id.chessboard);
+//        chessActivity.checkMoves();
+        Log.i("TAG", "checked all moves");
+        if (showPieces) {
+            drawPossMoves(canvas, column, row);
+        } else {
+            drawBoard(canvas);
+        }
+        showPieces = false;
         initialLayout(canvas);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
@@ -88,6 +99,15 @@ public class chessBoard extends View {
                     if (scolumn != fcolumn || srow != frow) {
                         chessActivity.movePiece(scolumn, srow, fcolumn, frow);
                         view1.invalidate();
+                    } else {
+                        chessPiece piece = pieceAt(scolumn, srow);
+                        if (piece != null && piece.color == chessActivity.player ) {
+                            showPieces = true;
+                            row = srow;
+                            column = scolumn;
+                            pair = new Pair<>(srow, scolumn);
+                            view1.invalidate();
+                        }
                     }
                 }
                 break;
@@ -114,6 +134,38 @@ public class chessBoard extends View {
                         paint.setColor(Color.DKGRAY);
                     } else {
                         paint.setColor(Color.LTGRAY);
+                    }
+                }
+                canvas.drawRect(startleft + squarelength*column, starttop + squarelength * row, startleft + squarelength + squarelength * column, starttop + squarelength + squarelength * row, paint);
+            }
+        }
+    }
+
+    protected void drawPossMoves(Canvas canvas, Integer scolumn, Integer srow) {
+        Set<Pair<Integer, Integer>> moves = pieceAt(scolumn, srow).getLegalMovements();
+        Paint paint = new Paint();
+        startleft = getWidth()/2f - 130f *4;
+        starttop = getHeight()/2f - 130f * 4;
+        for (int column = 0; column < 8; column++ ) {
+            for (int row = 0; row < 8; row++) {
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+//                paint.clearShadowLayer();
+                if (moves.contains(new Pair<>(column, 7 - row))) {
+//                    paint.setShadowLayer(20, 0, 0, Color.BLUE);
+                    paint.setColor(Color.BLUE);
+                } else {
+                    if (row % 2 == 0) {
+                        if (column % 2 == 1) {
+                            paint.setColor(Color.DKGRAY);
+                        } else {
+                            paint.setColor(Color.LTGRAY);
+                        }
+                    } else {
+                        if (column % 2 == 0) {
+                            paint.setColor(Color.DKGRAY);
+                        } else {
+                            paint.setColor(Color.LTGRAY);
+                        }
                     }
                 }
                 canvas.drawRect(startleft + squarelength*column, starttop + squarelength * row, startleft + squarelength + squarelength * column, starttop + squarelength + squarelength * row, paint);

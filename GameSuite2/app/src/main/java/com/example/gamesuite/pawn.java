@@ -3,6 +3,7 @@ package com.example.gamesuite;
 import android.util.Pair;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class pawn extends chessPiece{
@@ -12,7 +13,7 @@ public class pawn extends chessPiece{
 
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
-        return null;
+        return new HashSet<>();
     }
 
     @Override

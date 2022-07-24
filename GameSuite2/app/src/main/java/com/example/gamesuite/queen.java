@@ -56,13 +56,13 @@ public class queen extends chessPiece{
             }
             board.put(new Pair<>(column, row), this);
             Pair<Integer, Integer> king = chessActivity.teamPostion(this);
+            Log.i("kpos", "" + king.first + "," + king.second);
             if (!kingInCheck(board, king.first, king.second)) {
                 legalMoves.add(new Pair<>(column, row));
             }
             board.remove(new Pair<>(column, row));
             if (piece != null) {
                 board.put(new Pair<>(column, row), piece);
-            } else {
                 break;
             }
             column += columnIncre;
@@ -83,7 +83,6 @@ public class queen extends chessPiece{
     boolean move(int column, int row) {
         if(validateMove(column, row)){
             chessActivity.setteamCheck(this, false);
-            bool = false;
             chessActivity.boardPieces.put(new Pair<>(column, row), this);
             chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
@@ -123,6 +122,9 @@ public class queen extends chessPiece{
             int column = this.column + colD;
             int row = this.row + rowIncre;
             chessPiece piece = chessPieces.get(new Pair<>(column, row));
+            if (col == column && row == row1 && (piece == null || piece.color != this.color)) {
+                return true;
+            }
             while ((piece == null || piece.color != this.color) && (column != col && row != row1)) {
                 if (piece == null) {
                     column += colIncre;
@@ -132,9 +134,7 @@ public class queen extends chessPiece{
                     return false;
                 }
             }
-            if (column == col && row == row1) {
-                return true;
-            }
+            return true;
         }
         return false;
     }

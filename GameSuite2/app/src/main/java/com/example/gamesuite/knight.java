@@ -3,6 +3,7 @@ package com.example.gamesuite;
 import android.util.Pair;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class knight extends chessPiece{
@@ -13,7 +14,7 @@ public class knight extends chessPiece{
 
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
-        return null;
+        return new HashSet<>();
     }
 
     @Override
@@ -43,6 +44,5 @@ public class knight extends chessPiece{
     boolean kingInCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
         return false;
     }
-
 
 }
