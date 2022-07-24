@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,19 +30,24 @@ public class myCanvas extends View {
     static float height;
     int top, left, right,bottom;
     int downX, downY, upX, upY = 0;
-    static Timer timer = new Timer();
-    static String direction = "";
+    static Timer timer;
+    static int dotCount = 100;
+    TextView score = findViewById(R.id.score);
+    //static String direction = "";
 
     int size;
-    static int vBox = tileMap.map.length, hBox = tileMap.map.length;
-    PrincessChar princess = new PrincessChar();
-    EnemyChar[] enemies = new EnemyChar[3];
+    static int vBox = princessRunActivity.currentMap.currentmap.length, hBox = princessRunActivity.currentMap.currentmap.length;
+    PrincessChar princess;
+    EnemyChar[] enemies;
     //EnemyChar enemy = new EnemyChar(16, 16, 8);
 
     public myCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         rect = new Rect();
+        princess = new PrincessChar();
+        System.out.println("reset princess");
+        enemies = new EnemyChar[3];
         enemies[0] = new EnemyChar(14, 16, 6);
         enemies[1] = new EnemyChar(15, 16, 7);
         enemies[2] = new EnemyChar(16, 16, 8);
@@ -50,21 +57,22 @@ public class myCanvas extends View {
             //System.out.println("Enemy " + i + " Pos: x = " + enemies[i].xPos + ", y = " + enemies[i].yPos);
         }
         myCanvas temp = this;*/
-
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask()
         {
             @Override
             public void run() {
-                if (direction != "") {
-                    princess.moveTimer(direction);
-                    for (int i = 0; i < enemies.length; i++) {
-                        EnemyChar enemy = enemies[i];
-                        enemy.move();
-                        //System.out.println("Enemy#" + (i + 1) + " X: " + enemy.x + ", Y: " + enemy.y);
+                if (princess.direction != "") {
+                    Log.i("lives", String.valueOf(princessRunActivity.currentMap.getLivesCount()));
+                    if (princessRunActivity.currentMap.getLivesCount() > 0) {
+                        princess.moveTimer();
+                        for (int i = 0; i < enemies.length; i++) {
+                            EnemyChar enemy = enemies[i];
+                            enemy.move();
+                            //System.out.println("Enemy#" + (i + 1) + " X: " + enemy.x + ", Y: " + enemy.y);
+                        }
+                        invalidate();
                     }
-                    invalidate();
-                } else {
-
                 }
             }
         }, 0, 500);
@@ -102,26 +110,36 @@ public class myCanvas extends View {
             g2 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg2);
             g3 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg3);
         }
-        princess.setAvatar(avatar);
-        for (int row = 0; row < tileMap.currentmap.length; row++) {
-            for (int column = 0; column < tileMap.map[row].length; column++) {
-                if (tileMap.currentmap[row][column] == 1) {
+        if (PrincessChar.gameWon() == 1) {
+            Log.i("life", "Game Over!");
+            myCanvas.timer.cancel();
+            if (PrincessChar.points > MainActivity2.prBestScore) {
+                MainActivity2.prBestScore = PrincessChar.points;
+            }
+        }
+        dotCount = 0;
+        for (int row = 0; row < princessRunActivity.currentMap.currentmap.length; row++) {
+            for (int column = 0; column < princessRunActivity.currentMap.currentmap[row].length; column++) {
+                if (princessRunActivity.currentMap.currentmap[row][column] == 1) {
                     canvas.drawBitmap(brick, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
                 }
-                if (tileMap.currentmap[row][column] == 2) {
+                if (princessRunActivity.currentMap.currentmap[row][column] == 2) {
                     canvas.drawBitmap(tiles, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
                 }
-                if (tileMap.currentmap[row][column] == 3) {
+                if (princessRunActivity.currentMap.currentmap[row][column] == 3) {
                     canvas.drawBitmap(specialDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
+                    dotCount++;
                 }
-                if (tileMap.currentmap[row][column] == 4) {
+                if (princessRunActivity.currentMap.currentmap[row][column] == 4) {
                     Log.i("Pos", String.valueOf(princess.getXPos()) + " " + String.valueOf(princess.getYPos()));
                     princess.setXPos(column);
                     princess.setYPos(row);
+                    princess.setAvatar(avatar);
                     canvas.drawBitmap(avatar, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
                 }
-                if (tileMap.currentmap[row][column] == 5) {
+                if (princessRunActivity.currentMap.currentmap[row][column] == 5) {
                     canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint);
+                    dotCount++;
                 }
                 /*if (tileMap.currentmap[row][column] == 6) {
                     canvas.drawBitmap(g1, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
@@ -134,7 +152,8 @@ public class myCanvas extends View {
                 }*/
             }
         }
-        for (int live = 0; live < tileMap.livesCount; live++) {
+
+        for (int live = 0; live < princessRunActivity.currentMap.getLivesCount(); live++) {
             canvas.drawBitmap(lives, null, new RectF(left + width * live, bottom + 10,left + width + width * live, bottom + height),paint);
         }
 
@@ -152,7 +171,7 @@ public class myCanvas extends View {
             canvas.drawBitmap(b, null, new RectF(left + col * width, top + row * height, left + col * width + width, top + row * height + height),paint);
         }
     }
-
+    /*
     int tileAt(int x, int y) {
         int top = getHeight()/2 - size;
         int left = getWidth()/2 - size;
@@ -166,6 +185,7 @@ public class myCanvas extends View {
         int j = (int) ((y - top)/height);
         return tileMap.map[j][i];
     }
+    */
 
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         //timer.cancel();
@@ -185,10 +205,9 @@ public class myCanvas extends View {
                 Log.i("TAG", "touched up");
                 //princess.move(downX, downY, upX, upY, width, height);
                 //invalidate();
-                //downX = downY = upX = upY = 0;
-                direction = princess.move(downX, downY, upX, upY);
+                princess.move(downX, downY, upX, upY);
                 downX = downY = upX = upY = 0;
         }
-        return true; // ???
+        return true;
     }
 }
