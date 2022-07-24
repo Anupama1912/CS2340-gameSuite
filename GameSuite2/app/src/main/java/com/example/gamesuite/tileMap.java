@@ -13,7 +13,7 @@ public class tileMap {
             currentmap = map2;
         }
     }
-
+/*
     public void setTileNum(int tileNum) {
         this.tileNum = tileNum;
         if (tileNum == 1) {
@@ -23,7 +23,7 @@ public class tileMap {
             currentmap = map2;
         }
     }
-
+*/
     public int getLivesCount() {
         return livesCount;
     }

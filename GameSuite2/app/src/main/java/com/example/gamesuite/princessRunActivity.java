@@ -18,8 +18,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class princessRunActivity extends AppCompatActivity {
-    myCanvas canvas;
-    //static tileMap currentMap = new tileMap(1);
     static tileMap currentMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +49,6 @@ public class princessRunActivity extends AppCompatActivity {
             if (princessRunActivity.currentMap.getLivesCount() != 0) {
                 myCanvas.timer.cancel();
             }
-            //currentMap = null;
-            //Log.i("cM", "null");
             Intent intent = new Intent(princessRunActivity.this, princessRunWelcome.class);
 
             startActivity(intent);

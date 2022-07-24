@@ -190,10 +190,9 @@ public class myCanvas extends View {
                 Log.i("TAG", "touched up");
                 //princess.move(downX, downY, upX, upY, width, height);
                 //invalidate();
-                //downX = downY = upX = upY = 0;
-                    princess.move(downX, downY, upX, upY);
-                    downX = downY = upX = upY = 0;
+                princess.move(downX, downY, upX, upY);
+                downX = downY = upX = upY = 0;
         }
-        return true; // ???
+        return true;
     }
 }

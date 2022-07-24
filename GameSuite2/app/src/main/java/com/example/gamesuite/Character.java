@@ -13,5 +13,4 @@ public abstract class Character {
     int pictureID;
     Bitmap avatar;
     public abstract void move();
-    public abstract void draw(Canvas c, Paint p);
 }

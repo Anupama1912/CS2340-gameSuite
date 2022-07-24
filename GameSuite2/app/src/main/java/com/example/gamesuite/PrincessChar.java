@@ -1,9 +1,7 @@
 package com.example.gamesuite;
 
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.graphics.Bitmap;
 
 import android.graphics.Paint;
@@ -46,78 +44,6 @@ public class PrincessChar extends Character {
         Log.i("DIR", direction);
         Log.i("xPos", String.valueOf(xPos));
         Log.i("yPos", String.valueOf(yPos));
-        //while (continueMove) {
-            Log.i("if", "ahhh");
-            /*
-            switch (direction) {
-                case "RIGHT":
-                    // continue moving right
-                    if (princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 2) {
-                        if (lostLife(xPos + 1, yPos)) {
-                            break;
-                        }
-                        ;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
-                        xPos++;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
-                    } else {
-                        continueMove = false;
-                    }
-                    Log.i("xPos", String.valueOf(xPos));
-                    //view.invalidate();
-                    break;
-                case "LEFT":
-                    // continue moving left
-                    if (princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 2) {
-                        if (lostLife(xPos - 1, yPos)) {
-                            break;
-                        }
-                        ;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
-                        xPos--;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
-                    } else {
-                        continueMove = false;
-                    }
-                    Log.i("xPos", String.valueOf(xPos));
-                    //view.invalidate();
-                    break;
-                case "DOWN":
-                    // continue moving down
-                    if (princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 2) {
-                        if (lostLife(xPos, yPos + 1)) {
-                            Log.i("lostLife", String.valueOf("true"));
-                            break;
-                        }
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
-                        yPos++;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
-                    } else {
-                        continueMove = false;
-                    }
-                    Log.i("yPos", String.valueOf(yPos));
-                    //view.invalidate();
-                    break;
-                case "UP":
-                    // continue moving up
-                    if (princessRunActivity.currentMap.currentmap[yPos - 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos - 1][xPos + 1] != 2) {
-                        if (lostLife(xPos, yPos - 1)) {
-                            break;
-                        }
-                        ;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
-                        yPos--;
-                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
-                    } else {
-                        continueMove = false;
-                    }
-                    Log.i("yPos", String.valueOf(yPos));
-                    //view.invalidate();
-                    break;
-            }
-            */
-            Log.i("yPos", "end");
-        //}
     }
 
     public void moveTimer() {
@@ -209,15 +135,6 @@ public class PrincessChar extends Character {
             //game over
         }
         Log.i("life", String.valueOf(princessRunActivity.currentMap.getLivesCount()));
-    }
-
-    @Override
-    public void draw(Canvas c, Paint p) {
-
-    }
-
-    public Bitmap getAvatar() {
-        return avatar;
     }
 
     public void setAvatar(Bitmap avatar) {

@@ -120,11 +120,13 @@ public class EnemyChar extends Character{
             }
         }
      */
+
+    /*
     @Override
     public void draw(Canvas c, Paint p) {
         //c.drawCircle(xPos, yPos, size/2, p);
     }
-
+     */
     public void randSwitchDir() {
         int newX;
         int newY;
