@@ -123,9 +123,6 @@ public class queen extends chessPiece{
             int column = this.column + colD;
             int row = this.row + rowIncre;
             chessPiece piece = chessPieces.get(new Pair<>(column, row));
-//            if (col == column && row == row1 && (piece == null || piece.rank == chessRank.KING)) {
-//                return true;
-//            }
             while ((piece == null || piece.color != this.color) && (column != col && row != row1)) {
                 Log.i("checkpos", "" + column + "," + row);
                 if (piece == null) {
@@ -136,10 +133,11 @@ public class queen extends chessPiece{
                     return false;
                 }
             }
+            if (column == col && row == row1) {
+                return true;
+            }
             Log.i("checkpos", "after" + column + "," + row);
-            if (piece != null && piece.rank != chessRank.KING){
-                return false;}
-            return true;
+            return piece == null || piece.rank == chessRank.KING;
         }
         return false;
     }
