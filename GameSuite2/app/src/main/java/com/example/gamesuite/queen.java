@@ -103,7 +103,7 @@ public class queen extends chessPiece{
         Log.i("checkpos", "pos wanted: " + col + "," + row1);
         int colD = col - column;
         int rowD = row1 - this.row;
-        if ((colD == rowD && colD != 0 && rowD != 0) || (colD == 0) || rowD == 0) {
+        if ((colD == rowD && colD != 0) || (colD == 0 && rowD != 0) || rowD == 0 && colD != 0) {
             int colIncre;
             int rowIncre;
             if (colD == 0) {
@@ -123,7 +123,7 @@ public class queen extends chessPiece{
             int column = this.column + colD;
             int row = this.row + rowIncre;
             chessPiece piece = chessPieces.get(new Pair<>(column, row));
-            while ((piece == null || piece.color != this.color) && (column != col && row != row1)) {
+            while ((piece == null || piece.color != this.color) && (column != col || row != row1)) {
                 Log.i("checkpos", "" + column + "," + row);
                 if (piece == null) {
                     column += colIncre;
