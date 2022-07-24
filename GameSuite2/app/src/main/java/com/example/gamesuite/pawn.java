@@ -99,8 +99,8 @@ public class pawn extends chessPiece{
 //        }
 //        return false;
         System.out.println("Moving pawn to: " + column + ", " + row);
-        //if(validateMove(column, row)){
-        if(true){
+        if(validateMove(column, row)){
+        //if(true){
             System.out.println("Move Validated");
             moveHelper(chessActivity.boardPieces, column, row, this.column, this.row);
             this.column = column;
@@ -131,7 +131,7 @@ public class pawn extends chessPiece{
         if(this.color == chessColor.BLACK){color = -1;}
         if(column < 7) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(this.column+1, this.row + color))){
-                chessPiece b = chessPieces.get(new Pair<Integer, Integer>(column + 1, row + color));
+                chessPiece b = chessPieces.get(new Pair<Integer, Integer>(this.column + 1, this.row + color));
                 if(b.color != this.color && b instanceof king){
                     return true;
                 }
@@ -139,7 +139,7 @@ public class pawn extends chessPiece{
         }
         if(column > 0) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(this.column-1, this.row + color))){
-                chessPiece b = chessPieces.get(new Pair<Integer, Integer>(column-1, row + color));
+                chessPiece b = chessPieces.get(new Pair<Integer, Integer>(this.column-1, this.row + color));
                 if(b.color != this.color && b instanceof king){
                     return true;
                 }
