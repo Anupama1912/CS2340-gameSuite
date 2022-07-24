@@ -23,7 +23,7 @@ public class pawn extends chessPiece{
             color = -1;
             opposite = chessColor.WHITE;
         }
-        if(column < 8) {
+        if(column < 7) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column+1, row + color))
                     && (chessPieces.get(new Pair<Integer, Integer>(column + 1, row + color)).color == opposite)){
                 HashMap<Pair<Integer, Integer>, chessPiece> newMap = new HashMap<Pair<Integer, Integer>, chessPiece>(chessPieces);
@@ -54,7 +54,7 @@ public class pawn extends chessPiece{
                 }
             }
             if(chessPieces.containsKey(new Pair<Integer, Integer>(column-1, row))) {
-                chessPiece p = chessPieces.get(new Pair<Integer, Integer>(column + 1, row));
+                chessPiece p = chessPieces.get(new Pair<Integer, Integer>(column - 1, row));
                 if(p.color == opposite && p instanceof pawn && ((pawn) p).moves == 1){
                     HashMap<Pair<Integer, Integer>, chessPiece> newMap = new HashMap<Pair<Integer, Integer>, chessPiece>(chessPieces);
                     moveHelper(newMap, column - 1, row + color, this.column, this.row);
@@ -98,7 +98,10 @@ public class pawn extends chessPiece{
 //            return true;
 //        }
 //        return false;
-        if(validateMove(column, row)){
+        System.out.println("Moving pawn to: " + column + ", " + row);
+        //if(validateMove(column, row)){
+        if(true){
+            System.out.println("Move Validated");
             moveHelper(chessActivity.boardPieces, column, row, this.column, this.row);
             this.column = column;
             this.row = row;
@@ -126,7 +129,7 @@ public class pawn extends chessPiece{
     boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces, int col, int row) {
         int color = 1;
         if(this.color == chessColor.BLACK){color = -1;}
-        if(column < 8) {
+        if(column < 7) {
             if(chessPieces.containsKey(new Pair<Integer, Integer>(this.column+1, this.row + color))){
                 chessPiece b = chessPieces.get(new Pair<Integer, Integer>(column + 1, row + color));
                 if(b.color != this.color && b instanceof king){
