@@ -29,7 +29,7 @@ import org.json.JSONArray;
 
 
 public class MainActivity2 extends AppCompatActivity {
-
+    static int prBestScore, wordleBestScore, chessPlayed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,7 +129,6 @@ public class MainActivity2 extends AppCompatActivity {
             aboutGame.dismiss();
 
         });
-
         aboutGame.show();
     }
 

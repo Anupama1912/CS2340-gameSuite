@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +31,8 @@ public class myCanvas extends View {
     int top, left, right,bottom;
     int downX, downY, upX, upY = 0;
     static Timer timer;
+    static int dotCount = 100;
+    TextView score = findViewById(R.id.score);
     //static String direction = "";
 
     int size;
@@ -106,6 +110,14 @@ public class myCanvas extends View {
             g2 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg2);
             g3 = BitmapFactory.decodeResource(getResources(), R.drawable.jasg3);
         }
+        if (PrincessChar.gameWon() == 1) {
+            Log.i("life", "Game Over!");
+            myCanvas.timer.cancel();
+            if (PrincessChar.points > MainActivity2.prBestScore) {
+                MainActivity2.prBestScore = PrincessChar.points;
+            }
+        }
+        dotCount = 0;
         for (int row = 0; row < princessRunActivity.currentMap.currentmap.length; row++) {
             for (int column = 0; column < princessRunActivity.currentMap.currentmap[row].length; column++) {
                 if (princessRunActivity.currentMap.currentmap[row][column] == 1) {
@@ -116,6 +128,7 @@ public class myCanvas extends View {
                 }
                 if (princessRunActivity.currentMap.currentmap[row][column] == 3) {
                     canvas.drawBitmap(specialDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint );
+                    dotCount++;
                 }
                 if (princessRunActivity.currentMap.currentmap[row][column] == 4) {
                     Log.i("Pos", String.valueOf(princess.getXPos()) + " " + String.valueOf(princess.getYPos()));
@@ -126,6 +139,7 @@ public class myCanvas extends View {
                 }
                 if (princessRunActivity.currentMap.currentmap[row][column] == 5) {
                     canvas.drawBitmap(pinkDot, null, new RectF(left + column * width, top + row * height, left + column * width + width, top + row * height + height),paint);
+                    dotCount++;
                 }
                 /*if (tileMap.currentmap[row][column] == 6) {
                     canvas.drawBitmap(g1, null, new RectF(left + column * width, top + row * height - 15, left + column * width + width + 15, top + row * height + height),paint );
@@ -138,6 +152,7 @@ public class myCanvas extends View {
                 }*/
             }
         }
+
         for (int live = 0; live < princessRunActivity.currentMap.getLivesCount(); live++) {
             canvas.drawBitmap(lives, null, new RectF(left + width * live, bottom + 10,left + width + width * live, bottom + height),paint);
         }

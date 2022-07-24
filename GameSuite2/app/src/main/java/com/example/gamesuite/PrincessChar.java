@@ -6,10 +6,12 @@ import android.graphics.Bitmap;
 
 import android.graphics.Paint;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class PrincessChar extends Character {
     boolean supercharged = false;
-    int points = 0;
+    static int points = 0;
     Bitmap avatar;
     String direction = "";
     final int THRESHOLD = 100;
@@ -55,6 +57,12 @@ public class PrincessChar extends Character {
 //                        break;
 //                    }
                     ;
+                    if(princessRunActivity.currentMap.currentmap[yPos][xPos + 1] == 5){
+                        points += 10;
+                    } else if (princessRunActivity.currentMap.currentmap[yPos][xPos + 1] == 3) {
+                        points += 20;
+                    }
+                    Log.i("My app", "point incremented: " + points);
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     xPos++;
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
@@ -71,6 +79,11 @@ public class PrincessChar extends Character {
 //                        break;
 //                    }
                     ;
+                    if(princessRunActivity.currentMap.currentmap[yPos][xPos - 1] == 5){
+                        points += 10;
+                    } else if (princessRunActivity.currentMap.currentmap[yPos][xPos - 1] == 3) {
+                        points += 20;
+                    }
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     xPos--;
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
@@ -87,6 +100,11 @@ public class PrincessChar extends Character {
 //                        Log.i("lostLife", String.valueOf("true"));
 //                        break;
 //                    }
+                    if(princessRunActivity.currentMap.currentmap[yPos + 1][xPos] == 5){
+                        points += 10;
+                    } else if (princessRunActivity.currentMap.currentmap[yPos + 1][xPos] == 3) {
+                        points += 20;
+                    }
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     yPos++;
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
@@ -103,6 +121,12 @@ public class PrincessChar extends Character {
 //                        break;
 //                    }
                     ;
+                    if(princessRunActivity.currentMap.currentmap[yPos - 1][xPos] == 5){
+                        points += 10;
+
+                    } else if (princessRunActivity.currentMap.currentmap[yPos - 1][xPos] == 3) {
+                        points += 20;
+                    }
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     yPos--;
                     princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
@@ -129,13 +153,40 @@ public class PrincessChar extends Character {
         if (princessRunActivity.currentMap.getLivesCount() == 0) {
             Log.i("life", "Game Over!");
             myCanvas.timer.cancel();
+            if (points > MainActivity2.prBestScore) {
+                MainActivity2.prBestScore = points;
+            }
+//            Toast toast = Toast.makeText(view.getContext(), "You LOST! Best score: " + MainActivity2.prBestScore + " Current score: " + PrincessChar.points, Toast.LENGTH_SHORT);
+//            toast.show();
             //direction = "";
             //Log.i("dir", direction);
-
             //game over
         }
         Log.i("life", String.valueOf(princessRunActivity.currentMap.getLivesCount()));
     }
+
+    public static int gameWon() {
+        if (princessRunActivity.currentMap.getLivesCount() > 0 && myCanvas.dotCount <= 0) {
+            return 1;
+        } else if (princessRunActivity.currentMap.getLivesCount() == 0) {
+            return 2;
+        }
+        return 0;
+    }
+//    if (dotCount <= 0 && princessRunActivity.currentMap.getLivesCount() > 0) {
+//        if (princessRunActivity.currentMap.getLivesCount() > 0 && myCanvas.dotCount == 0) {
+//            Log.i("life", "Game Over!");
+//            myCanvas.timer.cancel();
+//            if (PrincessChar.points > MainActivity2.prBestScore) {
+//                MainActivity2.prBestScore = PrincessChar.points;
+//            }
+//            score.setTextSize(10);
+//            score.setText("Game won! Best score: " + MainActivity2.prBestScore + " Current score: " + PrincessChar.points);
+////                Toast toast = Toast.makeText(getContext(), "Game won! Best score: " + MainActivity2.prBestScore + " Current score: " + PrincessChar.points, Toast.LENGTH_SHORT);
+////                toast.show();
+//        }
+//    }
+
 
     public void setAvatar(Bitmap avatar) {
         this.avatar = avatar;
