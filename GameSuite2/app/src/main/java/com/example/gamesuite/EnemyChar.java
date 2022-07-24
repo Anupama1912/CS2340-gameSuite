@@ -48,7 +48,7 @@ public class EnemyChar extends Character{
      */
     @Override
     public void move() {
-        if(tileMap.currentmap[y][x] == 4){
+        if(princessRunActivity.currentMap.currentmap[y][x] == 4){
             PrincessChar.lostLife();
         }
         times++;
@@ -65,19 +65,19 @@ public class EnemyChar extends Character{
             if(randomizer <= momentumStrength){
                 //System.out.println("Went forward");
                 times = 0;
-                //tileMap.currentmap[y][x] = prevAtCurr;
+                //princessRunActivity.currentMap.currentmap[y][x] = prevAtCurr;
                 x += dirX;
                 y += dirY;
-                if(tileMap.currentmap[y][x] == 4){
+                if(princessRunActivity.currentMap.currentmap[y][x] == 4){
                     PrincessChar.lostLife();
                 }
-               /* int p = tileMap.currentmap[y][x];
+               /* int p = princessRunActivity.currentMap.currentmap[y][x];
                 if(p == 4){
                     prevAtCurr = 5;
                 } else if(p>=6 && p<=8) {
-                    prevAtCurr = tileMap.currentmap[y][x];
+                    prevAtCurr = princessRunActivity.currentMap.currentmap[y][x];
                 }
-                tileMap.currentmap[y][x] = this.avatarNum;*/
+                princessRunActivity.currentMap.currentmap[y][x] = this.avatarNum;*/
             } else {
                 //System.out.println("Still turned");
                 randSwitchDir();
@@ -150,13 +150,13 @@ public class EnemyChar extends Character{
         */
         int newX = x + dirX;
         int newY = y + dirY;
-        if(newX < 0 || newX > tileMap.currentmap[0].length) {
+        if(newX < 0 || newX > princessRunActivity.currentMap.currentmap[0].length) {
             return false;
         }
-        if(newY < 0 || newY > tileMap.currentmap[0].length) {
+        if(newY < 0 || newY > princessRunActivity.currentMap.currentmap[0].length) {
             return false;
         }
-        int i = tileMap.currentmap[newY][newX];
+        int i = princessRunActivity.currentMap.currentmap[newY][newX];
         return i != 1 && i != 2 && i != 6 && i != 7 && i != 8 ;
     }
 }

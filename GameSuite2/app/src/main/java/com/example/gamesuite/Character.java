@@ -7,8 +7,8 @@ import android.graphics.Paint;
 public abstract class Character {
     int size;
     static double momentumStrength = 0.85;
-    static int xPos;
-    static int yPos;
+    int xPos;
+    int yPos;
     int speed;
     int pictureID;
     Bitmap avatar;

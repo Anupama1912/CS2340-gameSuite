@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.util.Arrays;
+
 public class princessRunWelcome extends AppCompatActivity {
 
     @Override
@@ -18,11 +20,19 @@ public class princessRunWelcome extends AppCompatActivity {
         ImageButton close = findViewById(R.id.close);
         easyMode.setOnClickListener(v -> {
             princessRunActivity.currentMap = new tileMap(1);
+            System.out.println("map1");
+            for (int row = 0; row < princessRunActivity.currentMap.currentmap.length; row++) {
+                System.out.println(Arrays.toString(princessRunActivity.currentMap.currentmap[row]));
+            }
             Intent intent = new Intent(princessRunWelcome.this, princessRunActivity.class);
             startActivity(intent);
         });
         hardMode.setOnClickListener(v -> {
             princessRunActivity.currentMap = new tileMap(2);
+            System.out.println("map2");
+            for (int row = 0; row < princessRunActivity.currentMap.currentmap.length; row++) {
+                System.out.println(Arrays.toString(princessRunActivity.currentMap.currentmap[row]));
+            }
             Intent intent = new Intent(princessRunWelcome.this, princessRunActivity.class);
             startActivity(intent);
         });

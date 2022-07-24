@@ -13,7 +13,7 @@ public class PrincessChar extends Character {
     boolean supercharged = false;
     int points = 0;
     Bitmap avatar;
-    static String direction = new String("");
+    String direction = "";
     final int THRESHOLD = 100;
     static boolean continueMove = true;
     static View view;
@@ -22,7 +22,7 @@ public class PrincessChar extends Character {
         this.speed = 4;
     }
 
-    public String move(int downX, int downY, int upX, int upY) {
+    public void move(int downX, int downY, int upX, int upY) {
         int diffX = upX - downX;
         int diffY = upY - downY;
         Log.i("DIFFX", String.valueOf(diffX));
@@ -52,14 +52,14 @@ public class PrincessChar extends Character {
             switch (direction) {
                 case "RIGHT":
                     // continue moving right
-                    if (tileMap.map[yPos][xPos + 1] != 1 && tileMap.map[yPos][xPos + 1] != 2) {
+                    if (princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 2) {
                         if (lostLife(xPos + 1, yPos)) {
                             break;
                         }
                         ;
-                        tileMap.map[yPos][xPos] = 0;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                         xPos++;
-                        tileMap.map[yPos][xPos] = 4;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                     } else {
                         continueMove = false;
                     }
@@ -68,14 +68,14 @@ public class PrincessChar extends Character {
                     break;
                 case "LEFT":
                     // continue moving left
-                    if (tileMap.map[yPos][xPos - 1] != 1 && tileMap.map[yPos][xPos - 1] != 2) {
+                    if (princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 2) {
                         if (lostLife(xPos - 1, yPos)) {
                             break;
                         }
                         ;
-                        tileMap.map[yPos][xPos] = 0;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                         xPos--;
-                        tileMap.map[yPos][xPos] = 4;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                     } else {
                         continueMove = false;
                     }
@@ -84,14 +84,14 @@ public class PrincessChar extends Character {
                     break;
                 case "DOWN":
                     // continue moving down
-                    if (tileMap.map[yPos + 1][xPos] != 1 && tileMap.map[yPos + 1][xPos] != 2) {
+                    if (princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 2) {
                         if (lostLife(xPos, yPos + 1)) {
                             Log.i("lostLife", String.valueOf("true"));
                             break;
                         }
-                        tileMap.map[yPos][xPos] = 0;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                         yPos++;
-                        tileMap.map[yPos][xPos] = 4;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                     } else {
                         continueMove = false;
                     }
@@ -100,14 +100,14 @@ public class PrincessChar extends Character {
                     break;
                 case "UP":
                     // continue moving up
-                    if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos + 1] != 2) {
+                    if (princessRunActivity.currentMap.currentmap[yPos - 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos - 1][xPos + 1] != 2) {
                         if (lostLife(xPos, yPos - 1)) {
                             break;
                         }
                         ;
-                        tileMap.map[yPos][xPos] = 0;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                         yPos--;
-                        tileMap.map[yPos][xPos] = 4;
+                        princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                     } else {
                         continueMove = false;
                     }
@@ -117,22 +117,21 @@ public class PrincessChar extends Character {
             }
             */
             Log.i("yPos", "end");
-            return direction;
         //}
     }
 
-    public void moveTimer(String direction) {
+    public void moveTimer() {
         switch (direction) {
             case "RIGHT":
                 // continue moving right
-                if (tileMap.map[yPos][xPos + 1] != 1 && tileMap.map[yPos][xPos + 1] != 2) {
+                if (princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos + 1] != 2) {
 //                    if (lostLife(xPos + 1, yPos)) {
 //                        break;
 //                    }
                     ;
-                    tileMap.map[yPos][xPos] = 0;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     xPos++;
-                    tileMap.map[yPos][xPos] = 4;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                 } else {
                     continueMove = false;
                 }
@@ -141,14 +140,14 @@ public class PrincessChar extends Character {
                 break;
             case "LEFT":
                 // continue moving left
-                if (tileMap.map[yPos][xPos - 1] != 1 && tileMap.map[yPos][xPos - 1] != 2) {
+                if (princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 1 && princessRunActivity.currentMap.currentmap[yPos][xPos - 1] != 2) {
 //                    if (lostLife(xPos - 1, yPos)) {
 //                        break;
 //                    }
                     ;
-                    tileMap.map[yPos][xPos] = 0;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     xPos--;
-                    tileMap.map[yPos][xPos] = 4;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                 } else {
                     continueMove = false;
                 }
@@ -157,14 +156,14 @@ public class PrincessChar extends Character {
                 break;
             case "DOWN":
                 // continue moving down
-                if (tileMap.map[yPos + 1][xPos] != 1 && tileMap.map[yPos + 1][xPos] != 2) {
+                if (princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos + 1][xPos] != 2) {
 //                    if (lostLife(xPos, yPos + 1)) {
 //                        Log.i("lostLife", String.valueOf("true"));
 //                        break;
 //                    }
-                    tileMap.map[yPos][xPos] = 0;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     yPos++;
-                    tileMap.map[yPos][xPos] = 4;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                 } else {
                     continueMove = false;
                 }
@@ -173,14 +172,14 @@ public class PrincessChar extends Character {
                 break;
             case "UP":
                 // continue moving up
-                if (tileMap.map[yPos - 1][xPos] != 1 && tileMap.map[yPos - 1][xPos] != 2) {
+                if (princessRunActivity.currentMap.currentmap[yPos - 1][xPos] != 1 && princessRunActivity.currentMap.currentmap[yPos - 1][xPos] != 2) {
 //                    if (lostLife(xPos, yPos - 1)) {
 //                        break;
 //                    }
                     ;
-                    tileMap.map[yPos][xPos] = 0;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 0;
                     yPos--;
-                    tileMap.map[yPos][xPos] = 4;
+                    princessRunActivity.currentMap.currentmap[yPos][xPos] = 4;
                 } else {
                     continueMove = false;
                 }
@@ -196,17 +195,20 @@ public class PrincessChar extends Character {
 
     public static void lostLife() {
         boolean lost = false;
-        /*if (tileMap.map[yPos][xPos] == 6 || tileMap.map[yPos][xPos] == 7 || tileMap.map[yPos][xPos] == 8) {
+        /*if (princessRunActivity.currentMap.currentmap[yPos][xPos] == 6 || princessRunActivity.currentMap.currentmap[yPos][xPos] == 7 || princessRunActivity.currentMap.currentmap[yPos][xPos] == 8) {
             tileMap.setLivesCount(tileMap.livesCount - 1);
             lost = true;
         }*/
-        tileMap.setLivesCount(tileMap.livesCount - 1);
-        if (tileMap.livesCount == 0) {
+        princessRunActivity.currentMap.setLivesCount(princessRunActivity.currentMap.getLivesCount() - 1);
+        if (princessRunActivity.currentMap.getLivesCount() == 0) {
             Log.i("life", "Game Over!");
             myCanvas.timer.cancel();
+            //direction = "";
+            //Log.i("dir", direction);
+
             //game over
         }
-        Log.i("life", String.valueOf(tileMap.livesCount));
+        Log.i("life", String.valueOf(princessRunActivity.currentMap.getLivesCount()));
     }
 
     @Override

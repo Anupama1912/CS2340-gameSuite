@@ -19,7 +19,8 @@ import android.widget.Toast;
 
 public class princessRunActivity extends AppCompatActivity {
     myCanvas canvas;
-    static tileMap currentMap = new tileMap(1);
+    //static tileMap currentMap = new tileMap(1);
+    static tileMap currentMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,11 @@ public class princessRunActivity extends AppCompatActivity {
             Log.i("My app", "This is for testing purposes that Back Button Works!");
             Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT)
                     .show();
-            myCanvas.timer.cancel();
+            if (princessRunActivity.currentMap.getLivesCount() != 0) {
+                myCanvas.timer.cancel();
+            }
+            //currentMap = null;
+            //Log.i("cM", "null");
             Intent intent = new Intent(princessRunActivity.this, princessRunWelcome.class);
 
             startActivity(intent);
