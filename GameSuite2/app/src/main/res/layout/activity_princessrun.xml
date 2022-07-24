@@ -46,13 +46,24 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/press_start_2p"
+        android:gravity="center_horizontal"
+        android:text="Score: "
+        android:textColor="#6B4F4F"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
     <com.example.gamesuite.myCanvas
         android:id="@+id/maze"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp"
+        android:layout_width="392dp"
+        android:layout_height="425dp"
         android:layout_gravity="center"
         android:layout_marginBottom="100dp"
+        android:padding="20dp"
         android:paddingBottom="0dp"></com.example.gamesuite.myCanvas>
 
     <!--    <LinearLayout-->
