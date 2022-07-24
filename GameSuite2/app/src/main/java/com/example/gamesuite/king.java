@@ -17,7 +17,10 @@ public class king extends chessPiece{
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
         Set<Pair<Integer, Integer>> legalMoves = new HashSet<>();
-        Map<Pair<Integer, Integer>, chessPiece> board1 = new HashMap<>();
+        HashMap<Pair<Integer, Integer>, chessPiece> board = new HashMap<>();
+        for (chessPiece piece: chessActivity.boardPieces.values()) {
+            board.put(new Pair<>(piece.column, piece.row), piece);
+        }
 
         for (int cDif = -1; cDif <= 1; cDif++) {
             for (int rDif = -1; rDif <= 1; rDif++) {
@@ -29,12 +32,13 @@ public class king extends chessPiece{
                     if (fcolumn >= 0 && fcolumn <= 7 && frow >= 0 && frow <= 7) {
                         chessPiece piece = chessBoard.pieceAt(column + cDif, row + rDif);
                         if (piece == null || piece.color != this.color) {
-                            boolean canCheck = checkDetector(column + cDif, row + rDif);
+                            board.remove(new Pair<>(this.column, this.row));
+                            board.put(new Pair<>(piece.column, piece.row), this);
+                            boolean canCheck = kingInCheck(board, column + cDif, row + rDif);
+                            board.put(new Pair<>(piece.column, piece.row), piece);
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(column + cDif, row + rDif));
                             }
-                        } else {
-                            continue;
                         }
                     }
                 }
@@ -47,7 +51,12 @@ public class king extends chessPiece{
                 if (left != null) {
                     if (left.rank == chessRank.ROOK && left.moves == 0) {
                         if (chessBoard.pieceAt(3, row) == null && chessBoard.pieceAt(2, row) == null) {
-                            boolean canCheck = checkDetector(3, row) && checkDetector(2, row);
+                            board.put(new Pair<>(3, row), this);
+                            boolean canCheck = kingInCheck(board, 3, row);
+                            board.remove(new Pair<>(3, row));
+                            board.put(new Pair<>(2, row), this);
+                            canCheck = canCheck && kingInCheck(board, 2, row);
+                            board.remove(new Pair<>(2, row));
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(2, row));
                             }
@@ -57,7 +66,12 @@ public class king extends chessPiece{
                 if (right != null) {
                     if (right.rank == chessRank.ROOK && right.moves == 0) {
                         if (chessBoard.pieceAt(5, row) == null && chessBoard.pieceAt(6, row) == null) {
-                            boolean canCheck = checkDetector(5, row) && checkDetector(6, row);
+                            board.put(new Pair<>(5, row), this);
+                            boolean canCheck = kingInCheck(board, 5, row);
+                            board.remove(new Pair<>(5, row));
+                            board.put(new Pair<>(6, row), this);
+                            canCheck = canCheck && kingInCheck(board, 6, row);
+                            board.remove(new Pair<>(6, row));
                             if (!canCheck) {
                                 legalMoves.add(new Pair<>(6, row));
                             }
@@ -116,28 +130,19 @@ public class king extends chessPiece{
 
     @Override
     boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
+        int colD = Math.abs(col - column);
+        int rowD = Math.abs(row - this.row);
+        if ((colD == 1 || colD == 0) && (rowD == 1 || rowD == 0)) {
+            return true;
+        }
         return false;
     }
 
-    @Override
-    boolean canCheck(int column, int row) {
-        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-        return legalMoves.contains(new Pair(column, row));
-    }
 
-    boolean checkDetector(int column, int row) {
-        for (chessPiece enemy: chessActivity.boardPieces.values()) {
-            Log.i("myapp", "whatt");
-            if (enemy != null && enemy.color != this.color && enemy.rank != this.rank) {
-                Log.i("myapp", "checking");
-                if (enemy.canCheck(column, row)) {
-                    return true;
-                }
-                Log.i("myapp", "checking");
-            } else if (enemy != null && enemy != this && enemy.rank == this.rank) {
-                int columnDif = Math.abs(enemy.column - column);
-                int rowDif = Math.abs(enemy.row - row);
-                if ((columnDif == 1 || columnDif == 0) && (rowDif == 1 || rowDif == 0)) {
+    boolean kingInCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces, int col, int row){
+        for (chessPiece piece: chessPieces.values()) {
+            if (piece!= null && piece.color != this.color) {
+                if (piece.canCheck(chessPieces, col, row)) {
                     return true;
                 }
             }

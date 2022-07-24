@@ -121,7 +121,7 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 
-    public static Pair<Integer, Integer> teamPostion(chessPiece piece, Integer col, Integer row) {
+    public static Pair<Integer, Integer> teamPostion(chessPiece piece) {
         if (piece.color == chessColor.BLACK) {
             return new Pair<>(bKingCol, bKingRow);
         } else {

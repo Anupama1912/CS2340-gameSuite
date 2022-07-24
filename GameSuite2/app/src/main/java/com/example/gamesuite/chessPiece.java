@@ -59,7 +59,5 @@ public abstract class chessPiece {
      *                   piece wants to make already made
      * @return whether or not the king would be in check if this move where to happen
      */
-    boolean kingInCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces){
-        return false;
-    }
+    abstract boolean kingInCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces, int col, int row);
 }

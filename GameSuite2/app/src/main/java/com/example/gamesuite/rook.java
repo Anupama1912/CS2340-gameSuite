@@ -30,4 +30,9 @@ public class rook extends chessPiece{
         return false;
     }
 
+    @Override
+    boolean kingInCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
+        return false;
+    }
+
 }
