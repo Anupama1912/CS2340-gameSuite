@@ -101,7 +101,7 @@ public class queen extends chessPiece{
     @Override
     boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row1) {
         Log.i("checkpos", "pos wanted: " + col + "," + row1);
-        int colD = col - column;
+        int colD = col - this.column;
         int rowD = row1 - this.row;
         if ((colD == rowD && colD != 0) || (colD == 0 && rowD != 0) || rowD == 0 && colD != 0) {
             int colIncre;
@@ -120,20 +120,29 @@ public class queen extends chessPiece{
             } else {
                 rowIncre = -1;
             }
-            int column = this.column + colD;
+            int column = this.column + colIncre;
             int row = this.row + rowIncre;
             chessPiece piece = chessPieces.get(new Pair<>(column, row));
             while ((piece == null || piece.color != this.color) && (column != col || row != row1)) {
                 Log.i("checkpos", "" + column + "," + row);
                 if (piece == null) {
+                    Log.i("checkpos", "" + column + " null," + row);
                     column += colIncre;
                     row += rowIncre;
                     piece = chessPieces.get(new Pair<>(column, row));
-                } else if (piece.rank != chessRank.KING){
-                    return false;
+               }else {
+                    Log.i("checkpos", "" + column + " true" + row);
+                    break;
                 }
+//                else if (piece.rank != chessRank.KING){
+//                    Log.i("checkpos", "" + column + " null," + row);
+//                    return false;
+//                }
+//
             }
+            Log.i("checkpos", "" + column + " ?," + row);
             if (column == col && row == row1) {
+                Log.i("checkpos", "" + column + " false," + row);
                 return true;
             }
             Log.i("checkpos", "after" + column + "," + row);

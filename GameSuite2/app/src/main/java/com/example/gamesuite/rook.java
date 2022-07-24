@@ -120,7 +120,7 @@ public class rook extends chessPiece{
         if (column == col && row == row1 || (piece != null  && piece.color != this.color)) {
             return true;
         }
-        while ((piece == null || piece.color != this.color) && (column != col && row != row1)) {
+        while ((piece == null || piece.color != this.color) && (column != col || row != row1)) {
             if (piece == null) {
                 column += colIncre;
                 row += rowIncre;
