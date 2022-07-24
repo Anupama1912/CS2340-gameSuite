@@ -102,6 +102,7 @@ public class chessBoard extends View {
                     } else {
                         chessPiece piece = pieceAt(scolumn, srow);
                         if (piece != null && piece.color == chessActivity.player ) {
+                            Log.i("checkpos", "piece clicked at:" + piece.column + "," + piece.row);
                             showPieces = true;
                             row = srow;
                             column = scolumn;

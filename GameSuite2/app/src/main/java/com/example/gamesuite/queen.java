@@ -83,10 +83,10 @@ public class queen extends chessPiece{
     boolean move(int column, int row) {
         if(validateMove(column, row)){
             chessActivity.setteamCheck(this, false);
-            chessActivity.boardPieces.put(new Pair<>(column, row), this);
             chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
+            chessActivity.boardPieces.put(new Pair<>(column, row), this);
             Log.i("queen moving", "queen moveeed");
             Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
             Log.i("queen checked", "queen checked");
@@ -100,6 +100,7 @@ public class queen extends chessPiece{
 
     @Override
     boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row1) {
+        Log.i("checkpos", "pos wanted: " + col + "," + row1);
         int colD = col - column;
         int rowD = row1 - this.row;
         if ((colD == rowD && colD != 0 && rowD != 0) || (colD == 0) || rowD == 0) {
@@ -122,18 +123,22 @@ public class queen extends chessPiece{
             int column = this.column + colD;
             int row = this.row + rowIncre;
             chessPiece piece = chessPieces.get(new Pair<>(column, row));
-            if (col == column && row == row1 && (piece == null || piece.color != this.color)) {
-                return true;
-            }
+//            if (col == column && row == row1 && (piece == null || piece.rank == chessRank.KING)) {
+//                return true;
+//            }
             while ((piece == null || piece.color != this.color) && (column != col && row != row1)) {
+                Log.i("checkpos", "" + column + "," + row);
                 if (piece == null) {
                     column += colIncre;
                     row += rowIncre;
                     piece = chessPieces.get(new Pair<>(column, row));
-                } else {
+                } else if (piece.rank != chessRank.KING){
                     return false;
                 }
             }
+            Log.i("checkpos", "after" + column + "," + row);
+            if (piece != null && piece.rank != chessRank.KING){
+                return false;}
             return true;
         }
         return false;

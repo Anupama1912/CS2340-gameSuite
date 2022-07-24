@@ -33,6 +33,7 @@ public class king extends chessPiece{
                     if (fcolumn >= 0 && fcolumn <= 7 && frow >= 0 && frow <= 7) {
                         chessPiece piece = chessBoard.pieceAt(fcolumn, frow);
                         if (piece == null || piece.color != this.color) {
+                            Log.i("checkpos", "checing pos: " + fcolumn + "," + frow);
                             board.remove(new Pair<>(this.column, this.row));
                             board.put(new Pair<>(fcolumn, frow), this);
                             boolean canCheck = kingInCheck(board, fcolumn, frow);
@@ -40,7 +41,7 @@ public class king extends chessPiece{
                                 board.put(new Pair<>(piece.column, piece.row), piece);
                             }
                             if (!canCheck) {
-                                legalMoves.add(new Pair<>(column + cDif, row + rDif));
+                                legalMoves.add(new Pair<>(fcolumn, frow));
                             }
                         }
                     }
@@ -113,10 +114,10 @@ public class king extends chessPiece{
                     chessActivity.boardPieces.put(new Pair<>(3, this.row), rook);
                 }
             }
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
             chessActivity.boardPieces.put(new Pair<>(column, row), this);
-            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             if (color == chessColor.BLACK) {
                 chessActivity.bKingCol = column;
                 chessActivity.bKingRow = row;
