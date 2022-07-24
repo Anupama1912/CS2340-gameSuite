@@ -16,16 +16,17 @@ public class bishop extends chessPiece{
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
         Set<Pair<Integer, Integer>> legalMoves = new HashSet<>();
-        helper(1,0, legalMoves);
-        helper(0,1,legalMoves);
-        helper(-1,0, legalMoves);
-        helper(0,-1,legalMoves);
+        helper(1,1, legalMoves);
+        helper(-1,-1,legalMoves);
+        helper(-1,1, legalMoves);
+        helper(1,-1,legalMoves);
         return legalMoves;
     }
 
     @Override
     boolean validateMove(int column, int row) {
-        return true;
+        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
+        return legalMoves.contains(new Pair<>(column, row));
     }
 
     void helper(int columnIncre, int rowIncre, Set<Pair<Integer, Integer>> legalMoves) {
