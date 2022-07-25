@@ -156,6 +156,7 @@ public class WordleActivity extends AppCompatActivity {
             if (counter == 5) {
                 Toast toast = Toast.makeText(context, "Congratulations! You guessed the word!", Toast.LENGTH_SHORT);
                 toast.show();
+                MainActivity2.wordleBestScore += 1;
                 gameOn = false;
             }
             currWord++;

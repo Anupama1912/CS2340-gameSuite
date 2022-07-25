@@ -62,6 +62,7 @@ public class chessBoard extends View {
         super.onDraw(canvas);
         chessActivity.checkMoves();
         if (chessActivity.gameOver && chessActivity.inCheck) {
+            MainActivity2.chessPlayed += 1;
             Toast toast = Toast.makeText(getContext(),"checkmate", Toast.LENGTH_SHORT);
             Log.i("gameover", "checkmate");
             paint.setColor(Color.WHITE);
@@ -69,6 +70,7 @@ public class chessBoard extends View {
             canvas.drawText("checkmate", getWidth()/2 - 150, 1600, paint);
             toast.show();
         } else if (chessActivity.gameOver) {
+            MainActivity2.chessPlayed += 1;
             Toast toast = Toast.makeText(getContext(),"stalemate", Toast.LENGTH_SHORT);
             toast.show();
             Log.i("gameover", "stalemate");
