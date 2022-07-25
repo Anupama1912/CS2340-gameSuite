@@ -98,7 +98,7 @@ public class pawn extends chessPiece{
             moves++;
             if(this.row == 7){
                 chessActivity.boardPieces.put(new Pair<Integer, Integer>(this.column, this.row),
-                        new knight(this.column, this.row, this.color));
+                        new queen(this.column, this.row, this.color));
             }
             return true;
         }
