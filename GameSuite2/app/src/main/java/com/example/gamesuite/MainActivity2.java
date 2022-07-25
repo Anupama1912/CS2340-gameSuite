@@ -68,7 +68,7 @@ public class MainActivity2 extends AppCompatActivity {
         //goes to Chess screen
         ImageButton chessPlay = findViewById(R.id.chessButton);
         chessPlay.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity2.this, chessActivity.class);
+            Intent intent = new Intent(MainActivity2.this, chessIntro.class);
             startActivity(intent);
         });
 
