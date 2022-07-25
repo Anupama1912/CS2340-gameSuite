@@ -169,3 +169,7 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92999740c4591f947a7d7f7e5064583c0f5acc26
