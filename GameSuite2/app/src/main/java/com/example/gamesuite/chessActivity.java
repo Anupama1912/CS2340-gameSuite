@@ -1,5 +1,6 @@
 package com.example.gamesuite;
 
+import androidx.annotation.ContentView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +17,9 @@ import java.util.Map;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
+    public static int moves;
     public static boolean inCheck;
+    public static boolean gameOver;
     public static chessColor player;
     public static int wKingCol;
     public static int wKingRow;
@@ -28,6 +31,9 @@ public class chessActivity extends AppCompatActivity {
 
     public static void resetPieces() {
         player = chessColor.WHITE;
+        inCheck = false;
+        blackInCheck = false;
+        whiteInCheck = false;
         boardPieces = new HashMap<>();
         for (int i = 0; i < 8; i++) {
             boardPieces.put(new Pair<>(i, 1), new pawn(i, 1,chessColor.WHITE));
@@ -48,9 +54,6 @@ public class chessActivity extends AppCompatActivity {
         boardPieces.put(new Pair<>(3, 7),new queen(3, 7, chessColor.BLACK));
         boardPieces.put(new Pair<>(4, 0),new king(4, 0, chessColor.WHITE));
         boardPieces.put(new Pair<>(4, 7),new king(4, 7, chessColor.BLACK));
-        for (chessPiece piece: boardPieces.values()) {
-            //board.put(new Pair<>(piece.column, piece.row), piece);
-        }
         wKingRow = 0;
         bKingRow = 7;
         wKingCol = 4;
@@ -59,6 +62,7 @@ public class chessActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        inCheck = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess);
         resetPieces();
@@ -70,6 +74,12 @@ public class chessActivity extends AppCompatActivity {
             Intent intent = new Intent(chessActivity.this, MainActivity2.class);
 
             startActivity(intent);
+        });
+
+        ImageButton restart = findViewById(R.id.restartBtn);
+        restart.setOnClickListener(v -> {
+            resetPieces();
+            recreate();
         });
     }
 
@@ -92,13 +102,24 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 
-//    public static void checkMoves() {
-//        for (chessPiece piece : boardPieces.values()) {
-//            if (piece != null && piece.color == player) {
-//                piece.legalMoves = piece.getLegalMovements();
-//            }
-//        }
-//    }
+    public static void checkMoves() {
+        inCheck = blackInCheck || whiteInCheck;
+        moves = 0;
+        for (chessPiece piece : boardPieces.values()) {
+            if (piece != null && piece.color == player) {
+                piece.legalMoves = piece.getLegalMovements();
+                moves += piece.legalMoves.size();
+            }
+        }
+        if (moves == 0) {
+            gameOver = true;
+        }
+        if (gameOver && inCheck) {
+            Log.i("game ended", "checkmate");
+        } else if (gameOver) {
+            Log.i("gameover", "stalemate");
+        }
+    }
 
     public static boolean inTeamCheck(chessPiece piece) {
         if (piece.color == chessColor.BLACK) {
@@ -124,7 +145,7 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 
-    public static Pair<Integer, Integer> teamPostion(chessPiece piece, Integer col, Integer row) {
+    public static Pair<Integer, Integer> teamPostion(chessPiece piece) {
         if (piece.color == chessColor.BLACK) {
             return new Pair<>(bKingCol, bKingRow);
         } else {
@@ -148,3 +169,7 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92999740c4591f947a7d7f7e5064583c0f5acc26
