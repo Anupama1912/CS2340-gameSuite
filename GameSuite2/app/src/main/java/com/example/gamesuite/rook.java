@@ -66,7 +66,6 @@ public class rook extends chessPiece{
 
     @Override
     boolean validateMove(int column, int row) {
-        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
         return legalMoves.contains(new Pair<>(column, row));
     }
 

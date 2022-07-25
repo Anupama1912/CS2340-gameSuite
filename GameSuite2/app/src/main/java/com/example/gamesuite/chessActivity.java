@@ -1,5 +1,6 @@
 package com.example.gamesuite;
 
+import androidx.annotation.ContentView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +17,9 @@ import java.util.Map;
 
 public class chessActivity extends AppCompatActivity {
     public static Map<Pair<Integer, Integer>, chessPiece> boardPieces;
+    public static int moves;
     public static boolean inCheck;
+    public static boolean gameOver;
     public static chessColor player;
     public static int wKingCol;
     public static int wKingRow;
@@ -28,6 +31,9 @@ public class chessActivity extends AppCompatActivity {
 
     public static void resetPieces() {
         player = chessColor.WHITE;
+        inCheck = false;
+        blackInCheck = false;
+        whiteInCheck = false;
         boardPieces = new HashMap<>();
         for (int i = 0; i < 8; i++) {
             boardPieces.put(new Pair<>(i, 1), new pawn(i, 1,chessColor.WHITE));
@@ -56,6 +62,7 @@ public class chessActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        inCheck = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chess);
         resetPieces();
@@ -67,6 +74,12 @@ public class chessActivity extends AppCompatActivity {
             Intent intent = new Intent(chessActivity.this, MainActivity2.class);
 
             startActivity(intent);
+        });
+
+        ImageButton restart = findViewById(R.id.restartBtn);
+        restart.setOnClickListener(v -> {
+            resetPieces();
+            recreate();
         });
     }
 
@@ -89,13 +102,24 @@ public class chessActivity extends AppCompatActivity {
         }
     }
 
-//    public static void checkMoves() {
-//        for (chessPiece piece : boardPieces.values()) {
-//            if (piece != null && piece.color == player) {
-//                piece.legalMoves = piece.getLegalMovements();
-//            }
-//        }
-//    }
+    public static void checkMoves() {
+        inCheck = blackInCheck || whiteInCheck;
+        moves = 0;
+        for (chessPiece piece : boardPieces.values()) {
+            if (piece != null && piece.color == player) {
+                piece.legalMoves = piece.getLegalMovements();
+                moves += piece.legalMoves.size();
+            }
+        }
+        if (moves == 0) {
+            gameOver = true;
+        }
+        if (gameOver && inCheck) {
+            Log.i("game ended", "checkmate");
+        } else if (gameOver) {
+            Log.i("gameover", "stalemate");
+        }
+    }
 
     public static boolean inTeamCheck(chessPiece piece) {
         if (piece.color == chessColor.BLACK) {

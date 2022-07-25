@@ -10,6 +10,7 @@ public abstract class chessPiece {
     int row;
     chessColor color;
     chessRank rank;
+    Set<Pair<Integer, Integer>> legalMoves;
     int id;
     int moves;
 

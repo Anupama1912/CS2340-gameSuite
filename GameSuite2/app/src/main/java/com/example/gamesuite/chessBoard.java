@@ -60,6 +60,15 @@ public class chessBoard extends View {
         startleft = getWidth()/2f - 130f *4;
         starttop = getHeight()/2f - 130f * 4;
         super.onDraw(canvas);
+        chessActivity.checkMoves();
+        if (chessActivity.gameOver && chessActivity.inCheck) {
+            Toast toast = Toast.makeText(getContext(),"checkmate", Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (chessActivity.gameOver) {
+            Toast toast = Toast.makeText(getContext(),"stalemate", Toast.LENGTH_SHORT);
+            toast.show();
+            Log.i("gameover", "stalemate");
+        }
         view1 = findViewById(R.id.chessboard);
 //        chessActivity.checkMoves();
         Log.i("TAG", "checked all moves");
@@ -143,7 +152,7 @@ public class chessBoard extends View {
     }
 
     protected void drawPossMoves(Canvas canvas, Integer scolumn, Integer srow) {
-        Set<Pair<Integer, Integer>> moves = pieceAt(scolumn, srow).getLegalMovements();
+        Set<Pair<Integer, Integer>> moves = pieceAt(scolumn, srow).legalMoves;
         Paint paint = new Paint();
         startleft = getWidth()/2f - 130f *4;
         starttop = getHeight()/2f - 130f * 4;
