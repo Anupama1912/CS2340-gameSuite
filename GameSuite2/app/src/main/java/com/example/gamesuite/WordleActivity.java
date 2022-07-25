@@ -100,6 +100,11 @@ public class WordleActivity extends AppCompatActivity {
             });
             queue.add(request);
         });
+
+        ImageButton stats = findViewById(R.id.stats);
+        stats.setOnClickListener(v -> {
+            showStat();
+        });
     }
 
     void showInstructions() {
@@ -162,6 +167,22 @@ public class WordleActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    void showStat() {
+        Dialog stats = new Dialog(WordleActivity.this);
+        stats.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        stats.setCancelable(true);
+        stats.setContentView(R.layout.scoreboard);
+        TextView name = stats.findViewById(R.id.name);
+        name.setText(MainActivity2.user + " Stats");
+        TextView wordle = stats.findViewById(R.id.wscore);
+        TextView princess = stats.findViewById(R.id.pscore);
+        TextView chess = stats.findViewById(R.id.cscore);
+        wordle.setText(MainActivity2.wordleBestScore + "");
+        princess.setText(MainActivity2.prBestScore + "");
+        chess.setText(MainActivity2.chessPlayed + "");
+        stats.show();
     }
 
     public static void type(String c) {

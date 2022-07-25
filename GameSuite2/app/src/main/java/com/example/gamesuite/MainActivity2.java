@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -29,12 +30,14 @@ import org.json.JSONArray;
 
 
 public class MainActivity2 extends AppCompatActivity {
-    static int prBestScore, wordleBestScore, chessPlayed;
+    static String user;
+    static int prBestScore = 0, wordleBestScore = 0, chessPlayed = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ConstraintLayout layout2 = findViewById(R.id.layout);
+        Log.i("name", user);
         //goes to wordle screen...will replace button with ImageButton later
         ImageButton wordlePlay = findViewById(R.id.wordleButton);
         wordlePlay.setOnClickListener(v -> {
@@ -111,6 +114,12 @@ public class MainActivity2 extends AppCompatActivity {
             //Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
             //startActivity(intent);
         });
+
+        Button stats = findViewById(R.id.stats);
+
+        stats.setOnClickListener(v -> {
+            showStat();
+        });
     }
 
     void showAbout() {
@@ -130,6 +139,22 @@ public class MainActivity2 extends AppCompatActivity {
 
         });
         aboutGame.show();
+    }
+
+    void showStat() {
+        Dialog stats = new Dialog(MainActivity2.this);
+        stats.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        stats.setCancelable(true);
+        stats.setContentView(R.layout.scoreboard);
+        TextView name = stats.findViewById(R.id.name);
+        name.setText(user + " Stats");
+        TextView wordle = stats.findViewById(R.id.wscore);
+       TextView princess = stats.findViewById(R.id.pscore);
+      TextView chess = stats.findViewById(R.id.cscore);
+      wordle.setText(wordleBestScore + "");
+      princess.setText(prBestScore + "");
+      chess.setText(chessPlayed + "");
+        stats.show();
     }
 
 }

@@ -63,6 +63,10 @@ public class chessBoard extends View {
         chessActivity.checkMoves();
         if (chessActivity.gameOver && chessActivity.inCheck) {
             Toast toast = Toast.makeText(getContext(),"checkmate", Toast.LENGTH_SHORT);
+            Log.i("gameover", "checkmate");
+            paint.setColor(Color.WHITE);
+            paint.setTextSize(70);
+            canvas.drawText("checkmate", getWidth()/2 - 150, 1600, paint);
             toast.show();
         } else if (chessActivity.gameOver) {
             Toast toast = Toast.makeText(getContext(),"stalemate", Toast.LENGTH_SHORT);

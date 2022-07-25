@@ -28,6 +28,7 @@ public class signupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getText().toString();
+                MainActivity2.user = user;
 //                String pass = password.getText().toString();
 //                String repass = repassword.getText().toString();
 

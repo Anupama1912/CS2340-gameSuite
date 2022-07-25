@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getText().toString();
+                MainActivity2.user = user;
                 //String pass = password.getText().toString();
 
                 if (TextUtils.isEmpty(user)) {
