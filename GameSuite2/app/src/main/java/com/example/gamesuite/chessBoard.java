@@ -161,20 +161,20 @@ public class chessBoard extends View {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
 //                paint.clearShadowLayer();
                 if (moves.contains(new Pair<>(column, 7 - row))) {
-//                    paint.setShadowLayer(20, 0, 0, Color.BLUE);
-                    paint.setColor(Color.BLUE);
+//                    paint.setShadowLayer(20, 0, 0, Color.parseColor("#BB7D7D"));
+                    paint.setColor(Color.parseColor("#F7BECC"));
                 } else {
                     if (row % 2 == 0) {
                         if (column % 2 == 1) {
-                            paint.setColor(Color.DKGRAY);
+                            paint.setColor(Color.parseColor("#4d4c7d"));
                         } else {
-                            paint.setColor(Color.LTGRAY);
+                            paint.setColor(Color.parseColor("#FFFFFF"));
                         }
                     } else {
                         if (column % 2 == 0) {
-                            paint.setColor(Color.DKGRAY);
+                            paint.setColor(Color.parseColor("#4d4c7d"));
                         } else {
-                            paint.setColor(Color.LTGRAY);
+                            paint.setColor(Color.parseColor("#FFFFFF"));
                         }
                     }
                 }
