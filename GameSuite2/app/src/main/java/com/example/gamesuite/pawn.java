@@ -96,6 +96,10 @@ public class pawn extends chessPiece{
             this.column = column;
             this.row = row;
             moves++;
+            if(this.row == 7){
+                chessActivity.boardPieces.put(new Pair<Integer, Integer>(this.column, this.row),
+                        new knight(this.column, this.row, this.color));
+            }
             return true;
         }
         return false;
