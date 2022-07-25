@@ -81,6 +81,11 @@ public class chessActivity extends AppCompatActivity {
             resetPieces();
             recreate();
         });
+
+        if(gameOver) {
+            Toast toast = Toast.makeText(getApplicationContext(),"checkmate", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
