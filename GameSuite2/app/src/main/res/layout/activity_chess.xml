@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chessActivity">
+    tools:context=".chessActivity"
+    android:background="#737AA3">
 
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +26,7 @@
         android:layout_height="36dp"
         android:layout_gravity="top|left"
         android:orientation="vertical"
+        android:background="#4d4c7d"
         android:src="@android:drawable/ic_menu_revert" />
 
 </FrameLayout>

@@ -105,15 +105,15 @@ public class chessBoard extends View {
             for (int row = 0; row < 8; row++) {
                 if ( row % 2 == 0) {
                     if (column % 2 == 1) {
-                        paint.setColor(Color.DKGRAY);
+                        paint.setColor(Color.parseColor("#4d4c7d"));
                     } else {
-                        paint.setColor(Color.LTGRAY);
+                        paint.setColor(Color.parseColor("#FFFFFF"));
                     }
                 } else {
                     if (column % 2 == 0) {
-                        paint.setColor(Color.DKGRAY);
+                        paint.setColor(Color.parseColor("#4d4c7d"));
                     } else {
-                        paint.setColor(Color.LTGRAY);
+                        paint.setColor(Color.parseColor("#FFFFFF"));
                     }
                 }
                 canvas.drawRect(startleft + squarelength*column, starttop + squarelength * row, startleft + squarelength + squarelength * column, starttop + squarelength + squarelength * row, paint);
