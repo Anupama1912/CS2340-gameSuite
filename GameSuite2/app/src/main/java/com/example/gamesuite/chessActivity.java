@@ -4,11 +4,13 @@ import androidx.annotation.ContentView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -81,6 +83,26 @@ public class chessActivity extends AppCompatActivity {
             resetPieces();
             recreate();
         });
+        ImageButton info = findViewById(R.id.infoChess);
+        info.setOnClickListener(v -> {
+            Log.i("My app", "This is for testing purposes that Info Button works!");
+            showInstructions();
+        });
+    }
+
+    void showInstructions() {
+        Dialog instrChess = new Dialog(chessActivity.this);
+        //Have already added custom title in layout. So disable the default title
+        instrChess.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Can cancel the dialog by clicking anywhere outside the dialog
+        instrChess.setCancelable(true);
+        //Set layout of dialog
+        instrChess.setContentView(R.layout.instr_chess);
+
+        ImageButton close = instrChess.findViewById(R.id.close);
+        close.setOnClickListener(v -> instrChess.dismiss());
+
+        instrChess.show();
     }
 
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
