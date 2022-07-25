@@ -3,7 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alex_brush</item>
         <item>@font/averia_serif_libre_bold</item>
+        <item>@font/bevan</item>
         <item>@font/changa_one</item>
+        <item>@font/dm_serif_display</item>
         <item>@font/ibm_plex_serif</item>
         <item>@font/press_start_2p</item>
         <item>@font/staatliches</item>

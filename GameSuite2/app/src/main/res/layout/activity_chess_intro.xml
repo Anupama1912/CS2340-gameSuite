@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome"
+    tools:context=".chessIntro">
+
+    <VideoView
+        android:id="@+id/chessVid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_gravity="top|end"
+        android:background="@drawable/startbutton"
+        android:fontFamily="@font/ibm_plex_serif"
+        android:text="Start"
+        android:textColor="@color/button_txt"
+        android:textSize="20dp" />
+</FrameLayout>

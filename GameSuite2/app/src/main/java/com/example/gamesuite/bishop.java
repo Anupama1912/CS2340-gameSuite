@@ -1,125 +1,88 @@
 package com.example.gamesuite;
 
+import android.util.Log;
 import android.util.Pair;
 
-<<<<<<< HEAD
-import java.util.HashSet;
-=======
 import java.util.HashMap;
->>>>>>> 101761e3bdeca049997bbbe8f464a655ef2aeaf9
+import java.util.HashSet;
 import java.util.Set;
 
 public class bishop extends chessPiece{
-    boolean inCheck;
-    chessColor oppColor;
-    boolean oppInCheck;
-    int oppColumn;
-    int oppRow;
 
     public bishop(int column, int row, chessColor color) {
         super(column, row, color, chessRank.BISHOP, (color == chessColor.BLACK)? R.drawable.blackbishop: R.drawable.whitebishop);
-        if(color == chessColor.BLACK) {
-            inCheck = chessActivity.blackInCheck;
-            oppInCheck = chessActivity.whiteInCheck;
-            oppColor = chessColor.WHITE;
-            oppColumn = chessActivity.whiteColumn;
-            oppRow = chessActivity.whiteRow;
-        } else {
-            inCheck = chessActivity.whiteInCheck;
-            oppInCheck = chessActivity.blackInCheck;
-            oppColor = chessColor.BLACK;
-            oppColumn = chessActivity.blackColumn;
-            oppRow = chessActivity.blackRow;
-        }
     }
 
     @Override
     Set<Pair<Integer, Integer>> getLegalMovements() {
         Set<Pair<Integer, Integer>> legalMoves = new HashSet<>();
-        for (int cDif = -1; cDif <= 1; cDif++) {
-            for (int rDif = -1; rDif <= 1; rDif++) {
-                if (cDif == 0 && rDif == 0) {
-                    continue;
-                } else if (cDif == rDif || cDif == -rDif){
-                    helper(cDif, rDif, legalMoves);
-                }
-            }
-        }
+        helper(1,1, legalMoves);
+        helper(-1,-1,legalMoves);
+        helper(-1,1, legalMoves);
+        helper(1,-1,legalMoves);
         return legalMoves;
     }
-    void helper(int columnIncre, int rowIncre,Set<Pair<Integer, Integer>> legalMoves ) {
+
+    @Override
+    boolean validateMove(int column, int row) {
+        return legalMoves.contains(new Pair<>(column, row));
+    }
+
+    void helper(int columnIncre, int rowIncre, Set<Pair<Integer, Integer>> legalMoves) {
+        HashMap<Pair<Integer, Integer>, chessPiece> board = new HashMap<>();
+        for (chessPiece piece: chessActivity.boardPieces.values()) {
+            board.put(new Pair<>(piece.column, piece.row), piece);
+        }
+        if (chessActivity.inTeamCheck(this)) {
+            if (color == chessColor.BLACK) {
+                Log.i("King position", "in check black");
+                String bool = chessActivity.inoppCheck(this) == true? "white check" : "white no check";
+                Log.i("king pos", bool);
+            } else {
+                Log.i("King position", "in check white");
+            }
+        }
         int column = this.column + columnIncre;
         int row = this.row + rowIncre;
+        board.remove(new Pair<>(this.column, this.row));
         while (chessBoard.pieceAt(column, row) == null || chessBoard.pieceAt(column, row).color != this.color) {
+            chessPiece piece = chessBoard.pieceAt(column, row);
             if (column < 0 || column > 7) {
                 break;
             }
             if (row < 0 || row > 7) {
                 break;
             }
-            boolean pieceExist = chessBoard.pieceAt(column, row) == null;
-            if (chessActivity.inCheck) {
-                boolean prevIsNull = false;
-                chessPiece prev = chessBoard.pieceAt(column, row);
-                if (prev == null) {
-                    prevIsNull = true;
-                }
-                boolean check = false;
-                chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
-                chessActivity.boardPieces.put(new Pair<>(column, row), new queen(column, row, this.color));
-                for (chessPiece enemy: chessActivity.boardPieces.values()) {
-                    if (enemy == null) {
-                        continue;
-                    } else {
-                        if (enemy.color != this.color) {
-                            if (enemy.canCheck(column, row)) {
-                                check = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-                if(!check) {
-                    legalMoves.add(new Pair<>(column, row));
-                }
-                chessActivity.boardPieces.remove(new Pair<>(column, row));
-                chessActivity.boardPieces.put(new Pair<>(this.column, this.row), this);
-                if (!prevIsNull) {
-                    chessActivity.boardPieces.put(new Pair<>(column, row),prev);
-                }
-            } else {
+            board.put(new Pair<>(column, row), this);
+            Pair<Integer, Integer> king = chessActivity.teamPostion(this);
+            Log.i("kpos", "" + king.first + "," + king.second);
+            if (!kingInCheck(board, king.first, king.second)) {
                 legalMoves.add(new Pair<>(column, row));
-                if(!pieceExist) {
-                    break;
-                }
+            }
+            board.remove(new Pair<>(column, row));
+            if (piece != null) {
+                board.put(new Pair<>(column, row), piece);
+                break;
             }
             column += columnIncre;
             row += rowIncre;
         }
-    }
-
-    @Override
-    boolean validateMove(int column, int row) {
-        Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-        return legalMoves.contains(new Pair<>(column, row));
+        board.put(new Pair<>(this.column, this.row), this);
     }
 
     @Override
     boolean move(int column, int row) {
         if(validateMove(column, row)){
-            chessActivity.inCheck = false;
-            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
+            chessActivity.setteamCheck(this, false);
             chessActivity.boardPieces.put(new Pair<>(column, row), this);
+            chessActivity.boardPieces.remove(new Pair<>(this.column, this.row));
             this.column = column;
             this.row = row;
+            Log.i("bishop moving", "bishop moveeed");
             Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-            if (legalMoves.contains(new Pair<>(oppColumn, oppRow))) {
-                oppInCheck = true;
-            }
-            if (oppColor == chessColor.BLACK) {
-                chessActivity.blackInCheck = oppInCheck;
-            } else {
-                chessActivity.whiteInCheck = oppInCheck;
+            Log.i("bishop checked", "bishop checked");
+            if (legalMoves.contains(chessActivity.oppPostion(this))) {
+                chessActivity.setOppCheck(this, true);
             }
             return true;
         }
@@ -127,21 +90,52 @@ public class bishop extends chessPiece{
     }
 
     @Override
-<<<<<<< HEAD
-    boolean canCheck(int column, int row) {
-        if (chessBoard.pieceAt(column, row) == null || chessBoard.pieceAt(column, row).color == this.color) {
-            chessPiece prev = chessBoard.pieceAt(column, row);
-            boolean prevEmpty = prev == null;
-            chessActivity.boardPieces.remove(new Pair<>(column, row));
-            Set<Pair<Integer, Integer>> legalMoves = getLegalMovements();
-            if (!prevEmpty) {
-                chessActivity.boardPieces.put(new Pair<>(column, row), prev);
-            }
-            return legalMoves.contains(new Pair<>(column, row));
+    boolean canCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row1) {
+        int colD = col - this.column;
+        int rowD = row1 - this.row ;
+        if (colD == 0 || rowD == 0 || (Math.abs(colD) != Math.abs(rowD))) {
+            return false;
         }
-=======
-    boolean canCheck(HashMap<Pair<Integer, Integer>,chessPiece> chessPieces) {
->>>>>>> 101761e3bdeca049997bbbe8f464a655ef2aeaf9
+        int colIncre;
+        int rowIncre;
+        if (colD > 0) {
+            colIncre = 1;
+        } else {
+            colIncre = -1;
+        }
+        if (rowD > 0) {
+            rowIncre = 1;
+        } else {
+            rowIncre = -1;
+        }
+        int column = this.column + colIncre;
+        int row = this.row + rowIncre;
+        chessPiece piece = chessPieces.get(new Pair<>(column, row));
+        if (column == col && row == row1 || (piece != null  && piece.color != this.color)) {
+            return true;
+        }
+        while ((piece == null || piece.color != this.color) && (column != col || row != row1)) {
+            if (piece == null) {
+                column += colIncre;
+                row += rowIncre;
+                piece = chessPieces.get(new Pair<>(column, row));
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    boolean kingInCheck(HashMap<Pair<Integer, Integer>, chessPiece> chessPieces, int col, int row) {
+        for (chessPiece piece: chessPieces.values()) {
+            if (piece!= null && piece.color != this.color) {
+                if (piece.canCheck(chessPieces, col, row)) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
+
 }
