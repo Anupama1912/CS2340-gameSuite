@@ -26,4 +26,13 @@
         android:orientation="vertical"
         android:src="@android:drawable/ic_menu_revert" />
 
+    <ImageButton
+        android:id="@+id/restartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:background="#a9c0eb"
+        android:textColor="@color/dButtonTxt"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
 </FrameLayout>
