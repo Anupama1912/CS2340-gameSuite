@@ -40,15 +40,18 @@
         <entry key="..\:/Users/anusk/OneDrive/CS 2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/keyboard.xml" value="0.2" />
         <entry key="..\:/Users/anusk/OneDrive/CS 2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/wordleboard.xml" value="0.1" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/button.xml" value="0.2305" />
+        <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/miancolor.xml" value="0.2305" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/startbutton.xml" value="0.2305" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/txtbg.xml" value="0.2305" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_cards.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_chess.xml" value="0.136" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_chess_intro.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_main2.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_princess_run_welcome.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/activity_princessrun.xml" value="0.18795289855072464" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/instr_wordle.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/scoreboard.xml" value="0.1" />
         <entry key="..\:/Users/anusk/OneDrive/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/wordle_stats.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/drawable/daycloudbutton.xml" value="0.1" />
@@ -67,7 +70,6 @@
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/chessboard.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/instr_wordle.xml" value="0.14792299898682879" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/keyboard.xml" value="0.14792299898682879" />
-        <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/scoreboard.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/layout/wordleboard.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/menir/Desktop/2021-2022/cs2340/CS2340-gameSuite/GameSuite2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />

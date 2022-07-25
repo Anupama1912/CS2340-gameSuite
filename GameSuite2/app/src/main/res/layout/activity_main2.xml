@@ -9,16 +9,19 @@
     tools:context=".MainActivity2">
 
 
-    <ImageButton
+    <Button
         android:id="@+id/exitGame"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_gravity="top|end"
         android:layout_marginEnd="376dp"
+        android:background="@color/button_bg"
+        android:text="X"
+        android:textColor="@color/button_txt"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/button_bg"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        tools:ignore="RtlCompat" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
@@ -87,9 +90,10 @@
         android:id="@+id/about"
         android:layout_width="95dp"
         android:layout_height="36dp"
-        android:background="@color/dButtonBg"
+        android:background="@color/button_bg"
         android:text="About"
-        android:textColor="@color/dButtonTxt"
+        android:textSize="15dp"
+        android:textColor="@color/button_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,10 +101,11 @@
         android:id="@+id/stats"
         android:layout_width="95dp"
         android:layout_height="36dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/dButtonBg"
+        android:layout_marginTop="40dp"
+        android:background="@color/button_bg"
         android:text="Stats"
-        android:textColor="@color/dButtonTxt"
+        android:textSize="15dp"
+        android:textColor="@color/button_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

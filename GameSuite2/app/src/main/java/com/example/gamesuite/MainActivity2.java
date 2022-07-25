@@ -76,7 +76,7 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         //Back button
-        ImageButton btn = findViewById(R.id.exitGame);
+        Button btn = findViewById(R.id.exitGame);
         btn.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Exit Button Works!");
             Toast.makeText(getApplicationContext(), "Exit", Toast.LENGTH_SHORT)
@@ -87,24 +87,31 @@ public class MainActivity2 extends AppCompatActivity {
 
         ToggleButton toggleButton1 = findViewById(R.id.toggleButton);
         Button about = findViewById(R.id.about);
+        Button stats = findViewById(R.id.stats);
 
         toggleButton1.setOnClickListener(v -> {
             if (toggleButton1.isChecked()) {
                 layout2.setBackgroundResource(R.drawable.nighttwo);
                 btn.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+                btn.setTextColor(getResources().getColor(R.color.nButtonTxt));
                 chessPlay.setImageResource(R.drawable.nightchess);
                 wordlePlay.setImageResource(R.drawable.nightwordle);
                 pcPlay.setImageResource(R.drawable.nightpc);
                 about.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
                 about.setTextColor(getResources().getColor(R.color.nButtonTxt));
+                stats.setBackgroundColor(getResources().getColor(R.color.nButtonBg));
+                stats.setTextColor(getResources().getColor(R.color.nButtonTxt));
             } else {
                 layout2.setBackgroundResource(R.drawable.daytwo);
                 btn.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+                btn.setTextColor(getResources().getColor(R.color.dButtonTxt));
                 chessPlay.setImageResource(R.drawable.daychess);
                 wordlePlay.setImageResource(R.drawable.daywordle);
                 pcPlay.setImageResource(R.drawable.daypc);
                 about.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
                 about.setTextColor(getResources().getColor(R.color.dButtonTxt));
+                stats.setBackgroundColor(getResources().getColor(R.color.dButtonBg));
+                stats.setTextColor(getResources().getColor(R.color.dButtonTxt));
             }
         });
 
@@ -115,7 +122,7 @@ public class MainActivity2 extends AppCompatActivity {
             //startActivity(intent);
         });
 
-        Button stats = findViewById(R.id.stats);
+
 
         stats.setOnClickListener(v -> {
             showStat();
@@ -147,13 +154,13 @@ public class MainActivity2 extends AppCompatActivity {
         stats.setCancelable(true);
         stats.setContentView(R.layout.scoreboard);
         TextView name = stats.findViewById(R.id.name);
-        name.setText(user + " Stats");
+        name.setText(user + "'s  Stats:");
         TextView wordle = stats.findViewById(R.id.wscore);
-       TextView princess = stats.findViewById(R.id.pscore);
-      TextView chess = stats.findViewById(R.id.cscore);
-      wordle.setText(wordleBestScore + "");
-      princess.setText(prBestScore + "");
-      chess.setText(chessPlayed + "");
+        TextView princess = stats.findViewById(R.id.pscore);
+        TextView chess = stats.findViewById(R.id.cscore);
+        wordle.setText(wordleBestScore + "");
+        princess.setText(prBestScore + "");
+        chess.setText(chessPlayed + "");
         stats.show();
     }
 
