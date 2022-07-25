@@ -25,4 +25,13 @@
     <string name="btn_newgame">New Game</string>
     <string name="btn_exit">Exit</string>
 
+    <!-- chess -->
+    <string name="instrPawn"><b>Pawns</b> only move forward. A pawn can move 2 spaces on its first move, but only 1 space after. Pawns move diagonally to take opponents. If a pawn reaches the opposite side of the board, it is promoted to a knight.</string>
+    <string name="instrRook"><b>Rooks</b> move in a continuous line forwards, backwards or side-to-side.</string>
+    <string name="instrKnight"><b>Knights</b> move in different orientations of the shape L.</string>
+    <string name="instrBishop"><b>Bishops</b> move in a continuous diagonal in any direction.</string>
+    <string name="instrQueen">The <b>Queen</b> moves in continuous diagonal and straight lines in all directions.</string>
+    <string name="instrKing">The <b>King</b> can move one square at a time in any direction without coming under check.</string>
+    <string name="instrCheck">A king is in <b>check</b> when an opponent piece can attack the king.</string>
+    <string name="instrCheckmate">Putting an opponent king in <b>Checkmate</b> is the only way to win the game. A <b>Stalemate</b> is a tie which occurs when there are no legal moves for a player to make.</string>
 </resources>

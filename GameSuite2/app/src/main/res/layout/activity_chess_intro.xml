@@ -9,7 +9,18 @@
     tools:context=".chessIntro">
 
     <VideoView
+        android:id="@+id/chessVid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_gravity="top|end"
+        android:background="@drawable/startbutton"
+        android:fontFamily="@font/ibm_plex_serif"
+        android:text="Start"
+        android:textColor="@color/button_txt"
+        android:textSize="20dp" />
 </FrameLayout>
