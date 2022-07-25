@@ -55,10 +55,10 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/dm_serif_display"
             android:padding="5dp"
-            android:text="Chess"
+            android:text="Princess Fued"
             android:textAlignment="center"
             android:textColor="#EDF0F4"
-            android:textSize="45dp"
+            android:textSize="40dp"
             android:textStyle="bold" />
 
         <View
