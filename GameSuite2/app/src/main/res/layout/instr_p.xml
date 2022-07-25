@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#D5BC99"
+    android:background="#FFF8ED"
     android:padding="10dp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,14 +22,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:text="@string/instrHead"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textColor="#6B4F4F"/>
 
             <ImageButton
                 android:id="@+id/close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|end"
-                android:background="#D5BC99"
+                android:background="#6B4F4F"
                 app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
         </LinearLayout>
 
@@ -37,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Try to eat all the dots while avoiding the villans"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:textColor="#6B4F4F"/>
 
         <View style="@style/Divider"/>
 
@@ -45,13 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Swipe to change directions"
-            android:layout_marginVertical="10dp" />
+            android:layout_marginVertical="10dp"
+            android:textColor="#6B4F4F"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Only have 3 live. Don't get killed by the villans!"
-            android:layout_marginVertical="10dp" />
+            android:layout_marginVertical="10dp"
+            android:textColor="#6B4F4F"/>
 
         <View style="@style/Divider"/>
 

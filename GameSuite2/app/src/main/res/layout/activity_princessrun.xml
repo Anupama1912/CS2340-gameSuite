@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:src="@android:drawable/ic_menu_revert"
             android:textColor="#EDB8E8"
-            android:background="#a9c0eb"/>
+            android:background="#6B4F4F"/>
 
         <View
             android:layout_width="0dp"
@@ -29,7 +29,7 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="top|right"
-            android:background="#a9c0eb"
+            android:background="#6B4F4F"
             android:textColor="@color/dButtonTxt"
             app:srcCompat="@android:drawable/ic_menu_info_details" />
     </LinearLayout>

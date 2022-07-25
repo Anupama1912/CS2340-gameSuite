@@ -63,18 +63,19 @@ public class chessBoard extends View {
         chessActivity.checkMoves();
         if (chessActivity.gameOver && chessActivity.inCheck) {
             MainActivity2.chessPlayed += 1;
-            Toast toast = Toast.makeText(getContext(),"checkmate", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getContext(), "checkmate", Toast.LENGTH_SHORT);
             Log.i("gameover", "checkmate");
-            paint.setColor(Color.WHITE);
-            paint.setTextSize(70);
-            canvas.drawText("checkmate", getWidth()/2 - 150, 1600, paint);
+//            paint.setColor(Color.WHITE);
+//            paint.setTextSize(70);
+//            canvas.drawText("checkmate", getWidth() / 2 - 150, 1600, paint);
             toast.show();
-        } else if (chessActivity.gameOver) {
-            MainActivity2.chessPlayed += 1;
-            Toast toast = Toast.makeText(getContext(),"stalemate", Toast.LENGTH_SHORT);
-            toast.show();
-            Log.i("gameover", "stalemate");
         }
+//        } else if (chessActivity.gameOver) {
+//            MainActivity2.chessPlayed += 1;
+//            Toast toast = Toast.makeText(getContext(),"stalemate", Toast.LENGTH_SHORT);
+//            toast.show();
+//            Log.i("gameover", "stalemate");
+//        }
         view1 = findViewById(R.id.chessboard);
 //        chessActivity.checkMoves();
         Log.i("TAG", "checked all moves");

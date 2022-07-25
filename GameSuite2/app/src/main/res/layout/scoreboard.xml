@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#8892DA">
+    android:background="#7B94C5">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,13 +27,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wordle Streak: "
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/wscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,13 +47,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chess Games Played: "
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/cscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -63,14 +67,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Princess Run High Score: "
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/pscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="15dp"/>
+                android:textSize="12dp"
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
