@@ -146,14 +146,14 @@ public class MainActivity2 extends AppCompatActivity {
         stats.requestWindowFeature(Window.FEATURE_NO_TITLE);
         stats.setCancelable(true);
         stats.setContentView(R.layout.scoreboard);
-        TextView name = findViewById(R.id.name);
-        name.setText(user + "stats");
-//      TextView wordle = findViewById(R.id.wscore);
-//      TextView princess = findViewById(R.id.pscore);
-//      TextView chess = findViewById(R.id.cscore);
-//      wordle.setText(wordleBestScore + "");
-//      princess.setText(prBestScore + "");
-//      chess.setText(chessPlayed + "");
+        TextView name = stats.findViewById(R.id.name);
+        name.setText(user + " Stats");
+        TextView wordle = stats.findViewById(R.id.wscore);
+       TextView princess = stats.findViewById(R.id.pscore);
+      TextView chess = stats.findViewById(R.id.cscore);
+      wordle.setText(wordleBestScore + "");
+      princess.setText(prBestScore + "");
+      chess.setText(chessPlayed + "");
         stats.show();
     }
 

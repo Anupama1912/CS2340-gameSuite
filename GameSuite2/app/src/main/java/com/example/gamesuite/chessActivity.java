@@ -12,6 +12,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
@@ -83,17 +84,21 @@ public class chessActivity extends AppCompatActivity {
             resetPieces();
             recreate();
         });
-<<<<<<< HEAD
 
         if(gameOver) {
             Toast toast = Toast.makeText(getApplicationContext(),"checkmate", Toast.LENGTH_SHORT);
             toast.show();
         }
-=======
+
         ImageButton info = findViewById(R.id.infoChess);
         info.setOnClickListener(v -> {
             Log.i("My app", "This is for testing purposes that Info Button works!");
             showInstructions();
+        });
+
+        ImageButton stats = findViewById(R.id.stats);
+        stats.setOnClickListener(v -> {
+            showStat();
         });
     }
 
@@ -110,7 +115,6 @@ public class chessActivity extends AppCompatActivity {
         close.setOnClickListener(v -> instrChess.dismiss());
 
         instrChess.show();
->>>>>>> 8342f7fa23614d2874d6a0213bcb6b1d3dc5e649
     }
 
     protected static void movePiece(int sColumn, int sRow, int fColumn, int fRow) {
@@ -197,6 +201,22 @@ public class chessActivity extends AppCompatActivity {
         } else {
             whiteInCheck = check;
         }
+    }
+
+    void showStat() {
+        Dialog stats = new Dialog(chessActivity.this);
+        stats.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        stats.setCancelable(true);
+        stats.setContentView(R.layout.scoreboard);
+        TextView name = stats.findViewById(R.id.name);
+        name.setText(MainActivity2.user + " Stats");
+        TextView wordle = stats.findViewById(R.id.wscore);
+        TextView princess = stats.findViewById(R.id.pscore);
+        TextView chess = stats.findViewById(R.id.cscore);
+        wordle.setText(MainActivity2.wordleBestScore + "");
+        princess.setText(MainActivity2.prBestScore + "");
+        chess.setText(MainActivity2.chessPlayed + "");
+        stats.show();
     }
 }
 
